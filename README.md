@@ -8,7 +8,7 @@ Clone of hotels.com for CMPE 165 at SJSU
   * make password "spartanstay"
 3. Download MySQL Workbench
   * https://dev.mysql.com/downloads/workbench/
-4. Run all of the .sql files from the database folder within MySQL Workbench to have the database configured
+4. Run the spartanstay.sql file in MySQL Workbench to have the database configured
 
 ## Installation for frontend ##
 
