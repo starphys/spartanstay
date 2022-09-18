@@ -1,5 +1,4 @@
 package com.spartanstay.spartanstay.controller;
-
 import com.spartanstay.spartanstay.model.Customer;
 import com.spartanstay.spartanstay.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
