@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <title>React App</title>
+  
+    <a href='index.html'><h1>Home</h1></a>
+    <a href="signup.html"><h1>Sign-Up</h1></a>
+  </head>
+
+  <body>
+
+    <label for="fName"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="fname" required>
+    <label for="lName"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lname" required>
+    <hr>
+    <!-- Email-->
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+    <hr>
+    <!-- Password-->
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <hr>
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+
+  </body>
+
+</html>
