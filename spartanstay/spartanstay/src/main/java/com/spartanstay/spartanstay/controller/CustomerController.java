@@ -12,6 +12,8 @@ import java.util.List;
 @RequestMapping("/credentials")
 @CrossOrigin
 public class CustomerController {
+    public Customer currentUser;
+
     @Autowired
     private CustomerService customerService;
 
@@ -31,4 +33,19 @@ public class CustomerController {
     public List<Customer> list(){
         return customerService.getAllCustomers();
     }
+
+    @GetMapping("/login")
+    public String login(@RequestBody Customer customer)
+    {
+        currentUser = customerService.findCustomer(customer.getEmail(), customer.getPassword());
+        return currentUser.getFirstName() + " " + currentUser.getLastName() + " was logged in";
+    }
+
+    @PostMapping("/logout")
+    public String logout(@RequestBody Customer customer)
+    {
+        currentUser = null;
+        return customer.getFirstName() + " " + customer.getLastName() + " was logged out";
+    }
 }
+
