@@ -1,15 +1,11 @@
-package com.spartanstay.spartanstay.controller;
+package com.spartanstay.spartanstay.repository;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import org.junit.jupiter.api.Test;
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class CustomerControllerTest {
-
+class CustomerRepositoryTest {
 
     /**
      * This method will make sure all testing methods are uniform when they begin
@@ -26,22 +22,5 @@ class CustomerControllerTest {
      */
     @AfterEach
     void tearDown() {
-    }
-
-    @Test
-    void methodName()
-    {
-        //this will make sure all testing methods to test are uniform in starting details (current user data etc)
-        setUp();
-
-        /**
-         * some examples of what you can use
-         *         assertEquals();
-         *         assertAll();
-         *         assertTrue();
-         */
-
-        //this will make sure all testing methods are starting with only set up data
-        tearDown();
     }
 }

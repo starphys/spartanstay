@@ -17,6 +17,10 @@ public class Customer {
 
     public Customer() {
 
+
+
+        
+
     }
 
     public void setId(int id) {
