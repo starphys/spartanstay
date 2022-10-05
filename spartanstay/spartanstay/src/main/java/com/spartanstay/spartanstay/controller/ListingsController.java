@@ -16,18 +16,25 @@ public class ListingsController {
 
     ListingsServiceImpl listingService = new ListingsServiceImpl();
     @GetMapping("/rooms")
-    String getNewYorkListings(@RequestParam("destination") String destination, @RequestParam("checkIn")
+    String getRooms(@RequestParam("destination") String destination, @RequestParam("checkIn")
                               @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut){
         String destId;
         if (destination != null) {
-            //TODO: this needs to be a call to locations search, this won't work right now.
             destId = listingService.getLocationID(destination);
         }
         else {
             destId = "1506246";
         }
 
-        return listingService.getListings(destId, checkIn.toString(), checkOut.toString(), "PRICE");
+        return listingService.getListings(destId, checkIn.toString(), checkOut.toString(), "PRICE","1");
+    }
+
+    @GetMapping("/details")
+    String getDetails(@RequestParam("id") String id, @RequestParam("checkIn")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
+                              @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut){
+
+        return listingService.getDetails(id, checkIn.toString(), checkOut.toString(),"1");
     }
 }
