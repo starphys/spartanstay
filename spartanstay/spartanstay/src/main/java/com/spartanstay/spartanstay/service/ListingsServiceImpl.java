@@ -6,6 +6,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class ListingsServiceImpl implements ListingsService{
 
     @Override
@@ -37,5 +41,32 @@ public class ListingsServiceImpl implements ListingsService{
         }
         return "{Response was null}";
 
+    }
+
+    @Override
+    public String getLocationID(String destination) {
+        destination = destination.replaceAll(" ", "%20");
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://hotels4.p.rapidapi.com/locations/v2/search?query=" + destination +
+                        "&locale=en_US&currency=USD"))
+                .header("X-RapidAPI-Key", Secrets.API_KEY)
+                .header("X-RapidAPI-Host", "hotels4.p.rapidapi.com")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if(response != null) {
+            JSONObject json = new JSONObject(response.body());
+            return json.getJSONArray("suggestions").getJSONObject(0)
+                    .getJSONArray("entities").getJSONObject(0).getString("destinationId");
+        }
+        return "{No response from location search}";
     }
 }

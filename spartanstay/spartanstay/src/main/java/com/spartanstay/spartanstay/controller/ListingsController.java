@@ -22,7 +22,7 @@ public class ListingsController {
         String destId;
         if (destination != null) {
             //TODO: this needs to be a call to locations search, this won't work right now.
-            destId = destination;
+            destId = listingService.getLocationID(destination);
         }
         else {
             destId = "1506246";
