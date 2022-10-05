@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface PaymentService {
-    Payment saveDetails(int currentUserId, String type, String number, String exp, String code);
+    Payment saveDetails(Payment payment);
     Payment getDetails();
 }

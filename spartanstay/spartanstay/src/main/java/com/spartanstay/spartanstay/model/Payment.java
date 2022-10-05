@@ -9,9 +9,14 @@ public class Payment {
     private int id;
     private int userId;
     private String paymentType;
-    private String cardNumber;
-    private String expDate;
-    private String securityCode;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getUserId() {
         return userId;
@@ -37,12 +42,20 @@ public class Payment {
         this.cardNumber = cardNumber;
     }
 
-    public String getExpDate() {
-        return expDate;
+    public String getExpMonth() {
+        return expMonth;
     }
 
-    public void setExpDate(String expDate) {
-        this.expDate = expDate;
+    public void setExpMonth(String expMonth) {
+        this.expMonth = expMonth;
+    }
+
+    public String getExpYear() {
+        return expYear;
+    }
+
+    public void setExpYear(String expYear) {
+        this.expYear = expYear;
     }
 
     public String getSecurityCode() {
@@ -53,11 +66,10 @@ public class Payment {
         this.securityCode = securityCode;
     }
 
-    public int getId() {
-        return id;
-    }
+    private String cardNumber;
+    private String expMonth;
+    private String expYear;
+    private String securityCode;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 }
