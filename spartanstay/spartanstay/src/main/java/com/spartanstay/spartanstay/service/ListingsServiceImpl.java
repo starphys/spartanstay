@@ -6,8 +6,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ListingsServiceImpl implements ListingsService{
@@ -37,9 +35,11 @@ public class ListingsServiceImpl implements ListingsService{
         System.out.println(response.body());
 
         if(response != null) {
-            return response.body().toString();
+            JSONObject json = new JSONObject((response.body()));
+            return json.getJSONObject("data").getJSONObject("body")
+                    .getJSONObject("searchResults").getJSONArray("results").toString();
         }
-        return "{Response was null}";
+        return "{No response from listings search.}";
 
     }
 
@@ -67,6 +67,6 @@ public class ListingsServiceImpl implements ListingsService{
             return json.getJSONArray("suggestions").getJSONObject(0)
                     .getJSONArray("entities").getJSONObject(0).getString("destinationId");
         }
-        return "{No response from location search}";
+        return "{No response from location search.}";
     }
 }
