@@ -1,34 +1,41 @@
 package com.spartanstay.spartanstay.service;
 
 import com.spartanstay.spartanstay.model.Payment;
-import com.spartanstay.spartanstay.controller.CustomerController;
 import com.spartanstay.spartanstay.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.List;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class PaymentServiceImpl {
+public class PaymentServiceImpl implements PaymentService{
     static HashMap<Integer, Integer> substitutions = new HashMap<Integer, Integer>();
 
     @Autowired
     private PaymentRepository paymentRepo;
 
-    Payment saveDetails(Payment payment)
+    @Override
+    public Payment saveDetails(Payment payment)
     {
-        String encryptNumber = encrypt(payment.getCardNumber());
-        String encryptExpMon = encrypt(payment.getExpMonth());
-        String encryptExpYear = encrypt(payment.getExpYear());
-        String encryptSecCode =  encrypt(payment.getSecurityCode());
-        return paymentRepo.saveDetails(CustomerController.currentUser.getId(), payment.getPaymentType(), encryptNumber, encryptExpMon, encryptExpYear, encryptSecCode);
+        payment.setCardNumber(encrypt(payment.getCardNumber()));
+        payment.setExpMonth(encrypt(payment.getExpMonth()));
+        payment.setExpYear(encrypt(payment.getExpYear()));
+        payment.setSecurityCode(encrypt(payment.getSecurityCode()));
+        return paymentRepo.save(payment);
     }
 
-    Payment getDetails(String paymentType)
+    @Override
+    public List<Payment> getAllDetails()
     {
-        Payment data = paymentRepo.findDetails(CustomerController.currentUser.getId(), paymentType);
+        return paymentRepo.findAll();
+    }
+
+    @Override
+    public Payment getDetails(int currentUserId, String paymentType)
+    {
+        Payment data = paymentRepo.findByIdAndPaymentType(currentUserId, paymentType);
         data.setCardNumber(decrypt(data.getCardNumber()));
         data.setExpMonth(decrypt(data.getExpMonth()));
         data.setExpYear(decrypt(data.getExpYear()));

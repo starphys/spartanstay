@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// This is where the endpoints go relevant to customers (login/logout)
 @RestController
 @RequestMapping("/payments")
 @CrossOrigin
@@ -16,9 +15,15 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @GetMapping("/getCardDetails")
-    public Payment details()
+    public Payment details(@RequestParam("userId") int userId, @RequestParam("paymentType") String paymentType)
     {
-        return paymentService.getDetails();
+        return paymentService.getDetails(userId, paymentType);
+    }
+
+    @GetMapping("/getAllCards")
+    public List<Payment> list()
+    {
+        return paymentService.getAllDetails();
     }
 
     @PostMapping("/addCardDetails")
