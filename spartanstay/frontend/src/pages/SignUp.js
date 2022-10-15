@@ -62,14 +62,9 @@ const handleClick=(e)=>{
         <br></br>
         <br></br>
 
-<<<<<<< HEAD
         <input className="SignUpInput" id="pass-con" type="password" placeholder="Confirm Password" name="psw-confirm" value={confirmPassword}
         onChange={(e)=>setConfirmPassword(e.target.value)} required></input>
-=======
-        <input className="SignUpInput" type="password" placeholder="Confirm Password" name="psw-confirm" value={confirmPassword}
-        onChange={(e)=>setConfirmPassword(e.target.value)} required></input>
-        
->>>>>>> 50ca3c855e583445fd225b0ad6949ca23f553158
+
         <button onClick={handleClick}>Sign up</button>
         </form>
       </div>
