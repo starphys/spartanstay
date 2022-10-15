@@ -8,10 +8,11 @@ function SignUp() {
   const[lastName,setLastName]=useState('')
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
+  const[confirmPassword,setConfirmPassword]=useState('')
 
 const handleClick=(e)=>{
   e.preventDefault()
-  const customer={firstName,lastName,email,password}
+  const customer={firstName,lastName,email,password,confirmPassword}
   console.log(customer)
   fetch("http://localhost:8080/credentials/add",{
     method:"POST",
@@ -48,7 +49,8 @@ const handleClick=(e)=>{
         <br></br>
         <br></br>
 
-        <input className="SignUpInput" type="password" placeholder="Confirm Password" name="psw-confirm" required></input>
+        <input className="SignUpInput" type="password" placeholder="Confirm Password" name="psw-confirm" value={confirmPassword}
+        onChange={(e)=>setConfirmPassword(e.target.value)} required></input>
         
         <button onClick={handleClick}>Sign up</button>
       </div>

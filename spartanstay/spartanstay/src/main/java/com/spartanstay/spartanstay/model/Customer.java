@@ -12,6 +12,8 @@ public class Customer {
     private int id;
     private String email;
     private String password;
+
+    private String confirmPassword;
     private String firstName;
     private String lastName;
 
@@ -31,6 +33,8 @@ public class Customer {
         this.password = password;
     }
 
+    public void setConfirmPassword(String confirmPassword){this.confirmPassword = confirmPassword;}
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -49,6 +53,12 @@ public class Customer {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getConfirmPassword(){
+        if(password.equals(confirmPassword))
+            return password;
+        return "Passwords do not match";
     }
 
     public String getFirstName() {

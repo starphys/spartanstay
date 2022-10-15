@@ -17,9 +17,14 @@ public class CustomerController {
 
     @PostMapping("/add")
     public String add(@RequestBody Customer customer){
-        System.out.println(customer.getId() + customer.getFirstName() + customer.getLastName());
-       customerService.saveCustomer(customer);
-       return  "New customer is added";
+        System.out.println(customer.getId() + customer.getFirstName() + customer.getLastName()
+                + customer.getPassword() + customer.getConfirmPassword());
+        if(customer.getConfirmPassword().equals(customer.getPassword()))
+        {
+            customerService.saveCustomer(customer);
+            return "New customer is added";
+        }
+       return "Customer not added, incorrect password";
     }
 
     @GetMapping("/getAll")
