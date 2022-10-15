@@ -23,7 +23,7 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public Customer findCustomer(String email, String password)
     {
-        return customerRepo.findCustomer(email, password);
+        return customerRepo.findByEmailAndPassword(email, password);
     }
 
 

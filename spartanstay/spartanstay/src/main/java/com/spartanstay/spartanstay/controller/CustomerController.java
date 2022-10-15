@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/credentials")
 @CrossOrigin
 public class CustomerController {
-    public Customer currentUser;
+    public Customer currentUser = new Customer();
 
     @Autowired
     private CustomerService customerService;
@@ -35,9 +35,14 @@ public class CustomerController {
     }
 
     @GetMapping("/login")
-    public String login(@RequestBody Customer customer)
+    public String login(@RequestParam("email") String email, @RequestParam("password") String password)
     {
-        currentUser = customerService.findCustomer(customer.getEmail(), customer.getPassword());
+        currentUser = customerService.findCustomer(email, password);
+        //if the user was not found
+        if(currentUser == null)
+        {
+            return "Wrong credentials";
+        }
         return currentUser.getFirstName() + " " + currentUser.getLastName() + " was logged in";
     }
 
