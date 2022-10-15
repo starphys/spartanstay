@@ -5,10 +5,18 @@ import java.time.LocalDate;
 
 public class Listing {
     private String destination;
-    private LocalDate checkIn;
-    private LocalDate checkOut;
+    private String checkIn;
+    private String checkOut;
     private String order;
     private int numAdults;
+
+    public Listing(String destination, String checkIn, String checkOut, String order, int numAdults) {
+        this.destination = destination;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.order = order;
+        this.numAdults = numAdults;
+    }
 
     public String getOrder() {
         return order;
@@ -18,20 +26,13 @@ public class Listing {
         this.order = order;
     }
 
-    public LocalDate getCheckOut() {
+    public String getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(LocalDate checkOut) {
-        this.checkOut = checkOut;
-    }
 
-    public LocalDate getCheckIn() {
+    public String getCheckIn() {
         return checkIn;
-    }
-
-    public void setCheckIn(LocalDate checkIn) {
-        this.checkIn = checkIn;
     }
 
     public String getDestination() {
