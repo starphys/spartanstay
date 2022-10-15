@@ -1,5 +1,6 @@
 package com.spartanstay.spartanstay.controller;
 
+import com.spartanstay.spartanstay.model.Listing;
 import com.spartanstay.spartanstay.service.ListingsServiceImpl;
 import com.spartanstay.spartanstay.service.Secrets;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,18 +17,9 @@ public class ListingsController {
 
     ListingsServiceImpl listingService = new ListingsServiceImpl();
     @GetMapping("/rooms")
-    String getRooms(@RequestParam("destination") String destination, @RequestParam("checkIn")
-                              @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut){
-        String destId;
-        if (destination != null) {
-            destId = listingService.getLocationID(destination);
-        }
-        else {
-            destId = "1506246";
-        }
-
-        return listingService.getListings(destId, checkIn.toString(), checkOut.toString(), "PRICE","1");
+    String getRooms(@RequestParam("listing") Listing listing){
+        return listingService.getListings(listingService.getLocationID(listing.getDestination()),
+                listing.getCheckIn().toString(), listing.getCheckOut().toString(), listing.getOrder(),listing.getNumAdults());
     }
 
     @GetMapping("/details")
