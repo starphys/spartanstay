@@ -18,13 +18,8 @@ function LogIn() {
         
         <label className="text">Remember me</label>
         <input className="LogInCheckbox" type="checkbox" id="Remember me" name="rem"></input>
-       
-        
-        
-        
-        
         <button>Login</button>
-        
+      
         <label className="text">Not a member? <a href="/sign-up">Sign up now</a></label>
         
       </div>
