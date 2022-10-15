@@ -9,12 +9,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/reservation")
+@CrossOrigin
 public class ReservationController {
     @Autowired
     private ReservationService reservationService;
 
     @PostMapping("/add")
     public String add(@RequestBody Reservation reservation){
+        System.out.println(reservation.getSpecialReq());
         reservationService.saveReservation(reservation);
         return "Reservation saved";
     }
