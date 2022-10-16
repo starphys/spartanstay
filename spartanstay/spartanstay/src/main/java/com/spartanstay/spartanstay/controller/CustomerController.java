@@ -3,10 +3,8 @@ import com.spartanstay.spartanstay.model.Customer;
 import com.spartanstay.spartanstay.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-// This is where the endpoints go relevant to customers (login/logout)
 @RestController
 @RequestMapping("/credentials")
 @CrossOrigin
@@ -56,6 +54,13 @@ public class CustomerController {
     {
         currentUser = null;
         return customer.getFirstName() + " " + customer.getLastName() + " was logged out";
+    }
+
+    @GetMapping("/delete")
+    public String deleteUser(@RequestBody Customer customer)
+    {
+        customerService.deleteUser(customer);
+        return customer.getFirstName() + " "+ customer.getLastName() + " was deleted";
     }
 }
 

@@ -3,7 +3,6 @@ import com.spartanstay.spartanstay.model.Customer;
 import com.spartanstay.spartanstay.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -25,6 +24,10 @@ public class CustomerServiceImpl implements CustomerService{
         return customerRepo.findByEmailAndPassword(email, password);
     }
 
+    @Override
+    public void deleteUser(Customer customer) {
+        customerRepo.delete(customer);
+    }
 
     @Autowired
     private CustomerRepository customerRepo;
