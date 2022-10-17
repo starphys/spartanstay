@@ -30,14 +30,22 @@ function SignUp() {
         })
       }
   }
+  const handleReset = () => {
+    Array.from(document.querySelectorAll("input")).forEach(
+      input => (input.value = "")
+    );
+    this.setState({
+      itemvalues: [{}]
+    });
+  };
   
   return (
   
     <div className="SignUp">
-      {accountCreated ? <Alert key='success' variant='success'>Account created for {firstName} {lastName}!</Alert> : ""}
+      
       <div className="SignUpForm">
         <label><b>Sign Up</b></label>
-        {validPass ? '': <Alert key='danger' variant='danger'>Please enter valid, matching passwords.</Alert>}
+        
 
         <input className="SignUpInput" type="text" placeholder="First Name" name="fname" value={firstName}
         onChange={(e)=>setFirstName(e.target.value)} required></input>
@@ -62,6 +70,10 @@ function SignUp() {
         <input className="SignUpInput" id="pass-con" type="password" placeholder="Confirm Password" name="psw-confirm" value={confirmPassword}
         onChange={(e)=>setConfirmPassword(e.target.value)} required></input>
 
+        {accountCreated ? <Alert key='success' className="success-msg" variant='success'>Account created for {firstName} {lastName}!</Alert> : ""}
+        {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid matching passwords.</Alert>}
+
+        <button onClick={handleReset} id="reset">Reset</button>
         <button onClick={handleClick}>Sign up</button>
       </div>
     </div>
