@@ -1,4 +1,5 @@
 import logo from '../images/logo-1.png';
+import Search from '../components/Search.js';
 import "../styles.css";
 
 function Home() {
