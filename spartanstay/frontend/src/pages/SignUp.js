@@ -1,6 +1,6 @@
 import "../SignUp.css";
 import React, {useState} from 'react';
-import PasswordAlert from "../components/PasswordAlert";
+import Alert from 'react-bootstrap/Alert'
 
 function SignUp() {
   const[firstName,setFirstName]=useState('')
@@ -8,7 +8,9 @@ function SignUp() {
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
   const[confirmPassword,setConfirmPassword]=useState('')
+  
   const[validPass,setValidPass]=useState(true);
+  const[accountCreated,setAccountCreated]=useState(false);
 
   const handleClick=(e)=>{
     e.preventDefault()
@@ -24,7 +26,7 @@ function SignUp() {
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(customer)
         }).then(()=>{
-          console.log("New Customer Added")
+          setAccountCreated(true)
         })
       }
   }
@@ -32,10 +34,10 @@ function SignUp() {
   return (
   
     <div className="SignUp">
-      
+      {accountCreated ? <Alert key='success' variant='success'>Account created for {firstName} {lastName}!</Alert> : ""}
       <div className="SignUpForm">
         <label><b>Sign Up</b></label>
-        <PasswordAlert validPass={validPass}/>
+        {validPass ? '': <Alert key='danger' variant='danger'>Please enter valid, matching passwords.</Alert>}
 
         <input className="SignUpInput" type="text" placeholder="First Name" name="fname" value={firstName}
         onChange={(e)=>setFirstName(e.target.value)} required></input>
