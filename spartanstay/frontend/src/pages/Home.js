@@ -9,6 +9,7 @@ function Home() {
         <p>
             <h1>Welcome to SpartanStay</h1>
         </p>
+        <Search/>
         <a
           className="App-link"
           href="https://google.com"
