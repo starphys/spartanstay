@@ -1,4 +1,5 @@
 
 *.xml
-.DS_Store
+!spartanstay/spartanstay/pom.xml
+*.DS_Store
 spartanstay/spartanstay/src/main/java/com/spartanstay/spartanstay/service/Secrets.java
