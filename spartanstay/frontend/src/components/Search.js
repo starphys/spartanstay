@@ -18,7 +18,18 @@ function Search()
       <div>
         <input type='text' value={city} placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}/>
         <button onClick = {handleClick}>Search</button>
-        {results != null ? results.map(result => (<p>{result.name}  {result.ratePlan.price.current}</p>)) : ""}
+        {results != null ? 
+        <table>
+          <thead>
+            <tr>
+              <th>Hotel</th>
+              <th>Price</th>
+              <th>Book</th>
+            </tr> 
+            </thead>
+            {results.map(result => (<tr><td>{result.name}</td> <td>{result.ratePlan.price.current}</td><td><button>Book Now!</button></td></tr>))}
+          </table>
+        : ""}
       </div>
     );
 }
