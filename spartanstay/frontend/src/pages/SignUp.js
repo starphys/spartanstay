@@ -9,8 +9,8 @@ function SignUp() {
   const[password,setPassword]=useState('')
   const[confirmPassword,setConfirmPassword]=useState('')
   
-  const[validPass,setValidPass]=useState(true);
-  const[accountCreated,setAccountCreated]=useState(false);
+  const[validPass,setValidPass]=useState(true)
+  const[accountCreated,setAccountCreated]=useState(false)
 
   const handleClick=(e)=>{
     e.preventDefault()
@@ -31,12 +31,20 @@ function SignUp() {
       }
   }
   const handleReset = () => {
-    Array.from(document.querySelectorAll("input")).forEach(
+    setFirstName('')
+    setLastName('')
+    setEmail('')
+    setPassword('')
+    setConfirmPassword('')
+    setValidPass(true)
+    setAccountCreated(false)
+
+    /*Array.from(document.querySelectorAll("input")).forEach(
       input => (input.value = "")
     );
     this.setState({
       itemvalues: [{}]
-    });
+    });*/
   };
   
   return (
