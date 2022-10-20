@@ -1,4 +1,5 @@
 import {useState} from "react"
+import Listing from "./Listing"
 
 function Search()
 {
@@ -18,17 +19,7 @@ function Search()
       <div>
         <input type='text' value={city} placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}/>
         <button onClick = {handleClick}>Search</button>
-        {results != null ? 
-        <table>
-          <thead>
-            <tr>
-              <th>Hotel</th>
-              <th>Price</th>
-              <th>Book</th>
-            </tr> 
-            </thead>
-            {results.map(result => (<tr><td>{result.name}</td> <td>{result.ratePlan.price.current}</td><td><button>Book Now!</button></td></tr>))}
-          </table>
+        {results != null ? results.map(result => (<Listing listing={result} />))
         : ""}
       </div>
     );
