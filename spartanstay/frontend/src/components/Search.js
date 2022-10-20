@@ -3,23 +3,35 @@ import Listing from "./Listing"
 
 function Search()
 {
+  const today = new Date().toISOString().slice(0, 10)
+  let i = 0
+
   const [results, setResults] = useState(null)
-  const [city, setCity] = useState("")
+  const [city, setCity] = useState("San Jose")
+  const [startDate, setStartDate] = useState(today)
+  const [endDate, setEndDate] = useState(today)
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const listing={destination:"San Jose", checkIn: "2022-12-20",checkOut: "2022-12-21",order: "PRICE", numAdults: 1}
-        console.log(listing)
-        fetch(`http://localhost:8080/listings/rooms?destination=${encodeURIComponent(city.trim())}&checkIn=2022-12-20&checkOut=2022-12-21&order=PRICE&numAdults=1`).then((response)=>{
+        fetch(`http://localhost:8080/listings/rooms?destination=${encodeURIComponent(city.trim())}`+
+        `&checkIn=${startDate}`+
+        `&checkOut=${endDate}`+
+        `&order=PRICE`+
+        `&numAdults=1`)
+        .then((response)=>{
         return response.json()
       }).then(data => {setResults(data); return data}).then(data => console.log(data))
     }
     
     return (
       <div>
-        <input type='text' value={city} placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}/>
+        <input type='text' placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}/>
+
+        <input type='date' value={startDate} min={today} onChange={(e) => {setStartDate(e.target.value); if(e.target.value > endDate) {setEndDate(e.target.value)}}}/>
+        <input type='date' value={endDate} min={startDate} onChange={(e) => {setEndDate(e.target.value)}}/>
+
         <button onClick = {handleClick}>Search</button>
-        {results != null ? results.map(result => (<Listing listing={result} />))
+        {results != null ? results.map(result => (<Listing listing={result} key={i++}/>))
         : ""}
       </div>
     );
