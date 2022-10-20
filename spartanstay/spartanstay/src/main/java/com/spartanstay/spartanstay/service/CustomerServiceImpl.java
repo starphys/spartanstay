@@ -7,11 +7,4 @@ import org.springframework.stereotype.Service;
 @Service
 
 public class CustomerServiceImpl implements CustomerService{
-    @Autowired
-    private CustomerRepository customerRepo;
-
-    @Override
-    public void deleteUser(Customer customer) {
-        customerRepo.delete(customer);
-    }
 }
