@@ -8,5 +8,5 @@ public interface CustomerService {
     Customer saveCustomer(Customer customer);
     List<Customer> getAllCustomers();
     Customer findCustomer(String email, String password);
-        void deleteUser(Customer customer);
+    void deleteUser(Customer customer);
 }
