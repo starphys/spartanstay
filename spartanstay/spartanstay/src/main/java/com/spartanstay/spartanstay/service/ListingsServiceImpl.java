@@ -34,7 +34,7 @@ public class ListingsServiceImpl implements ListingsService{
         }
         System.out.println(response.body());
 
-        if(response != null) {
+        if(response != null && response.body().charAt(0) == '{') {
             JSONObject json = new JSONObject((response.body()));
             return json.getJSONObject("data").getJSONObject("body")
                     .getJSONObject("searchResults").getJSONArray("results").toString();
@@ -62,7 +62,7 @@ public class ListingsServiceImpl implements ListingsService{
             e.printStackTrace();
         }
 
-        if(response != null) {
+        if(response != null && response.body().charAt(0) == '{') {
             JSONObject json = new JSONObject(response.body());
             return json.getJSONArray("suggestions").getJSONObject(0)
                     .getJSONArray("entities").getJSONObject(0).getString("destinationId");
@@ -92,7 +92,7 @@ public class ListingsServiceImpl implements ListingsService{
         }
         System.out.println(response.body());
 
-        if(response != null) {
+        if(response != null && response.body().charAt(0) == '{') {
             return response.body();
         }
         return "{No response from details search.}";
