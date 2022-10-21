@@ -1,5 +1,4 @@
 import logo from '../images/logo-1.png';
-import Search from '../components/Search.js';
 import "../styles.css";
 
 function Home() {
@@ -10,7 +9,6 @@ function Home() {
         <p>
             <h1>Welcome to SpartanStay</h1>
         </p>
-        <Search/>
         <a
           className="App-link"
           href="https://google.com"
