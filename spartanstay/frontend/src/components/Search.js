@@ -10,6 +10,7 @@ function Search()
   const [startDate, setStartDate] = useState(today)
   const [endDate, setEndDate] = useState(today)
   const [order, setOrder] = useState("PRICE")
+  const [adults, setAdults] = useState(1)
 
     const handleClick=(e)=>{
         e.preventDefault()
@@ -17,7 +18,7 @@ function Search()
         `&checkIn=${startDate}`+
         `&checkOut=${endDate}`+
         `&order=${order}`+
-        `&numAdults=1`)
+        `&numAdults=${adults}`)
         .then((response)=>{
         return response.json()
       }).then(data => {setResults(data); return data}).then(data => console.log(data))
@@ -34,6 +35,15 @@ function Search()
           <option value="PRICE">Price: Low to High</option>
           <option value="BEST_SELLER">Best</option>
         </select>
+        <select onChange={e => setAdults(e.target.value)}>
+          <option value={1}>Adults</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5+</option>
+        </select>
+
 
         <button onClick = {handleClick}>Search</button>
         {results ? <Results results={results} /> : ""}
