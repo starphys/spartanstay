@@ -1,10 +1,9 @@
 import {useState} from "react"
-import Listing from "./Listing"
+import Results from "./Results"
 
 function Search()
 {
   const today = new Date().toISOString().slice(0, 10)
-  let i = 0
 
   const [results, setResults] = useState(null)
   const [city, setCity] = useState("San Jose")
@@ -37,8 +36,7 @@ function Search()
         </select>
 
         <button onClick = {handleClick}>Search</button>
-        {results != null ? results.map(result => (<Listing listing={result} key={i++}/>))
-        : ""}
+        {results ? <Results results={results} /> : ""}
       </div>
     );
 }
