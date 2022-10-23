@@ -17,14 +17,14 @@ function App() {
   }*/
   return (
     <>
-      <Navbar />
+      <Navbar token={token}/>
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
-          <Route path="/account" element={<Account />} />
+          <Route path="/account" element={<Account setToken={setToken}/>} />
         </Routes>
       </div>
     </>

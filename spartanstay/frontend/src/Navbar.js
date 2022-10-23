@@ -1,6 +1,7 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
-export default function Navbar() {
+export default function Navbar({token}) {
+  console.log(token)
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
@@ -10,7 +11,7 @@ export default function Navbar() {
         <CustomLink to="/sign-up">SignUp</CustomLink>
         <CustomLink to="/about">About</CustomLink>
         <CustomLink to="/login">LogIn</CustomLink>
-        <CustomLink to="/account">Account</CustomLink>
+        {token ? <CustomLink to="/account">{token.firstName}'s Account</CustomLink> : ""}
       </ul>
     </nav>
   )
