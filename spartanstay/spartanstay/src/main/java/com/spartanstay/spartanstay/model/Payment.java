@@ -9,6 +9,76 @@ public class Payment {
     private int id;
     private int userId;
     private String paymentType;
+    private String cardNumber;
+    private String expMonth;
+    private String expYear;
+    private String securityCode;
+    private String nameOnCard;
+    private String billingName;
+
+    public String getBillingName() {
+        return billingName;
+    }
+
+    public void setBillingName(String billingName) {
+        this.billingName = billingName;
+    }
+
+    public String getBillingEmail() {
+        return billingEmail;
+    }
+
+    public void setBillingEmail(String billingEmail) {
+        this.billingEmail = billingEmail;
+    }
+
+    public String getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(String billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+    public String getBillingCity() {
+        return billingCity;
+    }
+
+    public void setBillingCity(String billingCity) {
+        this.billingCity = billingCity;
+    }
+
+    public String getBillingState() {
+        return billingState;
+    }
+
+    public void setBillingState(String billingState) {
+        this.billingState = billingState;
+    }
+
+    public String getBillingZip() {
+        return billingZip;
+    }
+
+    public void setBillingZip(String billingZip) {
+        this.billingZip = billingZip;
+    }
+
+    private String billingEmail;
+    private String billingAddress;
+    private String billingCity;
+    private String billingState;
+    private String billingZip;
+
+    public String getNameOnCard()
+    {
+        return  nameOnCard;
+    }
+
+    public void setNameOnCard(String nameOnCard)
+    {
+        this.nameOnCard = nameOnCard;
+    }
 
     public int getId() {
         return id;
@@ -66,10 +136,7 @@ public class Payment {
         this.securityCode = securityCode;
     }
 
-    private String cardNumber;
-    private String expMonth;
-    private String expYear;
-    private String securityCode;
+
 
 
 }
