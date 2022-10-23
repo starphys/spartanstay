@@ -1,16 +1,16 @@
 import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert'
 import PropTypes from 'prop-types';
 import "../LogIn.css";
 
 function LogIn({token, setToken}) {
-  
-
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
   const[validPass,setValidPass]=useState(true)
   const[accountLoggedIn,setAcccountLoggedIn]=useState(false)
-  
+
+  const navigate = useNavigate()
   
   const handleClick=(e)=>{
     e.preventDefault()
@@ -23,7 +23,7 @@ function LogIn({token, setToken}) {
       fetch (`http://localhost:8080/credentials/login?email=${email}&password=${password}`,{
         method:"GET",
         headers:{"Content-Type":"application/json"}
-      }).then((response)=>{return response.json()}).then(data =>{setToken(data); setAcccountLoggedIn(true)})
+      }).then((response)=>{return response.json()}).then(data =>{setToken(data); setAcccountLoggedIn(true); navigate('/')})
       }
   }
 
