@@ -21,7 +21,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
           <Route path="/account" element={<Account setToken={setToken}/>} />

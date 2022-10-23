@@ -24,7 +24,12 @@ public class CustomerController {
         if(customer.getConfirmPassword().equals(customer.getPassword()))
         {
             customerService.saveCustomer(customer);
-            return "New customer is added";
+            currentUser = customerService.findCustomer(customer.getEmail(), customer.getPassword());
+            System.out.println(currentUser.getId());
+            return "{\"id\":\""+currentUser.getId()+"\"" +
+                    ",\"email\":\""+currentUser.getEmail()+
+                    "\"" +",\"firstName\":\""+currentUser.getFirstName()+
+                    "\""+",\"lastName\":\""+currentUser.getLastName()+"\"}";
         }
        return "Customer not added, incorrect password";
     }
