@@ -9,6 +9,7 @@ import useToken from "./useToken"
 
 
 function App() {
+  const {token, setToken} = useToken();
   /*const { token,setToken}= useToken()
 
   if (!token){
@@ -22,7 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<LogIn />} />
+          <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
           <Route path="/account" element={<Account />} />
         </Routes>
       </div>

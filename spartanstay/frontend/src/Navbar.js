@@ -7,7 +7,6 @@ export default function Navbar() {
         SpartanStay
       </Link>
       <ul>
-        
         <CustomLink to="/sign-up">SignUp</CustomLink>
         <CustomLink to="/about">About</CustomLink>
         <CustomLink to="/login">LogIn</CustomLink>

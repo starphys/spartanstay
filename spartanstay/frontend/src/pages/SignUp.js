@@ -38,13 +38,6 @@ function SignUp() {
     setConfirmPassword('')
     setValidPass(true)
     setAccountCreated(false)
-
-    /*Array.from(document.querySelectorAll("input")).forEach(
-      input => (input.value = "")
-    );
-    this.setState({
-      itemvalues: [{}]
-    });*/
   };
   
   return (

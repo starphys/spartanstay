@@ -3,7 +3,7 @@ import Alert from 'react-bootstrap/Alert'
 import PropTypes from 'prop-types';
 import "../LogIn.css";
 
-function LogIn({setToken}) {
+function LogIn({token, setToken}) {
   
 
   const[email,setEmail]=useState('')
@@ -20,23 +20,12 @@ function LogIn({setToken}) {
     }
     else{
       setValidPass(true)
-      const customer ={email,password}
-      console.log(customer)
-      const token = accountLoggedIn({
-        email,
-        password
-      });
-      setToken(token)
-      fetch ("http://localhost:8080/credentials/login",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(customer)
-      }).then(()=>{
-         setAcccountLoggedIn(true)
-        })
+      fetch (`http://localhost:8080/credentials/login?email=${email}&password=${password}`,{
+        method:"GET",
+        headers:{"Content-Type":"application/json"}
+      }).then((response)=>{return response.json()}).then(data =>{setToken(data); setAcccountLoggedIn(true)})
       }
-}
-
+  }
 
   return (
   
@@ -55,12 +44,12 @@ function LogIn({setToken}) {
         <br></br>
         <br></br>
         
-        <label className="text">Remember me</label>
-        <input className="LogInCheckbox" type="checkbox" id="Remember me" name="rem"></input>
+        {/*<label className="text">Remember me</label>
+        <input className="LogInCheckbox" type="checkbox" id="Remember me" name="rem"></input>*/}
        
         
-        {accountLoggedIn ? <Alert key='success' className="success-msg" variant='success'>Welcome {email}!</Alert> : ""}
-        {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid password or email.</Alert>}
+        {accountLoggedIn ? <Alert key='success' className="success-msg" variant='success'>Welcome {token.firstName}!</Alert> : ""}
+        {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid password and email.</Alert>}
         
         <button onClick={handleClick}>Login</button>
         
