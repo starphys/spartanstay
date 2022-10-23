@@ -33,6 +33,7 @@ function Search()
 
         <select onChange={e => setOrder(e.target.value)}>
           <option value="PRICE">Price: Low to High</option>
+          <option value="PRICE_HIGHEST_FIRST">Price: High to Low</option>
           <option value="BEST_SELLER">Best</option>
         </select>
         <select onChange={e => setAdults(e.target.value)}>
