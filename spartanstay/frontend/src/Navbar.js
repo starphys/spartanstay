@@ -8,9 +8,9 @@ export default function Navbar({token}) {
         SpartanStay
       </Link>
       <ul>
-        <CustomLink to="/sign-up">SignUp</CustomLink>
+        {token  ? "" : <CustomLink to="/sign-up">SignUp</CustomLink>}
         <CustomLink to="/about">About</CustomLink>
-        <CustomLink to="/login">LogIn</CustomLink>
+        {token ? "" : <CustomLink to="/login">LogIn</CustomLink>}
         {token ? <CustomLink to="/account">{token.firstName}'s Account</CustomLink> : ""}
       </ul>
     </nav>
