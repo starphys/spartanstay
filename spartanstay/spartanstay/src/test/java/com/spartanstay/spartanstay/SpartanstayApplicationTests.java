@@ -12,8 +12,6 @@ class SpartanstayApplicationTests {
 
 }
 
-
-
 /**
  * To generate test framework...
  * 1. go to the class you want to add tests for
@@ -30,4 +28,3 @@ class SpartanstayApplicationTests {
  *     tearDown()
  * }
  */
-

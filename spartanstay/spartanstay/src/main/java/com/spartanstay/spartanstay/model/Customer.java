@@ -16,11 +16,7 @@ public class Customer {
     private String lastName;
 
     public Customer() {
-
-
-
         
-
     }
 
     public void setId(int id) {
