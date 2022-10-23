@@ -43,7 +43,8 @@ public class CustomerController {
         {
             return "Wrong credentials";
         }
-        return currentUser.getFirstName() + " " + currentUser.getLastName() + " was logged in";
+        //json w email, first name, last name
+        return "{\"id\":\""+currentUser.getId()+"\"" +",\"email\":\""+currentUser.getEmail()+"\"" +",\"firstName\":\""+currentUser.getFirstName()+"\""+",\"lastName\":\""+currentUser.getLastName()+"\"}";
     }
 
     @PostMapping("/logout")
