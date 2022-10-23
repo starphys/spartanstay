@@ -19,6 +19,8 @@ public class PaymentServiceImpl implements PaymentService{
     @Override
     public Payment saveDetails(Payment payment)
     {
+        //add this commented line once combined with login
+        //payment.setUserId(currentUser.getID());
         payment.setCardNumber(encrypt(payment.getCardNumber()));
         payment.setExpMonth(encrypt(payment.getExpMonth()));
         payment.setExpYear(encrypt(payment.getExpYear()));
