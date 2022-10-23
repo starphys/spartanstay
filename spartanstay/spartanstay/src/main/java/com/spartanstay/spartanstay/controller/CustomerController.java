@@ -46,7 +46,7 @@ public class CustomerController {
         //if the user was not found
         if(currentUser == null)
         {
-            return "Wrong credentials";
+            return "{}";
         }
         //json w email, first name, last name
         return "{\"id\":\""+currentUser.getId()+"\"" +",\"email\":\""+currentUser.getEmail()+"\"" +",\"firstName\":\""+currentUser.getFirstName()+"\""+",\"lastName\":\""+currentUser.getLastName()+"\"}";

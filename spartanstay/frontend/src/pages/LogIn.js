@@ -19,11 +19,22 @@ function LogIn({token, setToken}) {
       setValidPass(false)
     }
     else{
-      setValidPass(true)
       fetch (`http://localhost:8080/credentials/login?email=${email}&password=${password}`,{
         method:"GET",
-        headers:{"Content-Type":"application/json"}
-      }).then((response)=>{return response.json()}).then(data =>{setToken(data); setAcccountLoggedIn(true); navigate('/')})
+        headers:{"Content-Type":"application/json"}})
+        .then((response)=>{return response.json()})
+        .then(data =>{
+        
+        if(data.id) {
+          setToken(data)
+          setAcccountLoggedIn(true)
+          setValidPass(true)
+          navigate('/')
+        }
+        else {
+          setValidPass(false)
+        }
+       })
       }
   }
 
