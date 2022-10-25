@@ -1,9 +1,6 @@
 package com.spartanstay.spartanstay.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Reservation {
@@ -13,8 +10,11 @@ public class Reservation {
     private String roomType;
     private int numAdult;
     private int numChildren;
+    @Column(unique = true)
     private String checkInDate;
+    @Column(unique = true)
     private String checkOutDate;
+    @Column(unique = true)
     private String email;
     private int phoneNum;
     private String specialReq;
