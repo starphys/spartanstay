@@ -13,12 +13,12 @@ public class Reservation {
     private String checkInDate;
     private String checkOutDate;
     private String email;
-    private int phoneNum;
+    private String phoneNum;
     private String specialReq;
     private String firstName;
     private String lastName;
-    private int creditCardNum;
-    private int expDate;
+    private String creditCardNum;
+    private String expDate;
     private int securityCode;
     private String address;
     private int userId;
@@ -80,11 +80,11 @@ public class Reservation {
         this.email = email;
     }
 
-    public int getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
@@ -112,19 +112,19 @@ public class Reservation {
         this.lastName = lastName;
     }
 
-    public int getCreditCardNum() {
+    public String getCreditCardNum() {
         return creditCardNum;
     }
 
-    public void setCreditCardNum(int creditCardNum) {
+    public void setCreditCardNum(String creditCardNum) {
         this.creditCardNum = creditCardNum;
     }
 
-    public int getExpDate() {
+    public String getExpDate() {
         return expDate;
     }
 
-    public void setExpDate(int expDate) {
+    public void setExpDate(String expDate) {
         this.expDate = expDate;
     }
 
