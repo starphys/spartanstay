@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-function Reservation({email, firstName, lastName, creditCardNum, expDate, securityCode, address}) {
+function Reservation({token, payment, hotelId, setSuccess}) {
     //room data
     const [specialReq, setSpecialReq] = useState('')
     const [roomType, setRoomType] = useState('')
@@ -9,48 +9,20 @@ function Reservation({email, firstName, lastName, creditCardNum, expDate, securi
     const [checkOutDate, setcheckOutDate] = useState('')
     const [phoneNum, setPhoneNum] = useState('')
 
-    // const [email, setEmail] = useState('')
-    // const [firstName, setFirstName] = useState('')
-    // const [lastName, setLastName] = useState('')
-
-    // const [creditCardNum, setCreditCardNum] = useState('')
-    // const [expDate, setExpDate] = useState('')
-    // const [securityCode, setSecurityCode] = useState('')
-    // const [address, setAddress] = useState('')
-
-
-    //room data
-    //const roomType=0 need help saving data after select
-    //const numAdult=0
-    //const numChildren=0
-    //const checkInDate=0
-    //const checkOutDate=0
-    //const phoneNum = 0
-    //const specialReq=0 done
-
-    //user details data
-    //const email=0
-    //const firstName=0
-    //const lastName=0
-
-    //payment data
-    //const creditCardNum=0
-    //const expDate=0
-    //const securityCode=0
-    //const address=0
-
-
     const handleClick = (e) => {
         e.preventDefault()
-        const reservation = {roomType,numAdult,numChildren,checkInDate,checkOutDate,email,phoneNum,specialReq,firstName,lastName,creditCardNum,expDate,securityCode,address}
+        const reservation = {roomType,numAdult,numChildren,checkInDate,checkOutDate,phoneNum,specialReq,
+            email:token.email,firstName:token.firstName,lastName:token.lastName,userId:token.id,
+            creditCardNum:payment.cardNum,expDate:payment.expDate,securityCode:payment.securityCode,address:payment.address,
+            hotelId}
         fetch("http://localhost:8080/reservation/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(reservation)
         }
         ).then((response) => {
-            response.json()
-        }).then((data) => console.log(data))
+            return response.json()
+        }).then((data) => {console.log(data); if(data.status === "success"){setSuccess(true)} else {setSuccess(false)} })
     }
     return (
         //<React.Fragment>
