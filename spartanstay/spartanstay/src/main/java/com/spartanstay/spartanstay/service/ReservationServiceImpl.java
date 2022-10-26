@@ -15,7 +15,18 @@ public class ReservationServiceImpl implements ReservationService{
 
     @Override
     public Reservation saveReservation(Reservation reservation) {
-        return reservationRepository.save(reservation);
+        List<Reservation> response = reservationRepository.findByUserIdAndCheckInAndCheckOutAndHotelId(reservation.getUserId(),
+                reservation.getCheckInDate(), reservation.getCheckOutDate(), reservation.getHotelId());
+        if(response.isEmpty()) {
+            System.out.println("SQL response was null");
+            System.out.println(reservation);
+            return reservationRepository.save(reservation);
+        }
+        else {
+            System.out.println(reservation);
+            System.out.println("Response was not null");
+            return null;
+        }
     }
 
     @Override

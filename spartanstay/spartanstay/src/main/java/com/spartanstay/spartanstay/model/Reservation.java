@@ -10,11 +10,8 @@ public class Reservation {
     private String roomType;
     private int numAdult;
     private int numChildren;
-    @Column(unique = true)
     private String checkInDate;
-    @Column(unique = true)
     private String checkOutDate;
-    @Column(unique = true)
     private String email;
     private int phoneNum;
     private String specialReq;
@@ -24,6 +21,8 @@ public class Reservation {
     private int expDate;
     private int securityCode;
     private String address;
+    private int userId;
+    private int hotelId;
 
     public Reservation() {
 
@@ -144,4 +143,44 @@ public class Reservation {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getHotelId() {
+        return hotelId;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", roomType='" + roomType + '\'' +
+                ", numAdult=" + numAdult +
+                ", numChildren=" + numChildren +
+                ", checkInDate='" + checkInDate + '\'' +
+                ", checkOutDate='" + checkOutDate + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNum=" + phoneNum +
+                ", specialReq='" + specialReq + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", creditCardNum=" + creditCardNum +
+                ", expDate=" + expDate +
+                ", securityCode=" + securityCode +
+                ", address='" + address + '\'' +
+                ", userId=" + userId +
+                ", hotelId=" + hotelId +
+                '}';
+    }
+
+    public void setHotelId(int hotelId) {
+        this.hotelId = hotelId;
+    }
+
 }

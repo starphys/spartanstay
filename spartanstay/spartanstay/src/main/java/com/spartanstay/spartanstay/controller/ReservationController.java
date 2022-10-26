@@ -19,9 +19,11 @@ public class ReservationController {
 
     @PostMapping("/add")
     public String add(@RequestBody Reservation reservation){
-            System.out.println(reservation.getSpecialReq());
-            reservationService.saveReservation(reservation);
-            return "Reservation saved";
+        System.out.println(reservation.getSpecialReq());
+        if( reservationService.saveReservation(reservation) != null ){
+            return "{\"status\":\"success\"}";
+        }
+        return "{\"status\":\"failed\"}";
     }
 
     @GetMapping("/getAll")
