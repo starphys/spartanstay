@@ -35,13 +35,20 @@ public class PaymentServiceImpl implements PaymentService{
     }
 
     @Override
-    public Payment getDetails(int currentUserId, String paymentType)
+    public List<Payment> getDetails(int currentUserId)
     {
-        Payment data = paymentRepo.findByIdAndPaymentType(currentUserId, paymentType);
-        data.setCardNumber(decrypt(data.getCardNumber()));
-        data.setExpMonth(decrypt(data.getExpMonth()));
-        data.setExpYear(decrypt(data.getExpYear()));
-        data.setSecurityCode(decrypt(data.getSecurityCode()));
+        List<Payment> data = paymentRepo.findByUserId(currentUserId);
+        if(data.size()>=1)
+        {
+            for(int i = 0; i < data.size(); i++)
+            {
+                Payment d = data.get(i);
+                d.setCardNumber(decrypt(d.getCardNumber()));
+                d.setExpMonth(decrypt(d.getExpMonth()));
+                d.setExpYear(decrypt(d.getExpYear()));
+                d.setSecurityCode(decrypt(d.getSecurityCode()));
+            }
+        }
         return data;
     }
 

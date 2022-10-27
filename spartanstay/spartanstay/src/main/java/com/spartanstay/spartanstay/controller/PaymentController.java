@@ -15,9 +15,9 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @GetMapping("/getCardDetails")
-    public Payment details(@RequestParam("userId") int userId, @RequestParam("paymentType") String paymentType)
+    public List<Payment> details(@RequestParam("userId") int userId, @RequestParam("paymentType") String paymentType)
     {
-        return paymentService.getDetails(userId, paymentType);
+        return paymentService.getDetails(userId);
     }
 
     @GetMapping("/getAllCards")
