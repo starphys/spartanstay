@@ -52,6 +52,23 @@ public class PaymentServiceImpl implements PaymentService{
         return data;
     }
 
+    public boolean getDuplicate(Payment payment) {
+        System.out.println(payment);
+        List<Payment> tempPaymentList = paymentRepo.findByUserIdAndCardNumber(payment.getUserId(), encrypt(payment.getCardNumber()));
+        if (tempPaymentList.size() < 1 ) {
+            return false;
+        }
+
+        Payment tempPayment = tempPaymentList.get(0);
+
+        if(!decrypt(tempPayment.getExpMonth()).equals(payment.getExpMonth()) || !decrypt(tempPayment.getExpYear()).equals(payment.getExpYear())) {
+            paymentRepo.delete(tempPayment);
+            return false;
+        }
+
+        return true;
+    }
+
     public static String encrypt(String givenPassword)
     {
         setUpMap();

@@ -9,4 +9,5 @@ public interface PaymentService {
     Payment saveDetails(Payment payment);
     List<Payment> getDetails(int currentUserId);
     List<Payment> getAllDetails();
+    boolean getDuplicate(Payment payment);
 }

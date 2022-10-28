@@ -15,6 +15,31 @@ public class Payment {
     private String securityCode;
     private String nameOnCard;
     private String billingName;
+    private String billingEmail;
+    private String billingAddress;
+    private String billingCity;
+    private String billingState;
+    private String billingZip;
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", paymentType='" + paymentType + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", expMonth='" + expMonth + '\'' +
+                ", expYear='" + expYear + '\'' +
+                ", securityCode='" + securityCode + '\'' +
+                ", nameOnCard='" + nameOnCard + '\'' +
+                ", billingName='" + billingName + '\'' +
+                ", billingEmail='" + billingEmail + '\'' +
+                ", billingAddress='" + billingAddress + '\'' +
+                ", billingCity='" + billingCity + '\'' +
+                ", billingState='" + billingState + '\'' +
+                ", billingZip='" + billingZip + '\'' +
+                '}';
+    }
 
     public String getBillingName() {
         return billingName;
@@ -63,12 +88,6 @@ public class Payment {
     public void setBillingZip(String billingZip) {
         this.billingZip = billingZip;
     }
-
-    private String billingEmail;
-    private String billingAddress;
-    private String billingCity;
-    private String billingState;
-    private String billingZip;
 
     public String getNameOnCard()
     {

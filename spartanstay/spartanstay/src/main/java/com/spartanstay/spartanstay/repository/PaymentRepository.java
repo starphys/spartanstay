@@ -13,4 +13,7 @@ public interface PaymentRepository extends JpaRepository<Payment, Integer>{
 
     @Query(value = "SELECT * FROM spartanstay.payment WHERE user_id = ?1", nativeQuery = true)
     List<Payment> findByUserId(int currentUserid);
+
+    @Query(value = "SELECT * FROM spartanstay.payment WHERE (user_id = ?1 AND card_number = ?2)", nativeQuery = true)
+    List<Payment> findByUserIdAndCardNumber(int userId, String cardNumber);
 }

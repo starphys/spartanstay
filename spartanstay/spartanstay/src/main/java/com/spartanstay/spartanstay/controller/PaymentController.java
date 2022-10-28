@@ -29,7 +29,11 @@ public class PaymentController {
     @PostMapping("/addCardDetails")
     public String addDetails(@RequestBody Payment payment)
     {
+        if(paymentService.getDuplicate(payment)) {
+            return "{\"status\":\"failure\",\"message\":\"Card was already stored.\"}";
+        }
+
         paymentService.saveDetails(payment);
-        return payment.getPaymentType() + " card was added";
+        return "{\"status\":\"success\",\"message\":\""+ payment.getPaymentType() + " card was added.\"}";
     }
 }
