@@ -2,6 +2,7 @@ package com.spartanstay.spartanstay.controller;
 import com.spartanstay.spartanstay.exception.UserNotFoundException;
 import com.spartanstay.spartanstay.model.Customer;
 import com.spartanstay.spartanstay.repository.CustomerRepository;
+import com.spartanstay.spartanstay.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -16,6 +17,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private CustomerService customerService;
 
     @PostMapping("/add")
     public String add(@RequestBody Customer customer){
