@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class CustomerServiceImpl implements CustomerService{
 
@@ -17,6 +18,13 @@ public class CustomerServiceImpl implements CustomerService{
     public List<Customer> getAllCustomers() {
         return customerRepo.findAll();
     }
+
+    @Override
+    public Customer findCustomer(String email, String password)
+    {
+        return customerRepo.findByEmailAndPassword(email, password);
+    }
+
 
     @Autowired
     private CustomerRepository customerRepo;
