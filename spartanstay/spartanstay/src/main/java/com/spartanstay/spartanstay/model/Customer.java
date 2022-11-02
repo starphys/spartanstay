@@ -18,7 +18,7 @@ public class Customer {
     private String lastName;
 
     public Customer() {
-        
+
     }
 
     public void setId(int id) {
@@ -67,5 +67,17 @@ public class Customer {
 
     public String getLastName() {
         return lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }
