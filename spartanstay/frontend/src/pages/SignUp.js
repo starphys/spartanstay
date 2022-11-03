@@ -1,8 +1,9 @@
 import "../SignUp.css";
 import React, {useState} from 'react';
 import Alert from 'react-bootstrap/Alert'
+import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+function SignUp({setToken}) {
   const[firstName,setFirstName]=useState('')
   const[lastName,setLastName]=useState('')
   const[email,setEmail]=useState('')
@@ -11,6 +12,8 @@ function SignUp() {
   
   const[validPass,setValidPass]=useState(true)
   const[accountCreated,setAccountCreated]=useState(false)
+
+  const navigate = useNavigate()
 
   const handleClick=(e)=>{
     e.preventDefault()
@@ -25,9 +28,8 @@ function SignUp() {
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(customer)
-        }).then(()=>{
-          setAccountCreated(true)
-        })
+        }).then((response)=>{ return response.json()}).then(data => {
+          setToken(data); setAccountCreated(true) ; navigate('/')})
       }
   }
   const handleReset = () => {
@@ -38,13 +40,6 @@ function SignUp() {
     setConfirmPassword('')
     setValidPass(true)
     setAccountCreated(false)
-
-    /*Array.from(document.querySelectorAll("input")).forEach(
-      input => (input.value = "")
-    );
-    this.setState({
-      itemvalues: [{}]
-    });*/
   };
   
   return (
