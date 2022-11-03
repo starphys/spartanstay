@@ -18,7 +18,7 @@ public class ListingsController {
     @GetMapping("/rooms")
     String getRooms(@RequestParam("destination") String destination, @RequestParam("checkIn")
                               @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut){
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut, @RequestParam("starRatings") String starRatings){
         String destId;
         if (destination != null) {
             destId = listingService.getLocationID(destination);
@@ -27,7 +27,7 @@ public class ListingsController {
             destId = "1506246";
         }
 
-        return listingService.getListings(destId, checkIn.toString(), checkOut.toString(), "PRICE","1");
+        return listingService.getListings(destId, checkIn.toString(), checkOut.toString(), "PRICE","1", starRatings);
     }
 
     @GetMapping("/details")
