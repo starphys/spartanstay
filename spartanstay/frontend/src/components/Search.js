@@ -2,11 +2,10 @@ import {useState} from "react"
 import Results from "./Results"
 import "../SignUp.css"
 
-function Search()
+function Search({results, setResults})
 {
   const today = new Date().toISOString().slice(0, 10)
 
-  const [results, setResults] = useState(null)
   const [city, setCity] = useState("San Jose")
   const [startDate, setStartDate] = useState(today)
   const [endDate, setEndDate] = useState(today)

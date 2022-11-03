@@ -8,10 +8,12 @@ import Account from "./pages/Account"
 
 import { Route, Routes } from "react-router-dom"
 import useToken from "./useToken"
+import {useState} from "react"
 
 
 function App() {
   const {token, setToken} = useToken();
+  const [results, setResults] = useState(null)
 
   return (
     <>
@@ -19,7 +21,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path = "/search" element={<Search />} />
+          <Route path = "/search" element={<Search results={results} setResults={setResults}/>} />
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
