@@ -3,7 +3,7 @@ import Listing from "./Listing"
 function Results ({results}) {
     let i = 0
 
-    return (<div>{results ? results.map(result => (<Listing listing={result} key={i++}/>))
+    return (<div className="results">{results ? results.map(result => (<div><Listing listing={result} key={i++}/><br /></div>))
     : ""} </div>);
 }
 
