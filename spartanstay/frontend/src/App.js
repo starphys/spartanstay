@@ -3,6 +3,7 @@ import SignUp from "./pages/SignUp"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Search from "./components/Search"
+import CancelPolicy from "./pages/CancelPolicy"
 import LogIn from "./pages/LogIn"
 import Account from "./pages/Account"
 
@@ -24,6 +25,7 @@ function App() {
           <Route path = "/search" element={<Search results={results} setResults={setResults}/>} />
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
           <Route path="/about" element={<About />} />
+          <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
           <Route path="/account" element={<Account setToken={setToken}/>} />
         </Routes>
