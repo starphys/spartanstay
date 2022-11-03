@@ -4,3 +4,5 @@ jspm_packages/
 
 # Distribution directories
 dist/gi
+
+*/config.json

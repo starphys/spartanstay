@@ -9,11 +9,23 @@ import Account from "./pages/Account"
 import { Route, Routes } from "react-router-dom"
 import useToken from "./useToken"
 import {useState} from "react"
+import MapComponent from "./components/MapComponent"
 
 
 function App() {
   const {token, setToken} = useToken();
   const [results, setResults] = useState(null)
+
+  const mapOptions = {
+    disableDefaultUI : true,
+    styles : [ 
+      {
+        featureType: "poi",
+        elementType: "all",
+        stylers: [ { "visibility": "off" } ]
+      }
+    ]
+  }
 
   return (
     <>
@@ -22,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path = "/search" element={<Search results={results} setResults={setResults}/>} />
+          <Route path = "/map" element={<MapComponent listings={results} options={mapOptions} />} />
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
