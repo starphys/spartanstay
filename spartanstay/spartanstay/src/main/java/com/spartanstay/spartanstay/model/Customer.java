@@ -12,11 +12,13 @@ public class Customer {
     private int id;
     private String email;
     private String password;
+
+    private String confirmPassword;
     private String firstName;
     private String lastName;
 
     public Customer() {
-        
+
     }
 
     public void setId(int id) {
@@ -30,6 +32,8 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void setConfirmPassword(String confirmPassword){this.confirmPassword = confirmPassword;}
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -51,11 +55,29 @@ public class Customer {
         return password;
     }
 
+    public String getConfirmPassword(){
+        if(password.equals(confirmPassword))
+            return password;
+        return "Passwords do not match";
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
     public String getLastName() {
         return lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }
