@@ -9,6 +9,7 @@ export default function Navbar({token}) {
       </Link>
       <ul>
         {token  ? "" : <CustomLink to="/sign-up">SignUp</CustomLink>}
+        <CustomLink to="/search">Search</CustomLink>
         <CustomLink to="/about">About</CustomLink>
         <CustomLink to="/cancellations">Cancellation Policy</CustomLink>
         {token ? "" : <CustomLink to="/login">LogIn</CustomLink>}

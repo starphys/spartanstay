@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class ListingsServiceImpl implements ListingsService{
 
     @Override
-    public String getListings(String destId, String checkIn, String checkOut, String sortOrder, String adults) {
+    public String getListings(String destId, String checkIn, String checkOut, String sortOrder, int adults) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://hotels4.p.rapidapi.com/properties/list?destinationId="+ destId +
                         "&pageNumber=1&pageSize=25" +
@@ -34,7 +34,7 @@ public class ListingsServiceImpl implements ListingsService{
         }
         System.out.println(response.body());
 
-        if(response != null) {
+        if(response != null && response.body().charAt(0) == '{') {
             JSONObject json = new JSONObject((response.body()));
             return json.getJSONObject("data").getJSONObject("body")
                     .getJSONObject("searchResults").getJSONArray("results").toString();
@@ -62,7 +62,7 @@ public class ListingsServiceImpl implements ListingsService{
             e.printStackTrace();
         }
 
-        if(response != null) {
+        if(response != null && response.body().charAt(0) == '{') {
             JSONObject json = new JSONObject(response.body());
             return json.getJSONArray("suggestions").getJSONObject(0)
                     .getJSONArray("entities").getJSONObject(0).getString("destinationId");
@@ -92,7 +92,7 @@ public class ListingsServiceImpl implements ListingsService{
         }
         System.out.println(response.body());
 
-        if(response != null) {
+        if(response != null && response.body().charAt(0) == '{') {
             return response.body();
         }
         return "{No response from details search.}";
