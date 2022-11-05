@@ -78,16 +78,16 @@ function Search({results, setResults})
       <br></br>
       {/* <input type='text' placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}/> */}
       <div id="startSearch" class="row">
-  <div class="column">
+  <div class="columnS">
   <label class="dateLabel">Check-in</label>
         <input class="d" type='date' value={startDate} min={today} onChange={(e) => {setStartDate(e.target.value); if(e.target.value > endDate) {setEndDate(e.target.value)}}}/>
         
         </div>  
-  <div class="column">
+  <div class="columnS">
   <label class="dateLabel">Check-out</label>
   <input class ="d" type='date' value={endDate} min={startDate} onChange={(e) => {setEndDate(e.target.value)}}/></div>
   
-  <div class="column"> 
+  <div class="columnS"> 
   <label id="guestLabel">Number of Guests</label>
         <select class="e" onChange={e => setAdults(e.target.value)}>
           <option value={1}>Adults</option>
@@ -106,8 +106,8 @@ function Search({results, setResults})
           <option value={5}>5+</option>
         </select>
         </div>
-  <div class="column">
-  <label>Destination</label>
+  <div class="columnS">
+  <label class="dest">Destination</label>
  
     <form action="">
       
@@ -123,7 +123,7 @@ function Search({results, setResults})
 </div>
 
 <div class = "row">
-<div id="sortDiv" class = "column">
+<div id="sortDiv" class = "columnS">
 <label class="sortOrder">Sort by</label>
         <select class="e3" onChange={e => setOrder(e.target.value)}>
           <option value="PRICE">Price: Low to High</option>
@@ -133,7 +133,7 @@ function Search({results, setResults})
         </div>
         </div>
 
-<div class="initialDiv"><div class="fill"><div class="innerText"><h1 class="neonText">New name, same great savings</h1>
+<div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">New name, same great savings</h1>
 <h3 class="innerSmallText">Secret Prices are now Member Prices. Sign in or join to save an average of 15% on thousands of hotels.​</h3></div> </div></div>
       
       <br></br>

@@ -48,6 +48,8 @@ label {
 
 .dateLabel {
     margin-left: -45%;
+    color: black;
+    font-size: 1.8em;
 }
 
 input {
@@ -162,9 +164,10 @@ button{
     margin-top: 10%;
 }
 
-.column {
+.columnS {
     float: left;
     width: 23.5%;
+    color: black;
     
   }
   
@@ -182,7 +185,7 @@ button{
 
 
 
-.fill {
+.fillS {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,7 +200,7 @@ button{
     margin-left: 13%;
     opacity: 0.9;
 }
-.fill img {
+.fillS img {
     flex-shrink: 0;
     min-width: 100%;
     min-height: 100%
@@ -265,6 +268,13 @@ button{
 
 #guestLabel {
     margin-left: -17%;
+    color: black;
+    font-size: 1.8em;
+}
+
+.dest {
+    color: black;
+    font-size: 1.8em;
 }
 
 .sortOrder {
@@ -277,7 +287,7 @@ button{
     width: 130px;
     padding-top: 0px;
     font-size: 14px;
-    margin-left: -25%;
+    margin-left: -23%;
     border-radius: 0%;
     border-bottom: 0px;
     margin-bottom: -21%;
