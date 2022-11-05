@@ -109,7 +109,7 @@ function Search({results, setResults})
   <div class="columnS">
   <label class="dest">Destination</label>
  
-    <form action="">
+    <form onSubmit={handleClick}>
       
       <br></br>
       <br></br>
