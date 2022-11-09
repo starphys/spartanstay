@@ -17,7 +17,7 @@ function MyBookings({token, bookings, setBookings}) {
     }
 
   return (<div className="">
-    {(bookings && bookings.length) ? bookings.map(booking => (<div>{booking.address}</div>))
+    {(bookings && bookings.length) ? bookings.map(booking => (<div><div>{booking.address}</div><img class="imageChange" src={booking.image} alt="img" /><div>{booking.totalCost}</div></div>))
         : <button onClick={handleRedirect} to='/login'>Make a Reservation!</button>} <br/></div> );
 }
 

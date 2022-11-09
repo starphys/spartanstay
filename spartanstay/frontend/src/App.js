@@ -26,6 +26,12 @@ function App() {
     address:"123 Here Street, AK USA"
   }
 
+  const hotel = {
+    cost: 64.99,
+    image: "https://exp.cdn-hotels.com/hotels/1000000/990000/982600/982537/a8559c2d_z.jpg?impolicy=fcrop&w=250&h=140&q=high",
+    id:1
+  }
+
   return (
     <>
       <Navbar token={token}/>
@@ -39,7 +45,7 @@ function App() {
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
           <Route path="/account" element={<Account setToken={setToken} setBookings={setBookings}/>} />
           <Route path="/mybookings" element={<MyBookings bookings={bookings} setBookings={setBookings} token={token}/>} />
-          <Route path="/reservation" element={<Reservation token={token} payment={payment} hotelId={4} setSuccess={setSuccess}/>} />
+          <Route path="/reservation" element={<Reservation token={token} payment={payment} hotel={hotel} setSuccess={setSuccess} setBookings={setBookings}/>} />
         </Routes>
       </div>
     </>

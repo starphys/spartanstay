@@ -23,6 +23,8 @@ public class Reservation {
     private String address;
     private int userId;
     private int hotelId;
+    private String totalCost;
+    private String image;
 
     public Reservation() {
 
@@ -183,4 +185,19 @@ public class Reservation {
         this.hotelId = hotelId;
     }
 
+    public String getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(String totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
