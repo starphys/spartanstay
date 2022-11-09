@@ -7,15 +7,16 @@ import CancelPolicy from "./pages/CancelPolicy"
 import LogIn from "./pages/LogIn"
 import Account from "./pages/Account"
 import MyBookings from "./pages/MyBookings"
+import Reservation from "./components/reservation"
 
 import { Route, Routes } from "react-router-dom"
 import useToken from "./useToken"
 import {useState} from "react"
 
-
 function App() {
   const {token, setToken} = useToken();
   const [results, setResults] = useState(null)
+  const [bookings, setBookings] = useState(null)
 
   return (
     <>
@@ -28,8 +29,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
-          <Route path="/account" element={<Account setToken={setToken}/>} />
-          <Route path="/mybookings" element={<MyBookings token={token}/>} />
+          <Route path="/account" element={<Account setToken={setToken} setBookings={setBookings}/>} />
+          <Route path="/mybookings" element={<MyBookings bookings={bookings} setBookings={setBookings} token={token}/>} />
         </Routes>
       </div>
     </>
