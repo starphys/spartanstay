@@ -31,4 +31,9 @@ public class ReservationController {
         return reservationService.getAllReservations();
     }
 
+    @GetMapping("/mybookings")
+    public List<Reservation> getMyReservations(@RequestParam("id") int id) {
+        return reservationService.getMyReservations(id);
+    }
+
 }

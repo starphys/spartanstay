@@ -7,4 +7,6 @@ import java.util.List;
 public interface ReservationService {
     public Reservation saveReservation(Reservation reservation);
     public List<Reservation> getAllReservations();
+
+    List<Reservation> getMyReservations(int id);
 }
