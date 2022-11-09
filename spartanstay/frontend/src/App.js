@@ -18,6 +18,14 @@ function App() {
   const [results, setResults] = useState(null)
   const [bookings, setBookings] = useState(null)
 
+  const [success, setSuccess] = useState(false)
+  const payment = {
+    cardNum:1111111111111111,
+    expDate:"2022-12-25",
+    securityCode:808,
+    address:"123 Here Street, AK USA"
+  }
+
   return (
     <>
       <Navbar token={token}/>
@@ -31,6 +39,7 @@ function App() {
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
           <Route path="/account" element={<Account setToken={setToken} setBookings={setBookings}/>} />
           <Route path="/mybookings" element={<MyBookings bookings={bookings} setBookings={setBookings} token={token}/>} />
+          <Route path="/reservation" element={<Reservation token={token} payment={payment} hotelId={4} setSuccess={setSuccess}/>} />
         </Routes>
       </div>
     </>
