@@ -6,6 +6,7 @@ import Search from "./components/Search"
 import CancelPolicy from "./pages/CancelPolicy"
 import LogIn from "./pages/LogIn"
 import Account from "./pages/Account"
+import MyBookings from "./pages/MyBookings"
 
 import { Route, Routes } from "react-router-dom"
 import useToken from "./useToken"
@@ -28,6 +29,7 @@ function App() {
           <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
           <Route path="/account" element={<Account setToken={setToken}/>} />
+          <Route path="/mybookings" element={<MyBookings token={token}/>} />
         </Routes>
       </div>
     </>
