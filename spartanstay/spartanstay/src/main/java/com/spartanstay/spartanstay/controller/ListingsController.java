@@ -18,7 +18,7 @@ public class ListingsController {
     @GetMapping("/rooms")
     String getRooms(@RequestParam("destination") String destination, @RequestParam("checkIn")
                               @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut, @RequestParam("priceMin") String priceMin, @RequestParam("priceMax") String priceMax)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut, @RequestParam(required = false) String priceMin, @RequestParam(required = false) String priceMax)
     {
         String destId;
         if (destination != null) {
