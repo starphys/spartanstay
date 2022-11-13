@@ -30,7 +30,7 @@ public class ReservationController {
     public String update(@RequestBody Reservation reservation){
         System.out.println(reservation);
         if(reservationService.updateReservation(reservation) != null){
-            return "{\"status\":\"success\", \"message\":\""+reservation.getId()+"updated\"}";
+            return "{\"status\":\"success\", \"message\":\""+reservation.getId()+" updated\"}";
         }
         return "{\"status\":\"failed\"}";
     }
