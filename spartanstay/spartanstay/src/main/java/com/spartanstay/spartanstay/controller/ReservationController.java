@@ -26,6 +26,15 @@ public class ReservationController {
         return "{\"status\":\"failed\"}";
     }
 
+    @PostMapping("/update")
+    public String update(@RequestBody Reservation reservation){
+        System.out.println(reservation);
+        if(reservationService.updateReservation(reservation) != null){
+            return "{\"status\":\"success\", \"message\":\""+reservation.getId()+"updated\"}";
+        }
+        return "{\"status\":\"failed\"}";
+    }
+
     @GetMapping("/getAll")
     public List<Reservation> getAllReservations() {
         return reservationService.getAllReservations();
