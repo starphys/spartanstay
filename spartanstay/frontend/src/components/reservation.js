@@ -20,7 +20,7 @@ function Reservation({token, payment, hotel, setSuccess, setBookings}) {
         const reservation = {roomType,numAdult,numChildren,checkInDate,checkOutDate,phoneNum,specialReq,totalCost,
             email:token.email,firstName:token.firstName,lastName:token.lastName,userId:token.id,
             creditCardNum:payment.cardNum,expDate:payment.expDate,securityCode:payment.securityCode,address:payment.address,
-            hotelId:hotel.id, image:hotel.image}
+            hotelId:hotel.id, image:hotel.image, hotelName:hotel.name}
         fetch("http://localhost:8080/reservation/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

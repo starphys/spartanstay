@@ -50,7 +50,7 @@ function Booking({ booking }) {
                 <div id='resp-table-body'>
                     <div class='resp-table-row'>
                         <img class="imageChange, table-body-cell" src={booking.image} alt="img" />
-                        <div className='table-body-cell'>Hotel Name</div>
+                        <div className='table-body-cell'>{booking.hotelName}</div>
                         <div className='table-body-cell'>{booking.roomType}</div>
                         <div className='table-body-cell'>{booking.checkInDate}</div>
                         <div className='table-body-cell'>{booking.checkOutDate}</div>

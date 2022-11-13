@@ -29,7 +29,8 @@ function App() {
   const hotel = {
     cost: 64.99,
     image: "https://exp.cdn-hotels.com/hotels/1000000/990000/982600/982537/a8559c2d_z.jpg?impolicy=fcrop&w=250&h=140&q=high",
-    id:1
+    id:1,
+    name:"Hagerman Ranch"
   }
 
   return (
