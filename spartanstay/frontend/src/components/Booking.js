@@ -6,9 +6,13 @@
 
 import "./Booking.css";
     
-
-
 function Booking({ booking }) {
+    const today = new Date()
+
+    const cIDate = new Date(booking.checkInDate)
+    const cODate = new Date(booking.checkOutDate)
+    const dateDiff = Math.ceil((cIDate-today)/(1000 * 3600 * 24))
+
     return (
         <div> 
             <div id='resp-table'>
@@ -52,8 +56,8 @@ function Booking({ booking }) {
                         <img class="imageChange, table-body-cell" src={booking.image} alt="img" />
                         <div className='table-body-cell'>{booking.hotelName}</div>
                         <div className='table-body-cell'>{booking.roomType}</div>
-                        <div className='table-body-cell'>{booking.checkInDate}</div>
-                        <div className='table-body-cell'>{booking.checkOutDate}</div>
+                        <div className='table-body-cell'>{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}</div>
+                        <div className='table-body-cell'>{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}</div>
                         <div className='table-body-cell'>{booking.numAdult}</div>
                         <div className='table-body-cell'>{booking.numChildren}</div>
                         <div className='table-body-cell'>{booking.specialReq}</div>
@@ -63,8 +67,12 @@ function Booking({ booking }) {
                     </div>
                 </div>
             </div>
-            <button> Edit Reservation</button>
-            <button> Delete Reservation</button>
+            {dateDiff <= 0 ? "" : 
+                <div>
+                    <button> Edit Reservation</button>
+                    <button> Delete Reservation</button>
+                </div>
+            }
         </div>
     )
 }
