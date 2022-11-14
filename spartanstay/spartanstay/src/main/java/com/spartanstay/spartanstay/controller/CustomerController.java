@@ -25,7 +25,7 @@ public class CustomerController {
         {
 
             System.out.println("Woops! User already exists.");
-            return "{\"status\":\"failure\"}";
+            return "{\"status\":\"failure\", \"message\":\"User already exists\"}";
         }
 
         if(customer.getConfirmPassword().equals(customer.getPassword()))

@@ -11,6 +11,7 @@ function SignUp({setToken}) {
   const[confirmPassword,setConfirmPassword]=useState('')
   
   const[validPass,setValidPass]=useState(true)
+  const[validEmail,setValidEmail]=useState(true)
   const[accountCreated,setAccountCreated]=useState(false)
 
   const navigate = useNavigate()
@@ -27,10 +28,19 @@ function SignUp({setToken}) {
       fetch("http://localhost:8080/credentials/add",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(customer)
-        }).then((response)=>{ return response.json()}).then(data => {
-          setToken(data); setAccountCreated(true) ; navigate('/')})
-      }
+        body:JSON.stringify(customer)})
+        .then((response)=>{ return response.json()})
+        .then(data => {
+          if(data.status === "success") {
+            setToken(data); 
+            setAccountCreated(true); 
+            setValidEmail(true);
+            navigate('/');
+          }
+          else {
+            setValidEmail(false);
+          }
+        })}
   }
   const handleReset = () => {
     setFirstName('')
@@ -75,6 +85,7 @@ function SignUp({setToken}) {
 
         {accountCreated ? <Alert key='success' className="success-msg" variant='success'>Account created for {firstName} {lastName}!</Alert> : ""}
         {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid matching passwords.</Alert>}
+        {validEmail ? '': <Alert key='danger' className="error-msg" variant='danger'>Email already in use.</Alert>}
 
         <button onClick={handleReset} id="reset">Reset</button>
         <button onClick={handleClick}>Sign up</button>
