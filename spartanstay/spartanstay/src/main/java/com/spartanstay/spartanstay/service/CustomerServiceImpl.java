@@ -1,12 +1,18 @@
 package com.spartanstay.spartanstay.service;
 import com.spartanstay.spartanstay.model.Customer;
+import com.spartanstay.spartanstay.model.Reservation;
 import com.spartanstay.spartanstay.repository.CustomerRepository;
+import com.spartanstay.spartanstay.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
+    @Autowired
+    private CustomerRepository customerRepo;
+    @Autowired
+    private ReservationRepository reservationRepo;
     @Override
     public Customer saveCustomer(Customer customer) {
         return customerRepo.save(customer);
@@ -24,10 +30,24 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
+    public boolean customerExistsByID(int id)
+    {
+        return customerRepo.existsById(id);
+    }
+
+    @Override
     public void deleteUser(Customer customer) {
         customerRepo.delete(customer);
     }
 
-    @Autowired
-    private CustomerRepository customerRepo;
+    @Override
+    public void deleteUserById(int id) {
+
+        List<Reservation> temp = reservationRepo.findByUserID(id);
+        for (Reservation r : temp) {
+            reservationRepo.deleteById(r.getId());
+        }
+        customerRepo.deleteById(id);
+
+    }
 }

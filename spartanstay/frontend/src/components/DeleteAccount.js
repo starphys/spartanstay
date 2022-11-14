@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom"
 
-function DeleteAccount({token, setToken}) {
+function DeleteAccount({token, setToken, setBookings}) {
     const navigate=useNavigate();
 
     const handleClick = (e) => {
@@ -15,6 +15,7 @@ function DeleteAccount({token, setToken}) {
         .then(() => {
             localStorage.removeItem('token')
             setToken(null)
+            setBookings(null)
             navigate('/login')
         })
     }

@@ -9,4 +9,6 @@ public interface CustomerService {
     List<Customer> getAllCustomers();
     Customer findCustomer(String email, String password);
     void deleteUser(Customer customer);
+    boolean customerExistsByID(int id);
+    void deleteUserById(int id);
 }

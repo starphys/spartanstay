@@ -67,11 +67,11 @@ public class CustomerController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     String deleteUser(@PathVariable int id)
     {
-        if (!customerRepository.existsById(id))
+        if (!customerService.customerExistsByID(id))
         {
             throw new UserNotFoundException(id);
         }
-        customerRepository.deleteById(id);
+        customerService.deleteUserById(id);
         return "User with ID " + id + " has been deleted successfully.";
 
     }
