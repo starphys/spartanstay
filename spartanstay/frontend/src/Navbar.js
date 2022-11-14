@@ -14,6 +14,8 @@ export default function Navbar({token}) {
         <CustomLink to="/cancellations">Cancellation Policy</CustomLink>
         {token ? "" : <CustomLink to="/login">LogIn</CustomLink>}
         {token ? <CustomLink to="/account">{token.firstName}'s Account</CustomLink> : ""}
+        {token ? <CustomLink to="/mybookings">{token.firstName}'s Bookings</CustomLink> : ""}
+        <CustomLink to="/reservation">Reservation</CustomLink>
       </ul>
     </nav>
   )
