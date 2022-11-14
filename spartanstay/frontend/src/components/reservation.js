@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-function Reservation({token, payment, hotelId, setSuccess}) {
+function Reservation({token, payment, hotel, setSuccess, setBookings}) {
     //room data
     const [specialReq, setSpecialReq] = useState('')
     const [roomType, setRoomType] = useState('')
@@ -11,10 +11,16 @@ function Reservation({token, payment, hotelId, setSuccess}) {
 
     const handleClick = (e) => {
         e.preventDefault()
-        const reservation = {roomType,numAdult,numChildren,checkInDate,checkOutDate,phoneNum,specialReq,
+        const cIDate = new Date(checkInDate)
+        const cODate = new Date(checkOutDate)
+        const tempCost = hotel.cost*Math.ceil((cODate-cIDate)/(1000 * 3600 * 24))
+        const totalCost = `$${(tempCost > 0 ? tempCost : hotel.cost).toFixed(2)}`
+        console.log(`${hotel.cost}, ${checkOutDate}, ${checkInDate}, ${cODate-cIDate}, ${totalCost}`)
+
+        const reservation = {roomType,numAdult,numChildren,checkInDate,checkOutDate,phoneNum,specialReq,totalCost,
             email:token.email,firstName:token.firstName,lastName:token.lastName,userId:token.id,
             creditCardNum:payment.cardNum,expDate:payment.expDate,securityCode:payment.securityCode,address:payment.address,
-            hotelId}
+            hotelId:hotel.id, image:hotel.image, hotelName:hotel.name}
         fetch("http://localhost:8080/reservation/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -23,6 +29,10 @@ function Reservation({token, payment, hotelId, setSuccess}) {
         ).then((response) => {
             return response.json()
         }).then((data) => {console.log(data); if(data.status === "success"){setSuccess(true)} else {setSuccess(false)} })
+        .then(() => {fetch(`http://localhost:8080/reservation/mybookings?id=${token.id}`)
+        .then((response)=>{
+        return response.json()
+        }).then(data => {setBookings(data); return data}).then(data => console.log(data))})
     }
     return (
         //<React.Fragment>

@@ -2,12 +2,12 @@ import "../Account.css";
 import LogOut from "../components/LogOut";
 import DeleteAccount from "../components/DeleteAccount"
 
-function Account({token, setToken}) {    
+function Account({token, setToken, setBookings}) {    
   return (
     <div className="Account">
       <div className="AccountForm">
         <label><b>Account Page</b></label>
-        <LogOut setToken={setToken}/>
+        <LogOut setBookings={setBookings} setToken={setToken}/>
         <DeleteAccount token={token} setToken={setToken}/>
       </div>
     </div>
