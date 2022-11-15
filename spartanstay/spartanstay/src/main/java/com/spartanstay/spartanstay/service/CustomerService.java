@@ -9,4 +9,5 @@ public interface CustomerService {
     Customer saveCustomer(Customer customer);
     List<Customer> getAllCustomers();
     Customer findCustomer(String email, String password);
+    Customer findByEmail(String email);
 }

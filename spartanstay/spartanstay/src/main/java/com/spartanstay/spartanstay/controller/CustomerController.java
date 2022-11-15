@@ -20,6 +20,14 @@ public class CustomerController {
     public String add(@RequestBody Customer customer){
         System.out.println(customer.getId() + customer.getFirstName() + customer.getLastName()
                 + customer.getPassword() + customer.getConfirmPassword());
+
+        if(customerService.findByEmail(customer.getEmail()) != null)
+        {
+
+            System.out.println("Woops! User already exists.");
+            return "{\"status\":\"failure\", \"message\":\"User already exists\"}";
+        }
+
         if(customer.getConfirmPassword().equals(customer.getPassword()))
         {
             customerService.saveCustomer(customer);
@@ -28,9 +36,12 @@ public class CustomerController {
             return "{\"id\":\""+currentUser.getId()+"\"" +
                     ",\"email\":\""+currentUser.getEmail()+
                     "\"" +",\"firstName\":\""+currentUser.getFirstName()+
-                    "\""+",\"lastName\":\""+currentUser.getLastName()+"\"}";
+                    "\""+",\"lastName\":\""+currentUser.getLastName()+"\"" +
+                    ",\"status\":\"success\"}";
         }
-       return "Customer not added, incorrect password";
+
+        System.out.println("Customer not added, incorrect password");
+        return "{\"status\":\"failure\"}";
     }
 
     @GetMapping("/getAll")
