@@ -40,7 +40,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path = "/search" element={<Search results={results} setResults={setResults}/>} />
+          <Route path = "/search" element={<Search results={results} setResults={setResults} token={token} setBookings={setBookings}/>} />
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
           <Route path="/about" element={<About />} />
           <Route path="/payment" element={<Payment token={token} setPayment={setPayment} />} />
