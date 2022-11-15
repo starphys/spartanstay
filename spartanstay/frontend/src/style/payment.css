@@ -45,23 +45,18 @@
   padding: 0 16px;
  }
 
- input[type=text] {
+ .p-input-text {
   width: 100%;
   margin-bottom: 20px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-.input-text {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-label {
+
+.p-label {
   margin-bottom: 10px;
   display: block;
+  font-size: 15px;
 }
 .icon-container {
   margin-top: -5%;
@@ -241,10 +236,6 @@ header {
 
 label, input {
   color: black;
-}
-
-label {
-  font-size: 15px;
 }
 
 #parent {
