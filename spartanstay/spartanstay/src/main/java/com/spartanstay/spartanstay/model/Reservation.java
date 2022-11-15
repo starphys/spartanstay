@@ -23,6 +23,9 @@ public class Reservation {
     private String address;
     private int userId;
     private int hotelId;
+    private String totalCost;
+    private String image;
+    private String hotelName;
 
     public Reservation() {
 
@@ -166,16 +169,19 @@ public class Reservation {
                 ", checkInDate='" + checkInDate + '\'' +
                 ", checkOutDate='" + checkOutDate + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNum=" + phoneNum +
+                ", phoneNum='" + phoneNum + '\'' +
                 ", specialReq='" + specialReq + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", creditCardNum=" + creditCardNum +
-                ", expDate=" + expDate +
+                ", creditCardNum='" + creditCardNum + '\'' +
+                ", expDate='" + expDate + '\'' +
                 ", securityCode=" + securityCode +
                 ", address='" + address + '\'' +
                 ", userId=" + userId +
                 ", hotelId=" + hotelId +
+                ", totalCost='" + totalCost + '\'' +
+                ", image='" + image + '\'' +
+                ", hotelName='" + hotelName + '\'' +
                 '}';
     }
 
@@ -183,4 +189,27 @@ public class Reservation {
         this.hotelId = hotelId;
     }
 
+    public String getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(String totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
 }

@@ -5,6 +5,8 @@ import com.spartanstay.spartanstay.model.Reservation;
 import java.util.List;
 
 public interface ReservationService {
-    public Reservation saveReservation(Reservation reservation);
-    public List<Reservation> getAllReservations();
+    Reservation saveReservation(Reservation reservation);
+    Reservation updateReservation(Reservation reservation);
+    List<Reservation> getAllReservations();
+    List<Reservation> getMyReservations(int id);
 }

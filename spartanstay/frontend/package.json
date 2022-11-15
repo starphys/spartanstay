@@ -17,6 +17,8 @@
     "react-payment-icons": "^1.2.6",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-star-rating": "^1.4.2",
+    "react-star-ratings": "^2.3.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
