@@ -46,7 +46,7 @@ function App() {
           <Route path="/payment" element={<Payment token={token} setPayment={setPayment} />} />
           <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
-          <Route path="/account" element={<Account setToken={setToken} setBookings={setBookings}/>} />
+          <Route path="/account" element={<Account token={token} setToken={setToken} setBookings={setBookings}/>} />
           <Route path="/mybookings" element={<MyBookings bookings={bookings} setBookings={setBookings} token={token}/>} />
           <Route path="/reservation" element={<Reservation token={token} payment={paymentTemp} hotel={hotel} setSuccess={setSuccess} setBookings={setBookings}/>} />
         </Routes>
