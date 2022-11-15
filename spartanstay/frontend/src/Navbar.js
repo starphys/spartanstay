@@ -11,6 +11,7 @@ export default function Navbar({token}) {
         {token  ? "" : <CustomLink to="/sign-up">SignUp</CustomLink>}
         <CustomLink to="/search">Search</CustomLink>
         <CustomLink to="/about">About</CustomLink>
+        <CustomLink to="/payment">Payment</CustomLink>
         <CustomLink to="/cancellations">Cancellation Policy</CustomLink>
         {token ? "" : <CustomLink to="/login">LogIn</CustomLink>}
         {token ? <CustomLink to="/account">{token.firstName}'s Account</CustomLink> : ""}

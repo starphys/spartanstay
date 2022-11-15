@@ -34,6 +34,17 @@ public class CustomerServiceImpl implements CustomerService{
     {
         return customerRepo.existsById(id);
     }
+    
+    @Override
+    public Customer findByEmail(String email){
+        List<Customer> list = customerRepo.findAll();
+        for(int i=0; i<list.size(); i++)
+        {
+            if(list.get(i).getEmail().equals(email))
+                return list.get(i);
+        }
+        return null;
+    }
 
     @Override
     public void deleteUser(Customer customer) {
