@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+ 
+html, body {
+  overflow-x: hidden;
+}
+
+html,body{
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  /* background-color: #f2f2f2; */
+  /* padding: 5px 20px 15px 20px; */
+  /* border: 1px solid lightgrey; */
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+
+
+}
+
+#wrap {
+    width: 100%;
+    margin: 20px auto;
+    position: relative;
+}
+
+header, #main {
+    background: #fff;
+
+      
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+header {
+    display: block;
+    width: 45%;
+    height: 100%;
+
+ 
+    position: relative;
+    z-index: 2;
+}
+
+#main {
+    width: 45%;
+    height: 103%;
+
+    
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    left: 50px;
+}
+
+.fill {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     overflow: hidden;
+     width: 100%;
+     height: 100%;
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
+ }
+ .fill img {
+     flex-shrink: 0;
+     min-width: 100%;
+     min-height: 100%
+
+ }
+
+ .button_slide {
+  color: #FFF;
+  border: 2px solid white;
+  border-radius: 0px;
+  /* padding: 18px 36px; */
+  display: inline-block;
+  /* font-family: "Lucida Console", Monaco, monospace; */
+  font-size: 16px;
+  /* letter-spacing: 1px; */ 
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 white;
+  -webkit-transition: ease-out 0.5s;
+  -moz-transition: ease-out 0.5s;
+  transition: ease-out 0.5s;
+}
+
+.slide_right:hover {
+  box-shadow: inset 400px 0 0 0 White;
+  color: black;
+  border: 2px solid black;
+}
+
+.neonText {
+  color: #fff;
+  text-shadow:
+      0 0 7px #fff;
+}
+
+</style>
+</head>
+<body>
+  <a href='index.html'><h1>Home</h1></a>
+  
+<!-- <div class="row" >
+  <div class="col-75" > -->
+    <div class="fill" style="background-image: url('test7.jpg'); height: 550px;"><h1 class="neonText" style="color: azure; font-size: 56px; margin-left: 0%; -webkit-text-stroke: 1px white;">Payment Info</h1>
+      </div>
+      <br>
+      
+        <div id="wrap" style="margin-left:7%; margin-top: -1.2%;">
+          <form action="/action_page.php">
+          <header><div class="col-50" style="margin-right: 10%; margin-left: 10%;">
+            <br>
+            <h3 style="">Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="New York">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="NY">
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" placeholder="10001">
+              </div>
+            </div>
+          </div></header>
+
+          <div id="main" style="margin-left: 39%; margin-top:8%;">
+          <div class="col-50" style="margin-right: 10%; margin-left: 10%">
+            <br>
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy; font-size: 40px;"></i>
+              <i class="fa fa-cc-amex" style="color:blue; font-size: 40px;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;font-size: 40px;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;font-size: 40px;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+      
+            <div class="row">
+              <div class="" style="width: 30%; margin-left: 3%;">
+                <label for="expmonth">Exp Month</label>
+                <input type="text" id="expmonth" name="expmonth" placeholder="September">
+              </div>
+              <div class="" style="width: 30%; margin-left: 3%;">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2018">
+              </div>
+              <div class="" style="width: 30%; margin-left: 3%;">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
+            </div>
+          </div>
+        
+        
+        <label style="margin-left: 13%;">
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+        </label>
+        <label style="margin-left: 13%;">
+          <input type="checkbox" checked="checked" name="sameadr"> Save payment method
+        </label>
+        <input class="button_slide slide_right" type="submit" style="background-color: black; width: 100%; height: 10%;" value="Continue to checkout" class="btn">
+        </div>
+      </form>
+      </div>
+      
+
+    <!-- </div>
+  </div> -->
+
+
+</body>
+</html>
