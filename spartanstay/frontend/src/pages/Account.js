@@ -5,7 +5,7 @@ function Account({setToken, setBookings}) {
   return (
     <div className="Account">
       <div className="AccountForm">
-        <label><b>Account Page</b></label>
+        <label class = "account-page" ><b>Account Page</b></label>
         <LogOut setBookings={setBookings} setToken={setToken}/>
       </div>
     </div>
