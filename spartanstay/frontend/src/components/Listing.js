@@ -1,5 +1,5 @@
 import StarRatings from "react-star-ratings"
-import "../listing.css";
+import "../style/listing.css";
 
 function Listing ({listing}) {
 //{listing.ratePlan.price.current}

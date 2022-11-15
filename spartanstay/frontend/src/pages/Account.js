@@ -1,4 +1,4 @@
-import "../Account.css";
+import "../style/Account.css";
 import LogOut from "../components/LogOut";
 
 function Account({setToken, setBookings}) {    

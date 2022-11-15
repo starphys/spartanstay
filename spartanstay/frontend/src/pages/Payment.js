@@ -1,5 +1,5 @@
 
- import "../payment.css";
+ import "../style/payment.css";
  import React, { useState } from 'react';
  import PaymentIcon from 'react-payment-icons';
  import { FaUser } from 'react-icons/fa';

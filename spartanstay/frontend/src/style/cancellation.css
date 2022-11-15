@@ -39,7 +39,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('images/test8.jpg'); 
+    background-image: url('../images/test8.jpg'); 
     height: 550px;
 }
 .fill img {

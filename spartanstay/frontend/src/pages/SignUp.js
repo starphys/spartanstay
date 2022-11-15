@@ -1,4 +1,4 @@
-import "../SignUp.css";
+import "../style/SignUp.css";
 import React, {useState} from 'react';
 import Alert from 'react-bootstrap/Alert'
 import { useNavigate } from "react-router-dom";

@@ -195,7 +195,7 @@ button{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('images/newtest2.jpg'); 
+    background-image: url('../images/newtest2.jpg'); 
     height: 500px;
     margin-left: 13%;
     opacity: 0.9;

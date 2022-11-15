@@ -1,9 +1,7 @@
 import {useState} from "react"
 import Results from "./Results"
-import "../search.css";
-
+import "../style/search.css";
 import React from 'react';
-import Alert from 'react-bootstrap/Alert'
 import {FaSearch} from "react-icons/fa";
 
 

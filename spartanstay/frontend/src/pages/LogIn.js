@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert'
 import PropTypes from 'prop-types';
-import "../LogIn.css";
+import "../style/LogIn.css";
 
 function LogIn({token, setToken}) {
   const[email,setEmail]=useState('')

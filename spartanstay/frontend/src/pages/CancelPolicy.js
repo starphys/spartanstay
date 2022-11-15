@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import "../cancellation.css";
-import React, {useState} from 'react';
+import "../style/cancellation.css";
+import React from 'react';
 
 
 function CancelPolicy() {

@@ -168,7 +168,7 @@ header {
      background-size: cover;
      background-repeat: no-repeat;
      background-position: center;
-     background-image: url('./images/test7.jpg');
+     background-image: url('../images/test7.jpg');
      height: 550px;
  }
  .fill img {

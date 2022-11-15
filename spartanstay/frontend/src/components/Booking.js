@@ -5,7 +5,7 @@
 // }
 
 import { useState } from "react";
-import "./Booking.css";
+import "../style/Booking.css";
 
 
 function Booking({ booking,setBookings}) {
