@@ -11,7 +11,40 @@ import org.json.JSONObject;
 public class ListingsServiceImpl implements ListingsService{
 
     @Override
-    public String getListings(String destId, String checkIn, String checkOut, String sortOrder, String adults, String landmark) {
+    public String getListings(String destId, String checkIn, String checkOut, String sortOrder, String adults) {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://hotels4.p.rapidapi.com/properties/list?destinationId="+ destId +
+                        "&pageNumber=1&pageSize=25" +
+                        "&checkIn="+checkIn+
+                        "&checkOut="+checkOut+
+                        "&adults1=" + adults +
+                        "&sortOrder=" + sortOrder +
+                        "&locale=en_US&currency=USD"))
+                .header("X-RapidAPI-Key", Secrets.API_KEY)
+                .header("X-RapidAPI-Host", "hotels4.p.rapidapi.com")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(response.body());
+
+        if(response != null) {
+            JSONObject json = new JSONObject((response.body()));
+            return json.getJSONObject("data").getJSONObject("body")
+                    .getJSONObject("searchResults").getJSONArray("results").toString();
+        }
+        return "{No response from listings search.}";
+
+    }
+
+    @Override
+    public String getListingsWithLandmark(String destId, String checkIn, String checkOut, String sortOrder, String adults, String landmark) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://hotels4.p.rapidapi.com/properties/list?destinationId="+ destId +
                         "&pageNumber=1&pageSize=25" +
@@ -43,7 +76,6 @@ public class ListingsServiceImpl implements ListingsService{
         return "{No response from listings search.}";
 
     }
-
     @Override
     public String getLocationID(String destination) {
         destination = destination.replaceAll(" ", "%20");
@@ -71,6 +103,16 @@ public class ListingsServiceImpl implements ListingsService{
         return "{No response from location search.}";
     }
 
+    @Override
+    public String getLandID(String landmark) {
+        String toBeReturned ="";
+        if(landmark.isEmpty() || landmark == null) {                    //
+            return toBeReturned;
+        }
+        else {
+            return landmark;
+        }
+    }
     @Override
     public String getDetails(String id, String checkIn, String checkOut, String adults) {
         HttpRequest request = HttpRequest.newBuilder()

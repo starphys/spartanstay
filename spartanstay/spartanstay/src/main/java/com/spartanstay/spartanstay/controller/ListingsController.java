@@ -26,8 +26,13 @@ public class ListingsController {
         else {
             destId = "1506246";
         }
+        String landId;
+        if(landmark !=null) {
+            landId = listingService.getLandID(landmark);
+            return listingService.getListingsWithLandmark(destId, checkIn.toString(), checkOut.toString(), "PRICE", "1", landId);
+        }
 
-        return listingService.getListings(destId, checkIn.toString(), checkOut.toString(), "PRICE","1", landmark);
+        return listingService.getListings(destId, checkIn.toString(), checkOut.toString(), "PRICE","1");
     }
 
     @GetMapping("/details")
