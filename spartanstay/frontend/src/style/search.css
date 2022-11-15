@@ -2,7 +2,7 @@
     background-color: #07051a;
 } */
 
-form{
+.search-form{
     position: relative;
     top: 50%;
     left: 50%;
@@ -18,7 +18,7 @@ form{
     margin-top: 13.3%;
 }
 
-input.abc{
+.input-abc{
     position: absolute;
     top: 0;
     left: 0;
@@ -34,7 +34,7 @@ input.abc{
     
 }
 
-label {
+.search-label {
     color: black;
     border-color: black;
     border-radius: 50%;
@@ -52,7 +52,7 @@ label {
     font-size: 1.8em;
 }
 
-input {
+.search-input {
     color: black;
     border-radius: 50%;
     width: 60%;
@@ -142,7 +142,7 @@ form:valid a {
   display: block;
 }
 
-button{
+.search-button{
 	width: 60%;
 	height: 2.5em;
 	margin: 3% auto;
@@ -278,8 +278,6 @@ button{
 }
 
 .sortOrder {
-    
-    
     box-sizing: border-box;
     height: 50px;
     border: 0;
