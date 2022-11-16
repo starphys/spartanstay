@@ -19,6 +19,6 @@ function DeleteAccount({token, setToken, setBookings}) {
             navigate('/login')
         })
     }
-    return <button onClick={handleClick}> Delete Account</button>
+    return <button class = "log-out-button" onClick={handleClick}> Delete Account</button>
 }
 export default DeleteAccount 

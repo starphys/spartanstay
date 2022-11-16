@@ -34,7 +34,7 @@ function Listing ({listing, token, setBookings}) {
                 
                     <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
                 </div>
-            {clicked ? <div><Payment token={token} setPayment={setPayment}/><Reservation payment={payment} hotel={hotel} setSuccess={setSuccess} setBookings={setBookings}/></div> : ""}
+            {clicked ? <div><Payment token={token} setPayment={setPayment}/><Reservation token={token} payment={payment} hotel={hotel} setSuccess={setSuccess} setBookings={setBookings}/></div> : ""}
             </div>
         </div>
     )
