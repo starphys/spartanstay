@@ -22,6 +22,7 @@ function Booking({ booking,setBookings}) {
     const handleEdit = (e) => {
         e.preventDefault()
         setEdit(true)
+        setCancel(false)
     }
 
     const handleConfirm = (e) => {

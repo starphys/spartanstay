@@ -30,6 +30,11 @@ public class ReservationServiceImpl implements ReservationService{
     }
 
     @Override
+    public void cancelReservation(Reservation reservation) {
+        reservationRepository.delete(reservation);
+    }
+
+    @Override
     public Reservation updateReservation(Reservation reservation) {
         Reservation temp  = reservationRepository.getReferenceById(reservation.getId());
         temp = reservation;
