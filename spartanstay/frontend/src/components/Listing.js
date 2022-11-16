@@ -5,7 +5,7 @@ import Payment from "../pages/Payment";
 import Reservation from "./reservation";
 import { useNavigate } from "react-router-dom";
 
-function Listing ({search, listing, token, setBookings}) {
+function Listing ({search, listing, token, setBookings, savedPayments}) {
 //{listing.ratePlan.price.current}
     const [clicked, setClicked] = useState(false)
     const [payment,setPayment] = useState(null)
@@ -85,10 +85,14 @@ function Listing ({search, listing, token, setBookings}) {
             
                 <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
             </div>
-            {cardType === "" ? <div><button onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button>{<button onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button>}</div> : ""}
+            {cardType === "" ? <div><button onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button>{savedPayments.length > 0 ? <button onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button> : ""}</div> : ""}
             <div>
             {cardType === "new" ? <Payment token={token} setPayment={setPayment}/> : ""}
-            {cardType === "saved" ? "Choose saved card" : ""}
+            {cardType === "saved" ? <div><label>Saved Cards</label>
+                                        <select class="e3" onChange={e => setPayment(e.target.value)}>
+                                        {savedPayments.map(savedPayment => {return <option value={savedPayment}>{savedPayment.cardNum}</option>})}
+                                        </select></div>
+        : ""}
             </div>
             </div>
         </div>)
