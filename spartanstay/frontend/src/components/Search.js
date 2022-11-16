@@ -37,9 +37,9 @@ function Search({results, setResults})
       </div>
       <br></br>
       <br></br>
-      <div id="startSearch" class="row">
+      <div id="startSearch" class="rowS">
   <div class="columnS">
-  <label class="dateLabel">Check-in</label>
+  <label class="dateLabel" id="firstDateLabel">Check-in</label>
         <input class="search-input d" type='date' value={startDate} min={today} onChange={(e) => {setStartDate(e.target.value); if(e.target.value > endDate) {setEndDate(e.target.value)}}}/>
         
         </div>  
@@ -82,8 +82,8 @@ function Search({results, setResults})
 
 </div>
 
-<div class = "row">
-<div id="sortDiv" class = "columnS">
+<div class = "rowS">
+<div id = "sortDiv" class = "columnS">
 <label className="sortOrder">Sort by</label>
         <select class="e3" onChange={e => setOrder(e.target.value)}>
           <option value="PRICE">Price: Low to High</option>

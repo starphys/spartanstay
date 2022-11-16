@@ -7,6 +7,7 @@
  import { FaAddressCard } from 'react-icons/fa';
  import { FaCity } from 'react-icons/fa';
  import Alert from 'react-bootstrap/Alert'
+ import { BsFillExclamationCircleFill } from "react-icons/bs";
 
  function Payment({token, setPayment}) {
 
@@ -66,7 +67,7 @@
 
    return (
      <>
-         <div class="fill" ><h1 class="neonText" >Payment Info</h1></div>
+         <div class="fillP" ><h1 class="neonTextP" >Payment Info</h1></div>
 
         <br></br>
         <div id="wrap">
@@ -96,9 +97,11 @@
               </div>
                </div> 
              </header>
+             
              <div id="main">
                <div class="billingAddress">
                  <br></br>
+                 
                  <h3>Payment</h3>
                  <label className="p-label" for="fname">Accepted Cards</label>
                  <div class="icon-container">
@@ -154,10 +157,13 @@
 
           <div id="parent">
             <input class="child saveInput" id="element1"  type="checkbox" name="sameadr" onChange={(e) =>setSavePayment(e.target.value)}></input><label id="element2" class="p-label child save"> Save payment method</label>
+            
           </div>
+          {invalidCard ? <Alert key='danger' className="error-msg numberAlert" variant='danger'><BsFillExclamationCircleFill style={{marginRight: 5, width: 14, height: 14 }}/> Card number and security code must be integer values.</Alert>:"" }
           
-          {invalidCard ? <Alert key='danger' className="error-msg" variant='danger'>Card number and security code must be integer values.</Alert>:"" }
+
           <input class="btn button_slide slide_right" type="button" value="Continue to checkout" onClick={handleClick}></input>
+          
           </div>
         </div>
      </>

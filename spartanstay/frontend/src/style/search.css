@@ -13,10 +13,12 @@
     background: black;
     box-sizing: border-box;
     border-radius: 25px;
-    border: 4px solid black;
+    border: 3px solid black;
     padding: 5px;
-    margin-top: 13.3%;
+    margin-top: 13.2%;
 }
+
+
 
 .input-abc{
     position: absolute;
@@ -26,7 +28,8 @@
     height: 42.5px;
     line-height: 30px;
     outline: 0;
-    border: 0;
+    border: 1px;
+   
     display: none;
     font-size: 1em;
     border-radius: 20px;
@@ -43,13 +46,15 @@
     display: flex;
     margin-bottom: 10%;
     margin-left: -5%;
+    font-weight: 400;
       
 }
 
 .dateLabel {
-    margin-left: -45%;
+    margin-left: 0%;
     color: black;
     font-size: 1.8em;
+    font-weight: 400;
 }
 
 .search-input {
@@ -61,6 +66,7 @@
     justify-content: center;
     display: flex;
     margin: 0% auto;
+
     padding: 1%;
     padding-left: 3%;
     border: none;
@@ -69,27 +75,31 @@
     
 }
 
+
+
 .d
 {
     box-sizing: border-box;
     height: 50px;
-    border: 3px solid black;
+    border: 2px solid black;
     width: 200px;
     padding: 20px;
     font-size: 14px;
-    margin-top: -5.9%;
+    margin-top: 4%;
     margin-left: -5%;
 }
+
+
 
 .e
 {
     box-sizing: border-box;
     height: 50px;
-    border: 3px solid black;
+    border: 2px solid black;
     width: 130px;
     padding: 14px;
     font-size: 14px;
-    margin-top: -8%;
+    margin-top: 3.9%;
 }
 
 .fk{
@@ -100,6 +110,9 @@
     position: absolute;
     top: 0;
     right: 0;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
     border-radius: 50%;
     color: #07051a;
     text-align: center;
@@ -172,7 +185,7 @@ form:valid a {
   }
   
   /* Clear floats after the columns */
-  .row:after {
+  .rowS:after {
     content: "";
     display: table;
     clear: both;
@@ -244,19 +257,22 @@ form:valid a {
 
 #sortDiv {
     margin-left: 75.5%;
-    border: 3px solid black;
+    border: 2.5px solid black;
     width: 11.5%;
+    border-radius: 5px;
+    margin-bottom: 0.5%;
     
     
 }
 
 .e3 {
     box-sizing: border-box;
-    height: 25px;
+    height: 17px;
     
     width: 160px;
     
     font-size: 14px;
+    margin-top: -10%;
     margin-left: 0%;
     border-top: 0px;
     border-color: white;
@@ -267,9 +283,10 @@ form:valid a {
 }
 
 #guestLabel {
-    margin-left: -17%;
+    margin-left: 5%;
     color: black;
     font-size: 1.8em;
+    font-weight: 400;
 }
 
 .dest {
@@ -279,16 +296,16 @@ form:valid a {
 
 .sortOrder {
     box-sizing: border-box;
-    height: 50px;
+    height: 20px;
     border: 0;
     font-weight: 900;
     width: 130px;
     padding-top: 0px;
-    font-size: 14px;
-    margin-left: -23%;
+    font-size: 12px;
+    margin-left: 1%;
     border-radius: 0%;
     border-bottom: 0px;
-    margin-bottom: -21%;
+    margin-bottom: -25%;
     color: grey;
     border-color: white;
 }
