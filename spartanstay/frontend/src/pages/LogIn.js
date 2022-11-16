@@ -43,7 +43,7 @@ function LogIn({token, setToken}) {
     <div className="LogIn">
       
       <div className="LogInForm">
-        <label className="login-label"><b>Login</b></label>
+        <label className="login-label"><b>Log in</b></label>
         <input className="login-input" type="text" placeholder="Email" name="email" value={email}
         onChange={(e)=>setEmail(e.target.value)} required></input>
 
@@ -60,7 +60,7 @@ function LogIn({token, setToken}) {
         
         <button className="login-button" onClick={handleClick}>Login</button>
         
-        <label className="login-label-text">Not a member? <a href=" /sign-up"> Sign up now!</a></label>
+        <label className="login-label-text">Not a member? <a href=" /sign-up" className="sign-up-link"> Sign up now!</a></label>
         
       </div>
     </div>
