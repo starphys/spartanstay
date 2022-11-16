@@ -6,6 +6,7 @@
 
 import { useState } from "react";
 import "./Booking.css";
+import Alert from 'react-bootstrap/Alert'
 
 
 function Booking({ booking,setBookings}) {
@@ -197,7 +198,11 @@ function Booking({ booking,setBookings}) {
                     <div>
                         <button onClick={handleEdit}> Edit Reservation</button>
 
-                        {cancel ? <button onClick={handleConfirm}>Confirm Cancel</button> : <button onClick={handleCancel}> Cancel Reservation</button>}
+                        {cancel ? <>
+                            <Alert key='dark' className="booking-msg" variant='dark'>Canceling today entitles you to a {dateDiff >= 3 ? booking.totalCost : `$${(parseFloat(booking.totalCost.substring(1))*.85).toFixed(2)}` 
+                            } refund.</Alert>
+                            <button onClick={handleConfirm}>Confirm Cancel</button> </>
+                            : <button onClick={handleCancel}> Cancel Reservation</button>}
                     
                     </div>
                 }
