@@ -1,4 +1,5 @@
 package com.spartanstay.spartanstay.service;
+import com.spartanstay.spartanstay.controller.CustomerController;
 import com.spartanstay.spartanstay.model.Customer;
 import com.spartanstay.spartanstay.model.Reservation;
 import com.spartanstay.spartanstay.repository.CustomerRepository;
@@ -13,6 +14,8 @@ public class CustomerServiceImpl implements CustomerService{
     private CustomerRepository customerRepo;
     @Autowired
     private ReservationRepository reservationRepo;
+    @Autowired
+    private CustomerController customerController;
     @Override
     public Customer saveCustomer(Customer customer) {
         return customerRepo.save(customer);
@@ -44,6 +47,32 @@ public class CustomerServiceImpl implements CustomerService{
                 return list.get(i);
         }
         return null;
+    }
+
+    @Override
+    public void addRewardPoint(String totalPrice) {
+        int price = Integer.parseInt(totalPrice);
+        int rewardPoint = customerController.currentUser.getRewardPoints();
+        rewardPoint += (price / 10);
+        customerController.currentUser.setRewardPoints(rewardPoint);
+    }
+
+    @Override
+    public String spendRewardPoint(String totalPrice) {
+        double price = Double.parseDouble(totalPrice);
+        int rewardPoint = customerController.currentUser.getRewardPoints();
+        if(rewardPoint >= price)
+        {
+            rewardPoint -= ((int) price / 10);
+            customerController.currentUser.setRewardPoints(rewardPoint);
+            price = 0;
+        }
+        else
+        {
+            price -= rewardPoint;
+            customerController.currentUser.setRewardPoints(0);
+        }
+        return "{'totalPrice':" + "'" + price+"'}";
     }
 
     @Override
