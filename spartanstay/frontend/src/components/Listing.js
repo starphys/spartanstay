@@ -26,6 +26,13 @@ function Listing ({search, listing, token, setBookings}) {
         setPayment(null)
         navigate('/mybookings')
     }
+    const handleRedirect = (e) => {
+        e.preventDefault()
+        setClicked(!clicked)
+        setCardType("")
+        setPayment(null)
+        navigate('/login')
+    }
 
     const hotel = {
         cost: listing.ratePlan ? listing.ratePlan.price.exactCurrent : 999.99,
@@ -34,6 +41,23 @@ function Listing ({search, listing, token, setBookings}) {
         name: listing.name
       }
 
+      if(clicked && !token) {
+        return (        
+        <div class="xL" >
+        <div class="rowL">
+            <div onClick={handleClick}>
+                <div class="columnL"><div class=""><img class="imageChange" src={listing.optimizedThumbUrls ? listing.optimizedThumbUrls.srpDesktop : "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=250&h=140"} alt="img" /></div></div><br /> 
+                <div id="colL2" class="columnSN"><h3 class="h3Class">{listing.name}</h3><br /> 
+                <div class="starDiv"><h1 class="star"><StarRatings rating={listing.starRating} starRatedColor="black" numberOfStars={5} starDimension="19px" starSpacing="0"/></h1></div></div><br/>
+            
+                <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
+            </div>
+            <div>
+                <button onClick={handleRedirect}>Please login to make a reservation.</button>
+            </div>
+            </div>
+        </div>)
+      }
       if(clicked && payment) {
         return (        
         <div class="xL" >
@@ -61,7 +85,7 @@ function Listing ({search, listing, token, setBookings}) {
             
                 <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
             </div>
-            {cardType === "" ? <div><button onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button><button onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button></div> : ""}
+            {cardType === "" ? <div><button onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button>{<button onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button>}</div> : ""}
             <div>
             {cardType === "new" ? <Payment token={token} setPayment={setPayment}/> : ""}
             {cardType === "saved" ? "Choose saved card" : ""}

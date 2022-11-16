@@ -4,7 +4,7 @@ import Alert from 'react-bootstrap/Alert'
 import PropTypes from 'prop-types';
 import "../style/LogIn.css";
 
-function LogIn({token, setToken}) {
+function LogIn({token, setToken, setSavedPayments}) {
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
   const[validPass,setValidPass]=useState(true)
@@ -27,9 +27,14 @@ function LogIn({token, setToken}) {
         
         if(data.id) {
           setToken(data)
-          setAcccountLoggedIn(true)
-          setValidPass(true)
-          navigate('/')
+          fetch(`http://localhost:8080/payments/getCardDetails?userId=${data.id}&paymentType=type`)
+          .then((response)=>{return response.json()})
+          .then(resp => {
+            setSavedPayments(resp);           
+            setAcccountLoggedIn(true)
+            setValidPass(true)
+            navigate('/')
+          })
         }
         else {
           setValidPass(false)
