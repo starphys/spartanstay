@@ -97,12 +97,12 @@ function Search({results, setResults, token, setBookings, savedPayments})
         </div>
         </div>
 
-<div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">New name, same great savings</h1>
+
+      {results ? <Results results={results} token={token} setBookings={setBookings} search={search} savedPayments={savedPayments}/> : <><div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">New name, same great savings</h1>
 <h3 class="innerSmallText">Secret Prices are now Member Prices. Sign in or join to save an average of 15% on thousands of hotels.​</h3></div> </div></div>
       
       <br></br>
-      <br></br>
-      {results ? <Results results={results} token={token} setBookings={setBookings} search={search} savedPayments={savedPayments}/> : ""}
+      <br></br></>}
       </div>
     );
 }

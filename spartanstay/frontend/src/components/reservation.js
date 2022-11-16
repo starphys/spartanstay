@@ -2,8 +2,10 @@ import React,{useState} from 'react'
 import Alert from 'react-bootstrap/Alert'
 
 function Reservation({token, payment, hotel, setBookings, handleSuccess, search}) {
-    //room data
     const today = new Date().toISOString().slice(0, 10)
+    if(!search) {
+        search={adults:null, children:null, startDate:null,endDate:null}
+    }
 
     const [specialReq, setSpecialReq] = useState('')
     const [roomType, setRoomType] = useState('')
