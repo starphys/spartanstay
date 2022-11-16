@@ -12,7 +12,7 @@ function LogOut ({setToken, setBookings}) {
     }
     
     return (
-        <button onClick={handleLogout} to='/login'>Logout</button>
+        <button class = "log-out-button" onClick={handleLogout} to='/login'>Logout</button>
     )
 }
 
