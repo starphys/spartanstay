@@ -42,7 +42,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path = "/search" element={<Search results={results} setResults={setResults}/>} />
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
-          <Route path="/about" element={<About />} />
           <Route path="/payment" element={<Payment token={token} setPayment={setPayment} />} />
           <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />

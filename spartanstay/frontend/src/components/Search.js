@@ -14,9 +14,11 @@ function Search({results, setResults})
   const [endDate, setEndDate] = useState(today)
   const [order, setOrder] = useState("PRICE")
   const [adults, setAdults] = useState(1)
+  const [waiting, setWaiting] = useState(false)
 
     const handleClick=(e)=>{
         e.preventDefault()
+        setWaiting(true)
         fetch(`http://localhost:8080/listings/rooms?destination=${encodeURIComponent(city.trim())}`+
         `&checkIn=${startDate}`+
         `&checkOut=${endDate}`+
@@ -24,11 +26,11 @@ function Search({results, setResults})
         `&numAdults=${adults}`)
         .then((response)=>{
         return response.json()
-      }).then(data => {setResults(data); return data}).then(data => console.log(data))
+      }).then(data => {setResults(data); return data}).then(data => {console.log(data); setWaiting(false)})
     }
     
     return (
-      <>
+      <div className={waiting ? "waiting" : ""}>
              
       <div className="">
         <div className="">
@@ -99,7 +101,7 @@ function Search({results, setResults})
       <br></br>
       <br></br>
       {results ? <Results results={results} /> : ""}
-      </>
+      </div>
     );
 }
 

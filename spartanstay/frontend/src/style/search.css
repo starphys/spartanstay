@@ -18,7 +18,9 @@
     margin-top: 13.2%;
 }
 
-
+.waiting {
+    cursor:wait;
+}
 
 .input-abc{
     position: absolute;

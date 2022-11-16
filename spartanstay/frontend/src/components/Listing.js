@@ -10,7 +10,7 @@ function Listing ({listing}) {
             <div id="colL2" class="columnSN"><h3 class="h3Class">{listing.name}</h3><br /> 
             <div class="starDiv"><h1 class="star"><StarRatings rating={listing.starRating} starRatedColor="black" numberOfStars={5} starDimension="19px" starSpacing="0"/></h1></div></div><br/>
            
-            <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "Priceless"}</h2></div>
+            <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
             </div>
         </div>
     )
