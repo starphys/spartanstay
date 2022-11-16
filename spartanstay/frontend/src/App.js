@@ -1,7 +1,6 @@
 import Navbar from "./Navbar"
 import SignUp from "./pages/SignUp"
 import Home from "./pages/Home"
-import About from "./pages/About"
 import Payment from "./pages/Payment"
 import React, { useState } from 'react';
 import Search from "./components/Search"
