@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert'
 import PropTypes from 'prop-types';
-import "../LogIn.css";
+import "../style/LogIn.css";
 
 function LogIn({token, setToken}) {
   const[email,setEmail]=useState('')
@@ -43,28 +43,24 @@ function LogIn({token, setToken}) {
     <div className="LogIn">
       
       <div className="LogInForm">
-        <label><b>Login</b></label>
-        <input className="LogInInput" type="text" placeholder="Email" name="email" value={email}
+        <label className="login-label"><b>Login</b></label>
+        <input className="login-input" type="text" placeholder="Email" name="email" value={email}
         onChange={(e)=>setEmail(e.target.value)} required></input>
 
         <br></br>
         <br></br>
         
-        <input className="LogInInput" type="password" placeholder="Password" name="psw" value={password}
+        <input className="login-input" type="password" placeholder="Password" name="psw" value={password}
         onChange={(e)=>setPassword(e.target.value)} required></input>
         <br></br>
         <br></br>
         
-        {/*<label className="text">Remember me</label>
-        <input className="LogInCheckbox" type="checkbox" id="Remember me" name="rem"></input>*/}
-       
-        
         {accountLoggedIn ? <Alert key='success' className="success-msg" variant='success'>Welcome {token.firstName}!</Alert> : ""}
         {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid password and email.</Alert>}
         
-        <button onClick={handleClick}>Login</button>
+        <button className="login-button" onClick={handleClick}>Login</button>
         
-        <label className="text">Not a member? <a href=" /sign-up"> Sign up now!</a></label>
+        <label className="login-label-text">Not a member? <a href=" /sign-up"> Sign up now!</a></label>
         
       </div>
     </div>

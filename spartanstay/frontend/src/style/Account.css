@@ -5,7 +5,7 @@ body {
     height: 100%;
 
 }
-button{
+.log-out-button{
 	width: 60%;
 	height: 2.5em;
 	margin: 5% auto;
@@ -37,7 +37,7 @@ button{
     margin-left: 25%;
     box-shadow: 5px 20px 50px #000
 }
-label {
+.account-page {
     color: whitesmoke;
     font-size: 2.3em;
     justify-content: center;
@@ -45,7 +45,7 @@ label {
     margin-bottom: 10%;
       
 }
-
+/*
 input {
     width: 60%;
     height: 3em;
@@ -60,3 +60,4 @@ input {
     border-radius: 5px;
     
 }
+*/

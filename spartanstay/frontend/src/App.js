@@ -1,7 +1,6 @@
 import Navbar from "./Navbar"
 import SignUp from "./pages/SignUp"
 import Home from "./pages/Home"
-import About from "./pages/About"
 import Payment from "./pages/Payment"
 import React, { useState } from 'react';
 import Search from "./components/Search"
@@ -42,11 +41,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path = "/search" element={<Search results={results} setResults={setResults} token={token} setBookings={setBookings}/>} />
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
-          <Route path="/about" element={<About />} />
           <Route path="/payment" element={<Payment token={token} setPayment={setPayment} />} />
           <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken}/>} />
-          <Route path="/account" element={<Account setToken={setToken} setBookings={setBookings}/>} />
+          <Route path="/account" element={<Account token={token} setToken={setToken} setBookings={setBookings}/>} />
           <Route path="/mybookings" element={<MyBookings bookings={bookings} setBookings={setBookings} token={token}/>} />
           <Route path="/reservation" element={<Reservation token={token} payment={paymentTemp} hotel={hotel} setSuccess={setSuccess} setBookings={setBookings}/>} />
         </Routes>

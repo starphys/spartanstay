@@ -1,11 +1,11 @@
-body {
+.login-body {
     margin: 0;
 	padding: 0;
     min-width: 100%;
     height: 100%;
 
 }
-button{
+.login-button{
 	width: 60%;
 	height: 2.5em;
 	margin: 5% auto;
@@ -39,7 +39,7 @@ button{
 }
 
 
-label {
+.login-label {
     color: whitesmoke;
     font-size: 2.3em;
     justify-content: center;
@@ -49,7 +49,7 @@ label {
    
       
 }
-label.text {
+.login-label-text {
     color:#fff;
     font-size: 1em;
     margin-bottom: 0%;
@@ -58,12 +58,12 @@ label.text {
 }
 
 
-input.LogInCheckbox{
+.login-input-checkbox{
     transform: scale(0.4) ;
     
 }
 
-input {
+.login-input {
     width: 60%;
     height: 3em;
     background: white;

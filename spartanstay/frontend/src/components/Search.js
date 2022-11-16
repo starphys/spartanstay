@@ -1,17 +1,12 @@
 import {useState} from "react"
 import Results from "./Results"
-import "../search.css";
-
+import "../style/search.css";
 import React from 'react';
-import Alert from 'react-bootstrap/Alert'
 import {FaSearch} from "react-icons/fa";
 
 
 function Search({results, setResults, token, setBookings})
 {
-
-
-
   const today = new Date().toISOString().slice(0, 10)
 
   const [city, setCity] = useState("San Jose")
@@ -31,12 +26,11 @@ function Search({results, setResults, token, setBookings})
         `&numAdults=${adults}`)
         .then((response)=>{
         return response.json()
-      }).then(data => {setResults(data); setWaiting(false); return data}).then(data => console.log(data))
+      }).then(data => {setResults(data); return data}).then(data => {console.log(data); setWaiting(false)})
     }
     
     return (
-      <div className={waiting ? "loading" : ""}>
-             
+      <div className={waiting ? "waiting" : ""}>             
       <div className="">
         <div className="">
         </div>
@@ -44,15 +38,15 @@ function Search({results, setResults, token, setBookings})
       </div>
       <br></br>
       <br></br>
-      <div id="startSearch" class="row">
+      <div id="startSearch" class="rowS">
   <div class="columnS">
-  <label class="dateLabel">Check-in</label>
-        <input class="d" type='date' value={startDate} min={today} onChange={(e) => {setStartDate(e.target.value); if(e.target.value > endDate) {setEndDate(e.target.value)}}}/>
+  <label class="dateLabel" id="firstDateLabel">Check-in</label>
+        <input class="search-input d" type='date' value={startDate} min={today} onChange={(e) => {setStartDate(e.target.value); if(e.target.value > endDate) {setEndDate(e.target.value)}}}/>
         
         </div>  
   <div class="columnS">
   <label class="dateLabel">Check-out</label>
-  <input class ="d" type='date' value={endDate} min={startDate} onChange={(e) => {setEndDate(e.target.value)}}/></div>
+  <input class ="search-input d" type='date' value={endDate} min={startDate} onChange={(e) => {setEndDate(e.target.value)}}/></div>
   
   <div class="columnS"> 
   <label id="guestLabel">Number of Guests</label>
@@ -73,14 +67,14 @@ function Search({results, setResults, token, setBookings})
           <option value={5}>5+</option>
         </select>
         </div>
-  <div class="columnS">
-  <label class="dest">Destination</label>
+  <div className="columnS">
+  <label className="search-label dest">Destination</label>
  
-    <form onSubmit={handleClick}>
+    <form className="search-form" onSubmit={handleClick}>
       
       <br></br>
       <br></br>
-  <input class="abc" type="search" required placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}></input>
+  <input className="input-abc" type="search" required placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}></input>
 
   <FaSearch color= "white" class ="fk" onClick = {handleClick}></FaSearch>
   
@@ -89,9 +83,9 @@ function Search({results, setResults, token, setBookings})
 
 </div>
 
-<div class = "row">
-<div id="sortDiv" class = "columnS">
-<label class="sortOrder">Sort by</label>
+<div class = "rowS">
+<div id = "sortDiv" class = "columnS">
+<label className="sortOrder">Sort by</label>
         <select class="e3" onChange={e => setOrder(e.target.value)}>
           <option value="PRICE">Price: Low to High</option>
           <option value="PRICE_HIGHEST_FIRST">Price: High to Low</option>

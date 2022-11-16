@@ -7,7 +7,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
   
-  code {
+code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
@@ -39,7 +39,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('images/test8.jpg'); 
+    background-image: url('../images/test8.jpg'); 
     height: 550px;
 }
 .fill img {
@@ -48,17 +48,16 @@ body {
     min-height: 100%
     
 }
-h1{
+.cancellation-header{
   color: azure; 
   font-size: 56px;
 }
 
-h2,p {
+.h2-cancellation {
   margin-left:13%; 
 
 }
-  
-ul {
+.ul-cancellation {
   line-height: 175%; 
   margin-right: 20%; 
   margin-left:13%;
@@ -75,7 +74,7 @@ ul {
   margin-bottom: 10%;
 }
 
-.marginFix {
+#marginFix {
   margin-top: 4%;
 }
 
