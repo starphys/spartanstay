@@ -4,12 +4,10 @@ import {useState} from "react"
 import Payment from "../pages/Payment";
 import Reservation from "./reservation";
 
-function Listing ({listing, token, setBookings}) {
+function Listing ({search, listing, token, setBookings}) {
 //{listing.ratePlan.price.current}
     const [clicked, setClicked] = useState(false)
     const [payment,setPayment] = useState('')
-    const [success, setSuccess] = useState(false)
-
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -34,7 +32,7 @@ function Listing ({listing, token, setBookings}) {
                 
                     <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
                 </div>
-            {clicked ? <div><Payment token={token} setPayment={setPayment}/><Reservation token={token} payment={payment} hotel={hotel} setSuccess={setSuccess} setBookings={setBookings}/></div> : ""}
+            {clicked ? <div><Payment token={token} setPayment={setPayment}/><Reservation search={search} token={token} payment={payment} hotel={hotel} handleSuccess={handleClick} setBookings={setBookings}/></div> : ""}
             </div>
         </div>
     )

@@ -14,11 +14,14 @@ function Search({results, setResults, token, setBookings})
   const [endDate, setEndDate] = useState(today)
   const [order, setOrder] = useState("PRICE")
   const [adults, setAdults] = useState(1)
+  const [children, setChildren] = useState(0)
   const [waiting, setWaiting] = useState(false)
+  const [search, setSearch] = useState(null)
 
     const handleClick=(e)=>{
         e.preventDefault()
         setWaiting(true)
+        setSearch({startDate:startDate, endDate:endDate, adults:adults, children:children})
         fetch(`http://localhost:8080/listings/rooms?destination=${encodeURIComponent(city.trim())}`+
         `&checkIn=${startDate}`+
         `&checkOut=${endDate}`+
@@ -58,8 +61,8 @@ function Search({results, setResults, token, setBookings})
           <option value={4}>4</option>
           <option value={5}>5+</option>
         </select>
-        <select id="e2" class="e">
-          <option value={1}>Children</option>
+        <select id="e2" class="e" onChange={e => setChildren(e.target.value)}>
+          <option value={0}>Children</option>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>
@@ -99,7 +102,7 @@ function Search({results, setResults, token, setBookings})
       
       <br></br>
       <br></br>
-      {results ? <Results results={results} token={token} setBookings={setBookings} /> : ""}
+      {results ? <Results results={results} token={token} setBookings={setBookings} search={search}/> : ""}
       </div>
     );
 }

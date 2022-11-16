@@ -1,13 +1,19 @@
 import React,{useState} from 'react'
-function Reservation({token, payment, hotel, setSuccess, setBookings}) {
+import Alert from 'react-bootstrap/Alert'
+
+function Reservation({token, payment, hotel, setBookings, handleSuccess, search}) {
     //room data
+    const today = new Date().toISOString().slice(0, 10)
+
     const [specialReq, setSpecialReq] = useState('')
     const [roomType, setRoomType] = useState('')
     const [numAdult, setNumAdult] = useState('')
     const [numChildren, setNumChildren] = useState('')
     const [checkInDate, setCheckInDate] = useState('')
-    const [checkOutDate, setcheckOutDate] = useState('')
+    const [checkOutDate, setCheckOutDate] = useState('')
     const [phoneNum, setPhoneNum] = useState('')
+    const [fail, setFail] = useState(false)
+
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -28,24 +34,16 @@ function Reservation({token, payment, hotel, setSuccess, setBookings}) {
         }
         ).then((response) => {
             return response.json()
-        }).then((data) => {console.log(data); if(data.status === "success"){setSuccess(true)} else {setSuccess(false)} })
+        }).then((data) => {console.log(data); if(data.status === "success"){handleSuccess(e); setFail(false)} else {setFail(true)}})
         .then(() => {fetch(`http://localhost:8080/reservation/mybookings?id=${token.id}`)
         .then((response)=>{
         return response.json()
         }).then(data => {setBookings(data); return data}).then(data => console.log(data))})
     }
     return (
-        //<React.Fragment>
-            
             <div id="form">
-                <h2>Reservation</h2>
-                <form>
-                        {/* <label for="Name">First Name:</label>
-                        <input type="text" placeholder="Sammy" value={firstName} onChange={(e) => setFirstName(e.target.value)}></input> 
-                        
-                        <label for="Name">Last Name:</label>
-                        <input type="text" placeholder="Spartan" value={lastName} onChange={(e) => setLastName(e.target.value)}></input>  */}
-                    
+                <h2>Reservation Details</h2>
+                <form>                    
                         <label>Choose Room Type:</label>
                         <select name="membership" id="membership" onChange={(e) => setRoomType(e.target.value)}>
                         <option value="1 Queen Bed">1 Queen Bed Room</option>
@@ -59,57 +57,21 @@ function Reservation({token, payment, hotel, setSuccess, setBookings}) {
                     
                         
                         <label for="NumberAdults">Number of Adults:</label>
-                        <input type="number" placeholder="Number of Adults" value={numAdult} onChange={(e) => setNumAdult(e.target.value)}></input> 
+                        <input type="number" placeholder="Number of Adults" value={numAdult > 0 ? numAdult : search.adults} onChange={(e) => setNumAdult(e.target.value)}></input> 
                         
                         <label for="NumberChildren">Number of Children:</label>
                         <input type="number" placeholder="Number of Children" value={numChildren} onChange={(e) => setNumChildren(e.target.value)}></input> 
                         
                         <label for="CheckIn">Check-In Date:</label>
-                        <input type="date" placeholder="MM/DD/YEAR" value={checkInDate} onChange={(e) => setCheckInDate(e.target.value)}></input> 
+                        <input type="date" placeholder="MM/DD/YEAR" min={today} value={checkInDate ? checkInDate : search.startDate} onChange={(e) => {setCheckInDate(e.target.value); if(e.target.value > checkOutDate) {setCheckOutDate(e.target.value)}}}></input> 
                         
                         <label for="CheckOut">Check-Out Date:</label>
-                        <input type="date" placeholder="MM/DD/YEAR" value={checkOutDate} onChange={(e) => setcheckOutDate(e.target.value)}></input> 
+                        <input type="date" placeholder="MM/DD/YEAR" min={checkInDate ? checkInDate : today} value={checkOutDate ? checkOutDate : search.endDate} onChange={(e) => setCheckOutDate(e.target.value)}></input> 
                         
                         <label for="PhoneNum">Phone Number</label>
                         <input type="tel" placeholder="XXX-XXX-XXXX" value={phoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input> 
-                        
-                        {/* <label for="Email">Email</label>
-                        <input type="email" placeholder="example@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)}></input>  */}
-                        
-                        {/* <label for="CardNum">Credit Card Number</label>
-                        <input type="text" placeholder="1234-5678-9123-4567" value={creditCardNum} onChange={(e) => setCreditCardNum(e.target.value)}></input>     
-                        
-                        <label for="CardNum">Credit Card Number</label>
-                        <input type="text" placeholder="1234-5678-9123-4567" value={creditCardNum} onChange={(e) => setCreditCardNum(e.target.value)}></input>   
-
-                                                Card Expiration:
-                        <select name='expireMM' id='expireMM'>
-                            <option value=''>Month</option>
-                            <option value='01'>January</option>
-                            <option value='02'>February</option>
-                            <option value='03'>March</option>
-                            <option value='04'>April</option>
-                            <option value='05'>May</option>
-                            <option value='06'>June</option>
-                            <option value='07'>July</option>
-                            <option value='08'>August</option>
-                            <option value='09'>September</option>
-                            <option value='10'>October</option>
-                            <option value='11'>November</option>
-                            <option value='12'>December</option>
-                        </select> 
-                        <select name='expireYY' id='expireYY'>
-                            <option value=''>Year</option>
-                            <option value='20'>2020</option>
-                            <option value='21'>2021</option>
-                            <option value='22'>2022</option>
-                            <option value='23'>2023</option>
-                            <option value='24'>2024</option>
-                        </select> 
-                        <input class="inputCard" type="hidden" name="expiry" id="expiry" maxlength="4"/>
-                    
-             */}
-                    <button onClick={handleClick}> Book</button>
+                    {fail ? <Alert key='danger' className="error-msg" variant='danger'>You already have a reservation at another location overlapping these days. Please cancel that reservation to book this.</Alert> : ""}
+                    <button onClick={handleClick}>Book</button>
                 </form>
             </div>
         //</React.Fragment> 
