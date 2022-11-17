@@ -18,7 +18,8 @@ public class ListingsController {
                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut, @RequestParam("order") String order, 
                     @RequestParam("numAdults") int numAdults, @RequestParam(required = false) String amenity, 
-                    @RequestParam(required = false) String priceMin, @RequestParam(required = false) String priceMax)
+                    @RequestParam(required = false) String priceMin, @RequestParam(required = false) String priceMax, 
+                    @RequestParam(required = false) String landmark)
     {
         String destId;
         if (destination != null) {
@@ -26,6 +27,11 @@ public class ListingsController {
         }
         else {
             destId = "1506246";
+        }
+        String landId;
+        if(landmark !=null) {
+            landmark = listingService.getLandID(landmark);
+            //return listingService.getListingsWithLandmark(destId, checkIn.toString(), checkOut.toString(), "PRICE", "1", landId);
         }
 
         String amenId;
@@ -35,7 +41,7 @@ public class ListingsController {
             //return listingService.getListingsWithAmenities(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenId);
         }
 
-        String results = listingService.getListings(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenity, priceMin, priceMax);
+        String results = listingService.getListings(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenity, priceMin, priceMax, landmark);
         System.out.println(results);
 
         return results;
