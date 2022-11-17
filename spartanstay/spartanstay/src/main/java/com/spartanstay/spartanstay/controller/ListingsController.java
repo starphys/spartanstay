@@ -30,11 +30,11 @@ public class ListingsController {
         String amenId;
         if(amenity != null)
         {
-            amenId = listingService.getAmenityID(amenity);
-            return listingService.getListingsWithAmenities(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenId);
+            amenity = listingService.getAmenityID(amenity);
+            //return listingService.getListingsWithAmenities(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenId);
         }
 
-        String results = listingService.getListings(destId, checkIn.toString(), checkOut.toString(), order,numAdults);
+        String results = listingService.getListings(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenity);
         System.out.println(results);
 
         return results;

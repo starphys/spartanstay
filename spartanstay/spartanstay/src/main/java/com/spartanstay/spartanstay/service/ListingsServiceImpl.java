@@ -11,7 +11,13 @@ import org.json.JSONObject;
 public class ListingsServiceImpl implements ListingsService{
 
     @Override
-    public String getListings(String destId, String checkIn, String checkOut, String sortOrder, int adults) {
+    public String getListings(String destId, String checkIn, String checkOut, String sortOrder, int adults, String amenity) {
+        String filters = new String();
+
+        if(amenity != null) {
+            filters += "&amenityIds=" + amenity;
+        }
+
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://hotels4.p.rapidapi.com/properties/list?destinationId="+ destId +
                         "&pageNumber=1&pageSize=25" +
@@ -19,6 +25,7 @@ public class ListingsServiceImpl implements ListingsService{
                         "&checkOut="+checkOut+
                         "&adults1=" + adults +
                         "&sortOrder=" + sortOrder +
+                        filters +
                         "&locale=en_US&currency=USD"))
                 .header("X-RapidAPI-Key", Secrets.API_KEY)
                 .header("X-RapidAPI-Host", "hotels4.p.rapidapi.com")
@@ -44,7 +51,7 @@ public class ListingsServiceImpl implements ListingsService{
     }
 
     @Override
-    public String getListingsWithAmenities(String destId, String checkIn, String checkOut, String sortOrder, String adults, String amenity) {
+    public String getListingsWithAmenities(String destId, String checkIn, String checkOut, String sortOrder, int adults, String amenity) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://hotels4.p.rapidapi.com/properties/list?destinationId="+ destId +
                         "&pageNumber=1&pageSize=25" +
