@@ -20,10 +20,10 @@ public class ListingsServiceImpl implements ListingsService{
             filters += "&amenityIds=" + amenity;
         }
         if(priceMin != null) {
-            filters += "&priceMin" + priceMin;
+            filters += "&priceMin=" + priceMin;
         }
         if(priceMax != null) {
-            filters += "&priceMax" + priceMax +
+            filters += "&priceMax=" + priceMax;
         }
 
         HttpRequest request = HttpRequest.newBuilder()
