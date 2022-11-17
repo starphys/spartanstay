@@ -15,8 +15,10 @@ public class ListingsController {
     ListingsServiceImpl listingService = new ListingsServiceImpl();
     @GetMapping("/rooms")
     String getRooms(@RequestParam("destination") String destination, @RequestParam("checkIn")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
-                    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut, @RequestParam("order") String order, @RequestParam("numAdults") int numAdults){
+                    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
+                    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut, @RequestParam("order") String order, 
+                    @RequestParam("numAdults") int numAdults, @RequestParam(required = false) String amenity)
+    {
         String destId;
         if (destination != null) {
             destId = listingService.getLocationID(destination);
@@ -24,9 +26,17 @@ public class ListingsController {
         else {
             destId = "1506246";
         }
-        String results = listingService.getListings(destId, checkIn.toString(), checkOut.toString(), order,numAdults);
 
+        String amenId;
+        if(amenity != null)
+        {
+            amenId = listingService.getAmenityID(amenity);
+            return listingService.getListingsWithAmenities(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenId);
+        }
+
+        String results = listingService.getListings(destId, checkIn.toString(), checkOut.toString(), order,numAdults);
         System.out.println(results);
+
         return results;
     }
 
