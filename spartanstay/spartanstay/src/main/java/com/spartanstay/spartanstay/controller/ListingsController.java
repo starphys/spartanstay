@@ -17,7 +17,8 @@ public class ListingsController {
     String getRooms(@RequestParam("destination") String destination, @RequestParam("checkIn")
                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkIn, @RequestParam("checkOut")
                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate checkOut, @RequestParam("order") String order, 
-                    @RequestParam("numAdults") int numAdults, @RequestParam(required = false) String amenity)
+                    @RequestParam("numAdults") int numAdults, @RequestParam(required = false) String amenity, 
+                    @RequestParam(required = false) String priceMin, @RequestParam(required = false) String priceMax)
     {
         String destId;
         if (destination != null) {
@@ -34,7 +35,7 @@ public class ListingsController {
             //return listingService.getListingsWithAmenities(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenId);
         }
 
-        String results = listingService.getListings(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenity);
+        String results = listingService.getListings(destId, checkIn.toString(), checkOut.toString(), order,numAdults, amenity, priceMin, priceMax);
         System.out.println(results);
 
         return results;

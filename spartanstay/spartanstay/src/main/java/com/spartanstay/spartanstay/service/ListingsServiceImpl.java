@@ -11,11 +11,19 @@ import org.json.JSONObject;
 public class ListingsServiceImpl implements ListingsService{
 
     @Override
-    public String getListings(String destId, String checkIn, String checkOut, String sortOrder, int adults, String amenity) {
+    public String getListings(String destId, String checkIn, String checkOut, String sortOrder, int adults, 
+                              String amenity, String priceMin, String priceMax) 
+    {
         String filters = new String();
 
         if(amenity != null) {
             filters += "&amenityIds=" + amenity;
+        }
+        if(priceMin != null) {
+            filters += "&priceMin" + priceMin;
+        }
+        if(priceMax != null) {
+            filters += "&priceMax" + priceMax +
         }
 
         HttpRequest request = HttpRequest.newBuilder()
