@@ -12,7 +12,7 @@ public class ListingsServiceImpl implements ListingsService{
 
     @Override
     public String getListings(String destId, String checkIn, String checkOut, String sortOrder, int adults, 
-                              String amenity, String priceMin, String priceMax) 
+                              String amenity, String priceMin, String priceMax, String landmark)
     {
         String filters = new String();
 
@@ -24,6 +24,9 @@ public class ListingsServiceImpl implements ListingsService{
         }
         if(priceMax != null) {
             filters += "&priceMax=" + priceMax;
+        }
+        if(landmark != null) {
+            filters += "&landmarkIds=" + landmark;
         }
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -205,6 +208,7 @@ public class ListingsServiceImpl implements ListingsService{
             return toBeReturned;
         }
         else {
+            landmark = landmark.replaceAll(" ", "%20");
             return landmark;
         }
     }
