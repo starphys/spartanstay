@@ -72,6 +72,33 @@ public class ListingsServiceImpl implements ListingsService{
     }
 
     @Override
+    public String getStarRatings(String starRatings) {
+        starRatings = starRatings.replaceAll(" ", "%20");
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://hotels4.p.rapidapi.com/properties/get-details?id="+ starRatings +
+                        "&locale=en_US&currency=USD"))
+                .header("X-RapidAPI-Key", Secrets.API_KEY)
+                .header("X-RapidAPI-Host", "hotels4.p.rapidapi.com")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if(response != null) {
+            JSONObject json = new JSONObject(response.body());
+            return json.getJSONArray("suggestions").getJSONObject(0)
+                    .getJSONArray("entities").getJSONObject(0).getString("starRatings");
+        }
+        return "{No response from star rating search.}";
+    }
+
+    @Override
     public String getDetails(String id, String checkIn, String checkOut, String adults) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://hotels4.p.rapidapi.com/properties/get-details?id="+ id +
