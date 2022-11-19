@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+.x{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    
+    background-color: white;
+    margin: 20% 20% 20% 20%;
+
+    border-radius: 10px;
+    border: 2px solid;
+    border-color:
+      rgb(213, 220, 226)
+      rgb(213, 220, 226)
+      rgb(184, 194, 204); 
+    margin-top: 4%; 
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+  }
+
+  .fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../images/test8.jpg'); 
+    height: 550px;
+}
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+    
+}
+.cancellation-header{
+  color: azure; 
+  font-size: 56px;
+}
+
+.h2-cancellation {
+  margin-left:13%; 
+
+}
+.ul-cancellation {
+  line-height: 175%; 
+  margin-right: 20%; 
+  margin-left:13%;
+}
+
+.notfirst {
+  margin-top: 1.5%;
+}
+
+.bottomAdded {
+  line-height: 175%; 
+  margin-right: 20%; 
+  margin-left:13%; 
+  margin-bottom: 10%;
+}
+
+#marginFix {
+  margin-top: 4%;
+}
+
+.marginPara {
+  margin-right: 14.5%;
+  line-height: 175%; 
+}

@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+}
+
+.xL{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+    background-color: white;
+    margin-top: 2%;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color:
+      rgb(213, 220, 226)
+      rgb(213, 220, 226)
+      rgb(184, 194, 204); 
+    
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    height: 206px;
+  }
+  
+
+  .columnL {
+    float: left;
+    width: 25%;
+  }
+
+  .imageChange {
+    height: 203px;
+    width: 300px;
+  }
+
+  
+  /* Clear floats after the columns */
+  .rowL:after {
+    content: "";
+    display: table;
+    clear: both;
+    height: 15%;
+  }
+
+  #colL2 {
+    margin-left: 6%;
+  }
+
+  .h3Class {
+    margin-top: -2%;
+    font-size: 1.1em;
+  }
+
+  .star {
+    margin-top: 5%;
+  }
+
+  .priceBlock {
+    margin-top: 20%;
+
+  }
+
+  .starDiv {
+    position: absolute;
+        bottom: -155px;
+        left: 0;
+    
+  }
+
+  .price {
+    margin-left: 75%;
+    margin-top: 40%;
+    font-size: 1.3em;
+
+  }
+
+
+  .columnSN {
+    float: left;
+    width: 44%;
+    position: relative;
+  }
