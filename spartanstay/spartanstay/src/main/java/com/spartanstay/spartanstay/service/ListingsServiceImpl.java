@@ -30,7 +30,8 @@ public class ListingsServiceImpl implements ListingsService{
         }
 
         if(starRatings != null) {
-            filters += "&starRatings=" + starRatings.replaceAll(" ", "%20");
+            System.out.println(starRatings);
+            filters += "&starRatings=" + starRatings.replaceAll(" ", "%20").replaceAll(",", "%2C");
         }
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -172,13 +173,13 @@ public class ListingsServiceImpl implements ListingsService{
             {
                 toBeReturned = "128";
             }
-            else toBeReturned += "&2C128";
+            else toBeReturned += "%2C128";
         } else if (amenity.contains("Non-Smoking")) {
             if (toBeReturned.equals(""))
             {
                 toBeReturned = "529";
             }
-            else toBeReturned += "&2C529";
+            else toBeReturned += "%2C529";
         }
         else if(amenity.contains("Spa"))
         {
@@ -186,7 +187,7 @@ public class ListingsServiceImpl implements ListingsService{
             {
                 toBeReturned = "539";
             }
-            else toBeReturned += "&2C539";
+            else toBeReturned += "%2C539";
         }
         else if (amenity.contains("Gym"))
         {
@@ -194,13 +195,13 @@ public class ListingsServiceImpl implements ListingsService{
             {
                 toBeReturned = "2";
             }
-            else toBeReturned += "&2C2";
+            else toBeReturned += "%2C2";
         } else if (amenity.contains("Free Wi-fi")) {
             if (toBeReturned.equals(""))
             {
                 toBeReturned = "527";
             }
-            else toBeReturned += "&2C527";
+            else toBeReturned += "%2C527";
         }
         return toBeReturned;
     }
