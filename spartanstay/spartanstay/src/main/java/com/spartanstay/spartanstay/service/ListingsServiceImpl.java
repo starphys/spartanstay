@@ -12,7 +12,7 @@ public class ListingsServiceImpl implements ListingsService{
 
     @Override
     public String getListings(String destId, String checkIn, String checkOut, String sortOrder, int adults, 
-                              String amenity, String priceMin, String priceMax, String landmark)
+                              String amenity, String priceMin, String priceMax, String landmark, String starRatings)
     {
         String filters = new String();
 
@@ -27,6 +27,10 @@ public class ListingsServiceImpl implements ListingsService{
         }
         if(landmark != null) {
             filters += "&landmarkIds=" + landmark;
+        }
+
+        if(starRatings != null) {
+            filters += "&starRatings=" + starRatings.replaceAll(" ", "%20");
         }
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -203,14 +207,40 @@ public class ListingsServiceImpl implements ListingsService{
 
     @Override
     public String getLandID(String landmark) {
-        String toBeReturned ="";
-        if(landmark.isEmpty() || landmark == null) {
+        String toBeReturned = "";
+        if (landmark.isEmpty() || landmark == null) {
             return toBeReturned;
-        }
-        else {
+        } else {
             landmark = landmark.replaceAll(" ", "%20");
             return landmark;
         }
+    }
+
+    @Override
+    public String getStarRatings(String starRatings) {
+        starRatings = starRatings.replaceAll(" ", "%20");
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://hotels4.p.rapidapi.com/properties/get-details?id="+ starRatings +
+                        "&locale=en_US&currency=USD"))
+                .header("X-RapidAPI-Key", Secrets.API_KEY)
+                .header("X-RapidAPI-Host", "hotels4.p.rapidapi.com")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if(response != null) {
+            JSONObject json = new JSONObject(response.body());
+            return json.getJSONArray("suggestions").getJSONObject(0)
+                    .getJSONArray("entities").getJSONObject(0).getString("starRatings");
+        }
+        return "{No response from star rating search.}";
     }
 
     @Override
