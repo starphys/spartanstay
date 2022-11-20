@@ -32,6 +32,7 @@ function SignUp({setToken}) {
         .then((response)=>{ return response.json()})
         .then(data => {
           if(data.status === "success") {
+            console.log(data);
             setToken(data); 
             setAccountCreated(true); 
             setValidEmail(true);

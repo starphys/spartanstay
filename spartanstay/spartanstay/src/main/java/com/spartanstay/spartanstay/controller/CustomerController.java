@@ -41,7 +41,8 @@ public class CustomerController {
                     ",\"email\":\""+currentUser.getEmail()+
                     "\"" +",\"firstName\":\""+currentUser.getFirstName()+
                     "\""+",\"lastName\":\""+currentUser.getLastName()+"\"" +
-                    ",\"status\":\"success\"}";
+                    ", \"rewardPoints\":\"" + currentUser.getRewardPoints() +
+                    "\",\"status\":\"success\"}";
         }
 
         System.out.println("Customer not added, incorrect password");
@@ -63,7 +64,8 @@ public class CustomerController {
             return "{}";
         }
         //json w email, first name, last name
-        return "{\"id\":\""+currentUser.getId()+"\"" +",\"email\":\""+currentUser.getEmail()+"\"" +",\"firstName\":\""+currentUser.getFirstName()+"\""+",\"lastName\":\""+currentUser.getLastName()+"\"}";
+        return "{\"id\":\""+currentUser.getId()+"\"" +",\"email\":\""+currentUser.getEmail()+"\"" +",\"firstName\":\""+currentUser.getFirstName()+"\""+",\"lastName\":\""
+                +currentUser.getLastName()+"\",\"rewardPoints\":\""+ currentUser.getRewardPoints() +"\"}";
     }
 
     @PostMapping("/logout")

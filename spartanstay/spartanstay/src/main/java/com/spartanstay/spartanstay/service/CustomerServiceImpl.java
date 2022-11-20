@@ -14,8 +14,7 @@ public class CustomerServiceImpl implements CustomerService{
     private CustomerRepository customerRepo;
     @Autowired
     private ReservationRepository reservationRepo;
-    @Autowired
-    private CustomerController customerController;
+
     @Override
     public Customer saveCustomer(Customer customer) {
         return customerRepo.save(customer);
@@ -51,15 +50,15 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public void addRewardPoint(String totalPrice) {
-        int price = Integer.parseInt(totalPrice);
+        /*int price = Integer.parseInt(totalPrice);
         int rewardPoint = customerController.currentUser.getRewardPoints();
         rewardPoint += (price / 10);
-        customerController.currentUser.setRewardPoints(rewardPoint);
+        customerController.currentUser.setRewardPoints(rewardPoint);*/
     }
 
     @Override
     public String spendRewardPoint(String totalPrice) {
-        double price = Double.parseDouble(totalPrice);
+        /*double price = Double.parseDouble(totalPrice);
         int rewardPoint = customerController.currentUser.getRewardPoints();
         if(rewardPoint >= price)
         {
@@ -72,7 +71,8 @@ public class CustomerServiceImpl implements CustomerService{
             price -= rewardPoint;
             customerController.currentUser.setRewardPoints(0);
         }
-        return "{'totalPrice':" + "'" + price+"'}";
+        return "{'totalPrice':" + "'" + price+"'}";*/
+        return "";
     }
 
     @Override
