@@ -30,7 +30,7 @@ function Search({results, setResults})
     }
     
     return (
-      <div className={waiting ? "waiting" : ""}>
+      <div className={waiting ? "waiting" : ""} id="s-body">
              
       <div className="">
         <div className="">

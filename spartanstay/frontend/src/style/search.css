@@ -2,6 +2,7 @@
     background-color: #07051a;
 } */
 
+
 .search-form{
     position: relative;
     top: 50%;
@@ -311,3 +312,7 @@ form:valid a {
     color: grey;
     border-color: white;
 }
+
+/* #s-body {
+    background-image: url('../images/testBack2.png');
+} */

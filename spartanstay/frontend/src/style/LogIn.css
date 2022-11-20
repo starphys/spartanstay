@@ -22,7 +22,7 @@
 	transition: .2s ease-in;
 	cursor: pointer;
     border-radius: 60px;
-    background-color: #696969;
+    background-color: black;
     margin-top: 5%;
     transition: all 0.5s;
   cursor: pointer;
@@ -62,7 +62,7 @@
     height: 100vh;
     padding: 3%;
     
-    background-image: url('../images/newTest16.jpg');
+    background-image: url('../images/testBack2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -78,8 +78,8 @@
     color: #fff;
     font-size: 25px;
   text-shadow:
-      0 0 7px #fff;
-  color: azure; 
+      0 0 7px white;
+  color: white; 
   
   
   -webkit-text-stroke: 1px white;
@@ -181,8 +181,8 @@
     font-size: 25px;
     margin-top: 19%;
     margin-left: 25%;
-    font-weight: 400;
-    color: grey;
+    font-weight: 300;
+    color: black;
 
   }
 
@@ -190,7 +190,7 @@
     font-size: 17px;
     margin-top: 10%;
     margin-left: 15%;
-    font-weight: 500;
+    font-weight: 300;
 }
 
 #lDetailsLabel2 {
@@ -208,7 +208,7 @@
     margin-top: 0%;
     height: 5%;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 0.5px solid black;
     /* border-radius: 3px; */
     border-top: 0px;
     border-left: 0px;
@@ -220,7 +220,7 @@
     margin-top: 0%;
 }
 
-  #wrap {
+  #lo-wrap {
     width: 100%;
     margin: 20px auto;
     
@@ -249,8 +249,8 @@
 }
 
 .image-div {
-    background-image: url('../images/newTest22.jpg');
-    
+    background-image: url('../images/newTest9.jpg');
+    opacity: 1;
     height: 100%;
     width: 43%;
     position: absolute;
@@ -272,6 +272,16 @@
     margin-top: -8%;
 }
 
+.neonTextLI {
+    color: #fff;
+    text-shadow:
+        0 0 3px #fff;
+    color: azure; 
+    font-size: 18px; 
+    margin-left: 0%; 
+    -webkit-text-stroke: 0.5px white;
+    font-weight: 100;
+  }
 
 
 

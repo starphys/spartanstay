@@ -45,16 +45,16 @@ function LogIn({token, setToken}) {
     <div className="l-container">
      
      
-     <div id="wrap">
+     <div id="lo-wrap">
             
     
         <header className="l-header">
         
         <div class="image-div">
-        <h2 class="l-quote">Why go a different way, when you have got SpartanStay?</h2>
+        <h2 class="l-quote"></h2>
           </div>
         <div class="" id="login-form">
-        <label className="l-label">Welcome to SpartanStay</label>
+        <label className="l-label">Welcome to LikeHome</label>
         <label className="l-label lDetailsLabel" id="">Email</label>
         <input className="l-input-text" type="text" placeholder="johndoe@gmail.com" name="email" value={email}
         onChange={(e)=>setEmail(e.target.value)} required></input>
@@ -70,7 +70,7 @@ function LogIn({token, setToken}) {
         {accountLoggedIn ? <Alert key='success' className="success-msg" variant='success'>Welcome {token.firstName}!</Alert> : ""}
         {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid password and email.</Alert>}
         
-        <button className="login-button" onClick={handleClick}>Sign in</button>
+        <button className="login-button" onClick={handleClick}><span class="neonTextLI" >Log In</span></button>
         
         <label className="l-label" id="secondLabel">Not a member? <a href=" /sign-up" className="sign-up-link"> Sign up now!</a></label>
         </div>
