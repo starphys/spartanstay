@@ -1,6 +1,6 @@
 function RewardPayment({token, setPayment, cost}) {
 
-    handleClick = (e) => {
+    const handleClick = (e) => {
         e.preventDefault()
         setPayment({
             cardNum:"1234567891011121",
@@ -9,7 +9,6 @@ function RewardPayment({token, setPayment, cost}) {
             address:"999 Residence Drive, Home Town, USA",
             paymentType:"Reward"
           })
-
     }
 
     if(token.rewardPoints >= cost) {
