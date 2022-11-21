@@ -154,25 +154,6 @@ header {
     margin-top:8%;
 }
 
-.fillP {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     overflow: hidden;
-     width: 100%;
-
-     background-size: cover;
-     background-repeat: no-repeat;
-     background-position: center;
-     background-image: url('../images/test7.jpg');
-     height: 550px;
- }
- .fillP img {
-     flex-shrink: 0;
-     min-width: 100%;
-     min-height: 100%
- }
-
  .fa-cc-visa {
     color:navy; 
     font-size: 40px;
@@ -230,7 +211,7 @@ header {
   text-shadow:
       0 0 7px #fff;
   color: azure; 
-  font-size: 56px; 
+  font-size: 1x; 
   margin-left: 0%; 
   -webkit-text-stroke: 1px white;
 }

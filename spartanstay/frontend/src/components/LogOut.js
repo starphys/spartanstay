@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom"
 
-function LogOut ({setToken, setBookings}) {
+function LogOut ({setToken, setBookings, setSavedPayments}) {
     const navigate=useNavigate();
     
     const handleLogout = (e) => {
@@ -8,6 +8,7 @@ function LogOut ({setToken, setBookings}) {
         localStorage.removeItem('token')
         setToken(null)
         setBookings(null)
+        setSavedPayments([])
         navigate('/login')
     }
     
