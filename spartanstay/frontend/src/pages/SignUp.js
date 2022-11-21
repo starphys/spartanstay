@@ -58,7 +58,7 @@ function SignUp({setToken}) {
     <div className="SignUp">
       
       <div className="SignUpForm">
-        <label className="su-label"><b>Sign Up</b></label>
+        <label className="su-label"><b>Sign up</b></label>
         
 
         <input className="su-input" type="text" placeholder="First Name" name="fname" value={firstName}

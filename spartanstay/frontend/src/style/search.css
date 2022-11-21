@@ -311,3 +311,7 @@ form:valid a {
     color: grey;
     border-color: white;
 }
+
+.loading {
+    cursor: wait;
+}

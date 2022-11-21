@@ -26,6 +26,12 @@ public class ReservationController {
         return "{\"status\":\"failed\"}";
     }
 
+    @PostMapping("/cancel")
+    public String cancel(@RequestBody Reservation reservation){
+        reservationService.cancelReservation(reservation);
+        return "{\"status\":\"success\"}";
+    }
+
     @PostMapping("/update")
     public String update(@RequestBody Reservation reservation){
         System.out.println(reservation);
