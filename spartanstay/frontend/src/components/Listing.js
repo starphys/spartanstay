@@ -5,7 +5,7 @@ import Payment from "../pages/Payment";
 import Reservation from "./reservation";
 import { useNavigate } from "react-router-dom";
 
-function Listing ({search, listing, token, setBookings, savedPayments}) {
+function Listing ({search, listing, token, setBookings, savedPayments, setSavedPayments}) {
     const [clicked, setClicked] = useState(false)
     const [payment,setPayment] = useState(null)
     const [cardType, setCardType] = useState('')
@@ -86,7 +86,7 @@ function Listing ({search, listing, token, setBookings, savedPayments}) {
             </div>
             {cardType === "" ? <div><button onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button>{savedPayments.length > 0 ? <button onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button> : ""}</div> : ""}
             <div>
-            {cardType === "new" ? <Payment token={token} setPayment={setPayment}/> : ""}
+            {cardType === "new" ? <Payment token={token} setPayment={setPayment} savedPayments={savedPayments} setSavedPayments={setSavedPayments}/> : ""}
             {cardType === "saved" ? 
                                         <select onfocus={(e) => {this.selectedIndex = -1}} onChange={e => setPayment(e.target.value)}>
                                             <option value="" selected disabled hidden>Saved Cards</option>

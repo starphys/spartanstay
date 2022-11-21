@@ -1,14 +1,12 @@
 import Navbar from "./Navbar"
 import SignUp from "./pages/SignUp"
 import Home from "./pages/Home"
-import Payment from "./pages/Payment"
 import React, { useState } from 'react';
 import Search from "./components/Search"
 import CancelPolicy from "./pages/CancelPolicy"
 import LogIn from "./pages/LogIn"
 import Account from "./pages/Account"
 import MyBookings from "./pages/MyBookings"
-import Reservation from "./components/reservation"
 import { Route, Routes } from "react-router-dom"
 import useToken from "./useToken"
 
@@ -25,7 +23,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path = "/search" element={<Search savedPayments={savedPayments} results={results} setResults={setResults} token={token} setBookings={setBookings} search={search} setSearch={setSearch}/>} />
+          <Route path = "/search" element={<Search savedPayments={savedPayments} setSavedPayments={setSavedPayments} results={results} setResults={setResults} token={token} setBookings={setBookings} search={search} setSearch={setSearch}/>} />
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
           <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken} setSavedPayments={setSavedPayments}/>} />
