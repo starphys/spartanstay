@@ -75,6 +75,20 @@ public class CustomerController {
         return customer.getFirstName() + " " + customer.getLastName() + " was logged out";
     }
 
+    @GetMapping("/getrewards")
+    public String getRewards(@RequestParam() int id, @RequestParam("email") String email, @RequestParam("firstName") String firstName, @RequestParam() String lastName)
+    {
+
+        return "{\"id\":\""+id+"\"" +",\"email\":\""+email+"\"" +",\"firstName\":\""+firstName+"\""+",\"lastName\":\""
+                +lastName+"\",\"rewardPoints\":\""+ customerService.getRewardPoints(id) +"\"}";
+    }
+
+    @PostMapping("/setrewards")
+    public String setRewards(@RequestParam() int id, @RequestParam() int rewardPoints)
+    {
+        return customerService.addRewardPoints(id, rewardPoints);
+    }
+
     // Passing in the ID of the user you want to delete
     // Ex. deleting user #12) localhost:8080/credentials/delete/12
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

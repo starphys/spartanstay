@@ -76,6 +76,19 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
+    public int getRewardPoints(int id) {
+        Customer temp = customerRepo.getReferenceById(id);
+        return temp.getRewardPoints();
+    }
+
+    @Override
+    public String addRewardPoints(int id, int rewardPoints) {
+        Customer temp = customerRepo.getReferenceById(id);
+        temp.setRewardPoints(temp.getRewardPoints() + rewardPoints);
+        return "{\"status\":\"success\"}";
+    }
+
+    @Override
     public void deleteUser(Customer customer) {
         customerRepo.delete(customer);
     }
