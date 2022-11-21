@@ -9,10 +9,10 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search}
 
     const [specialReq, setSpecialReq] = useState('')
     const [roomType, setRoomType] = useState('')
-    const [numAdult, setNumAdult] = useState('')
-    const [numChildren, setNumChildren] = useState('')
-    const [checkInDate, setCheckInDate] = useState('')
-    const [checkOutDate, setCheckOutDate] = useState('')
+    const [numAdult, setNumAdult] = useState(search.adults)
+    const [numChildren, setNumChildren] = useState(search.children)
+    const [checkInDate, setCheckInDate] = useState(search.startDate)
+    const [checkOutDate, setCheckOutDate] = useState(search.endDate)
     const [phoneNum, setPhoneNum] = useState('')
     const [fail, setFail] = useState(false)
 
@@ -62,7 +62,7 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search}
                         <input type="number" placeholder="Number of Adults" value={numAdult > 0 ? numAdult : search.adults} onChange={(e) => setNumAdult(e.target.value)}></input> 
                         
                         <label for="NumberChildren">Number of Children:</label>
-                        <input type="number" placeholder="Number of Children" value={numChildren} onChange={(e) => setNumChildren(e.target.value)}></input> 
+                        <input type="number" placeholder="Number of Children" value={numChildren > 0 ? numChildren : search.children} onChange={(e) => setNumChildren(e.target.value)}></input> 
                         
                         <label for="CheckIn">Check-In Date:</label>
                         <input type="date" placeholder="MM/DD/YEAR" min={today} value={checkInDate ? checkInDate : search.startDate} onChange={(e) => {setCheckInDate(e.target.value); if(e.target.value > checkOutDate) {setCheckOutDate(e.target.value)}}}></input> 

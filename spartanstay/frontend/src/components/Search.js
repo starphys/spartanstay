@@ -5,7 +5,7 @@ import React from 'react';
 import {FaSearch} from "react-icons/fa";
 
 
-function Search({results, setResults, token, setBookings, savedPayments, setSavedPayments})
+function Search({results, setResults, token, setBookings, savedPayments, setSavedPayments, search, setSearch})
 {
   const today = new Date().toISOString().slice(0, 10)
 
@@ -16,7 +16,6 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
   const [adults, setAdults] = useState(1)
   const [children, setChildren] = useState(0)
   const [waiting, setWaiting] = useState(false)
-  const [search, setSearch] = useState(null)
 
     const handleClick=(e)=>{
         e.preventDefault()
