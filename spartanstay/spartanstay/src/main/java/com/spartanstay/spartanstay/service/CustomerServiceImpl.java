@@ -85,6 +85,7 @@ public class CustomerServiceImpl implements CustomerService{
     public String addRewardPoints(int id, int rewardPoints) {
         Customer temp = customerRepo.getReferenceById(id);
         temp.setRewardPoints(temp.getRewardPoints() + rewardPoints);
+        customerRepo.save(temp);
         return "{\"status\":\"success\"}";
     }
 

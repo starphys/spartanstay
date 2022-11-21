@@ -6,7 +6,7 @@ import Reservation from "./reservation";
 import RewardPayment from "./RewardsPayment";
 import { useNavigate } from "react-router-dom";
 
-function Listing ({search, listing, token, setBookings, savedPayments, setSavedPayments}) {
+function Listing ({search, listing, token, setBookings, savedPayments, setSavedPayments, setToken}) {
     const [clicked, setClicked] = useState(false)
     const [payment,setPayment] = useState(null)
     const [cardType, setCardType] = useState('')
@@ -69,7 +69,7 @@ function Listing ({search, listing, token, setBookings, savedPayments, setSavedP
                 <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
             </div>
             <div>
-            <Reservation search={search} token={token} payment={payment} hotel={hotel} handleSuccess={handleSuccess} setBookings={setBookings}/></div>
+            <Reservation search={search} token={token} payment={payment} hotel={hotel} handleSuccess={handleSuccess} setBookings={setBookings} setToken={setToken}/></div>
             </div>
         </div>)
     }

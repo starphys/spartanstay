@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Alert from 'react-bootstrap/Alert'
 
-function Reservation({token, payment, hotel, setBookings, handleSuccess, search}) {
+function Reservation({token, payment, hotel, setBookings, handleSuccess, search, setToken}) {
     const today = new Date().toISOString().slice(0, 10)
     if(!search) {
         search={adults:null, children:null, startDate:null,endDate:null}
@@ -22,7 +22,8 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search}
         const cIDate = new Date(checkInDate)
         const cODate = new Date(checkOutDate)
         const tempCost = hotel.cost*Math.ceil((cODate-cIDate)/(1000 * 3600 * 24))
-        const totalCost = `$${(tempCost > 0 ? tempCost : hotel.cost).toFixed(2)}`
+        const totalCostValue = payment.paymentType === "Reward" ? 0 : (tempCost > 0 ? tempCost : hotel.cost).toFixed(2)
+        const totalCost = `$${totalCostValue}`
         console.log(`${hotel.cost}, ${checkOutDate}, ${checkInDate}, ${cODate-cIDate}, ${totalCost}`)
 
         const reservation = {roomType,numAdult,numChildren,checkInDate,checkOutDate,phoneNum,specialReq,totalCost,
@@ -36,8 +37,27 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search}
         }
         ).then((response) => {
             return response.json()
-        }).then((data) => {console.log(data); if(data.status === "success"){handleSuccess(e); setFail(false)} else {setFail(true)}})
-        .then(() => {fetch(`http://localhost:8080/reservation/mybookings?id=${token.id}`)
+        }).then((data) => {
+            console.log(data); 
+            if(data.status === "success"){
+                if(payment.paymentType === "Reward") {
+                    setToken({...token, rewardPoints:parseInt(token.rewardPoints)-Math.round(totalCostValue)*10})
+                    fetch(`http://localhost:8080/credentials/setrewards?id=${parseInt(token.id)}&rewardPoints=${-Math.round(totalCostValue)*10}`
+                    ).then(console.log(`Spent points`))
+                }
+
+                else {
+                    setToken({...token, rewardPoints:parseInt(token.rewardPoints)+Math.round(totalCostValue)})
+                    fetch(`http://localhost:8080/credentials/setrewards?id=${parseInt(token.id)}&rewardPoints=${Math.round(totalCostValue)}`
+                    ).then(console.log(`Added points`))
+                }
+                handleSuccess(e);
+                setFail(false);
+            } 
+            else {
+                setFail(true)
+            }
+        }).then(() => {fetch(`http://localhost:8080/reservation/mybookings?id=${token.id}`)
         .then((response)=>{
         return response.json()
         }).then(data => {setBookings(data); return data}).then(data => console.log(data))})

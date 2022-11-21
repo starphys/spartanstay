@@ -83,9 +83,10 @@ public class CustomerController {
                 +lastName+"\",\"rewardPoints\":\""+ customerService.getRewardPoints(id) +"\"}";
     }
 
-    @PostMapping("/setrewards")
-    public String setRewards(@RequestParam() int id, @RequestParam() int rewardPoints)
+    @GetMapping("/setrewards")
+    public String setRewards(@RequestParam("id") int id, @RequestParam("") int rewardPoints)
     {
+        System.out.println("Adding " + rewardPoints + " reward points to user "+id+"'s account.");
         return customerService.addRewardPoints(id, rewardPoints);
     }
 
