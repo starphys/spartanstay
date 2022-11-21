@@ -7,6 +7,7 @@ function Account({token, setToken, setBookings, setSavedPayments}) {
     <div className="Account">
       <div className="AccountForm">
         <label class = "account-page" ><b>Account Page</b></label>
+        <label>Reward Points Earned: {token.rewardPoints}</label>
         <LogOut setSavedPayments={setSavedPayments} setBookings={setBookings} setToken={setToken}/>
         <DeleteAccount setSavedPayments={setSavedPayments} token={token} setToken={setToken} setBookings={setBookings}/>
       </div>
