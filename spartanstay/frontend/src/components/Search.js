@@ -3,6 +3,7 @@ import Results from "./Results"
 import "../style/search.css";
 import React from 'react';
 import {FaSearch} from "react-icons/fa";
+import StarRatings from "react-star-ratings";
 
 
 function Search({results, setResults})
@@ -18,6 +19,7 @@ function Search({results, setResults})
   const [minPrice, setMinPrice] = useState(0)
   const [maxPrice, setMaxPrice] = useState(5000)
   const [pool, setPool] = useState(false)
+  const [starRating, setStarRating] = useState(0)
 
   const updatePool = (e) => {
     // e.preventDefault()
@@ -33,10 +35,31 @@ function Search({results, setResults})
         `&order=${order}`+
         `&numAdults=${adults}` + 
         (minPrice > 0 || maxPrice < 5000 ? `&priceMin=${minPrice}&priceMax=${maxPrice}`: "") +
-        "&amenities=" + (pool ? "Pool" : "") )
+        "&amenities=" + (pool ? "Pool" : "") +
+        "&starRatings=" + updateRatingList(starRating))
         .then((response)=>{
         return response.json()
       }).then(data => {setResults(data); return data}).then(data => {console.log(data); setWaiting(false)})
+    }
+
+    const updateRatingList = (rating) => {
+      let ratingList = ""
+      //use fallthrough here for easier processing
+        switch(rating) {
+          case 1:
+            ratingList += "1,"
+          case 2:
+            ratingList += "2,"
+          case 3:
+            ratingList += "3,"
+          case 4:
+            ratingList += "4,"
+          case 5:
+            ratingList += "5,"
+          default:
+            break;
+        }
+      return ratingList.slice(0,-1)
     }
     
     return (
@@ -107,6 +130,8 @@ function Search({results, setResults})
     <button>-</button>
     <label>Pool</label>
     <input type="checkbox" onChange={updatePool}/>
+    <StarRatings rating={starRating} changeRating={setStarRating}></StarRatings>
+    <label>{starRating}</label>
   </div>
   <div>
 
