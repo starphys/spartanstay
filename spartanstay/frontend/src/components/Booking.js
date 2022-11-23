@@ -6,11 +6,13 @@
 
 import { useState } from "react";
 import "../style/Booking.css";
+import Alert from 'react-bootstrap/Alert'
 
 
 function Booking({ booking,setBookings}) {
     const [edit, setEdit]=useState(false)
     const today = new Date()
+    const [cancel, setCancel] = useState(false)
 
 
     const cIDate = new Date(booking.checkInDate)
@@ -20,6 +22,29 @@ function Booking({ booking,setBookings}) {
     const handleEdit = (e) => {
         e.preventDefault()
         setEdit(true)
+        setCancel(false)
+    }
+
+    const handleConfirm = (e) => {
+        e.preventDefault()
+        fetch("http://localhost:8080/reservation/cancel", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(booking)
+        }
+        ).then((response) => {
+            return response.json()
+        }).then((data) => {console.log(data)})
+        .then(() => {fetch(`http://localhost:8080/reservation/mybookings?id=${booking.userId}`)
+        .then((response)=>{
+        return response.json()
+        }).then(data => {setBookings(data); return data}).then(data => console.log(data))})
+        setCancel(false)
+    }
+
+    const handleCancel = (e) => {
+        e.preventDefault()
+        setCancel(true)
     }
 
     const handleSave = (e) => {
@@ -174,7 +199,12 @@ function Booking({ booking,setBookings}) {
                     <div>
                         <button onClick={handleEdit}> Edit Reservation</button>
 
-                        <button> Delete Reservation</button>
+                        {cancel ? <>
+                            <Alert key='dark' className="booking-msg" variant='dark'>Canceling today entitles you to a {dateDiff >= 3 ? booking.totalCost : `$${(parseFloat(booking.totalCost.substring(1))*.85).toFixed(2)}` 
+                            } refund.</Alert>
+                            <button onClick={handleConfirm}>Confirm Cancel</button> </>
+                            : <button onClick={handleCancel}> Cancel Reservation</button>}
+                    
                     </div>
                 }
             </div>
