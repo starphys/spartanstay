@@ -71,7 +71,7 @@
    return (
      <>
      <div class="p-body">
-         <div class="fillP" ><h1 class="neonTextP" >Payment Info</h1></div>
+         <div class="fillP" ><h1 class="neonTextP" >.</h1></div>
 
         <br></br>
         <div id="wrap">
