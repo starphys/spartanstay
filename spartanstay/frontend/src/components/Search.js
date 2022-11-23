@@ -85,15 +85,27 @@ function Search({results, setResults})
 </div>
 
 <div class = "rowS">
-<div id = "sortDiv" class = "columnS">
-<label className="sortOrder">Sort by</label>
+  <div id="filterDiv1" class = "filter">
+    <label class="filterText">Filter by Price</label>
+    <input placeholder="min" class = "min-val"></input>
+    <span class = "to">to</span>
+    <input placeholder="max" class = "max-val"></input>
+  </div>
+  <div id="filterDiv1" class = "filter2">
+    <label class="filterText">Filter by View</label>
+    <input placeholder="Ex. Ocean View" class = "view-input"></input>
+    <button>-</button>
+  </div>
+
+  <div id = "sortDiv" class = "columnS">
+  <label className="sortOrder">Sort by</label>
         <select class="e3" onChange={e => setOrder(e.target.value)}>
           <option value="PRICE">Price: Low to High</option>
           <option value="PRICE_HIGHEST_FIRST">Price: High to Low</option>
           <option value="BEST_SELLER">Best</option>
         </select>
         </div>
-        </div>
+</div>
 
 <div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">New name, same great savings</h1>
 <h3 class="innerSmallText">Secret Prices are now Member Prices. Sign in or join to save an average of 15% on thousands of hotels.​</h3></div> </div></div>
