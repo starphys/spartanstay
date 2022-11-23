@@ -63,7 +63,7 @@ function SignUp({setToken}) {
      <header className="s-header">
         
         <div class="s-image-div">
-        <h2 class="s-quote">LikeHome is a company with values around hospitality.</h2>
+        <h2 class="s-quote">LikeHome is a company with values around hospitality</h2>
           </div>
         <div class="" id="signup-form">
         <label className="su-label su-name">Become a LikeHome member</label>

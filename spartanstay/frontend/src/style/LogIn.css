@@ -71,9 +71,9 @@
 
 .l-quote{
     color: white;
-    margin-top: -95%;
-    margin-left: 13%;
-    margin-right: 60%;
+    margin-top: -85%;
+    margin-left: 5%;
+    margin-right: 50%;
     font-weight: 200;
     color: #fff;
     font-size: 25px;
@@ -249,7 +249,8 @@
 }
 
 .image-div {
-    background-image: url('../images/newTest9.jpg');
+    background-image: url('https://images.unsplash.com/photo-1510665724063-f77a01074aa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzMyfHxob3RlbHxlbnwwfHwwfGJsYWNrfA%3D%3D&auto=format&fit=crop&w=900&q=60');
+    /* https://images.unsplash.com/photo-1656025896889-3a26b178db40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzE3fHxob3RlbHxlbnwwfHwwfGJsYWNrfA%3D%3D&auto=format&fit=crop&w=900&q=60 */
     opacity: 1;
     height: 100%;
     width: 43%;
@@ -282,7 +283,3 @@
     -webkit-text-stroke: 0.5px white;
     font-weight: 100;
   }
-
-
-
-  

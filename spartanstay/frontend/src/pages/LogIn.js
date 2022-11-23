@@ -51,7 +51,7 @@ function LogIn({token, setToken}) {
         <header className="l-header">
         
         <div class="image-div">
-        <h2 class="l-quote"></h2>
+        <p class="l-quote">LikeHome, <pre></pre><pre></pre> an <pre></pre><pre></pre>experience <pre></pre><pre></pre>like<pre></pre><pre></pre> none <pre></pre><pre></pre>other</p>
           </div>
         <div class="" id="login-form">
         <label className="l-label">Welcome to LikeHome</label>
