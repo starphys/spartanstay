@@ -15,15 +15,25 @@ function Search({results, setResults})
   const [order, setOrder] = useState("PRICE")
   const [adults, setAdults] = useState(1)
   const [waiting, setWaiting] = useState(false)
+  const [minPrice, setMinPrice] = useState(0)
+  const [maxPrice, setMaxPrice] = useState(5000)
+  const [pool, setPool] = useState(false)
 
+  const updatePool = (e) => {
+    // e.preventDefault()
+    setPool(!pool)
+  }
     const handleClick=(e)=>{
         e.preventDefault()
+        console.log(minPrice, maxPrice)
         setWaiting(true)
         fetch(`http://localhost:8080/listings/rooms?destination=${encodeURIComponent(city.trim())}`+
         `&checkIn=${startDate}`+
         `&checkOut=${endDate}`+
         `&order=${order}`+
-        `&numAdults=${adults}`)
+        `&numAdults=${adults}` + 
+        (minPrice > 0 || maxPrice < 5000 ? `&priceMin=${minPrice}&priceMax=${maxPrice}`: "") +
+        "&amenities=" + (pool ? "Pool" : "") )
         .then((response)=>{
         return response.json()
       }).then(data => {setResults(data); return data}).then(data => {console.log(data); setWaiting(false)})
@@ -87,14 +97,19 @@ function Search({results, setResults})
 <div class = "rowS">
   <div id="filterDiv1" class = "filter">
     <label class="filterText">Filter by Price</label>
-    <input placeholder="min" class = "min-val"></input>
+    <input placeholder="min" class = "min-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMinPrice(0)} else {setMinPrice(e.target.value)}}}></input>
     <span class = "to">to</span>
-    <input placeholder="max" class = "max-val"></input>
+    <input placeholder="max" class = "max-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMaxPrice(5000)} else {setMaxPrice(e.target.value)}}}></input>
   </div>
   <div id="filterDiv1" class = "filter2">
     <label class="filterText">Filter by View</label>
     <input placeholder="Ex. Ocean View" class = "view-input"></input>
     <button>-</button>
+    <label>Pool</label>
+    <input type="checkbox" onChange={updatePool}/>
+  </div>
+  <div>
+
   </div>
 
   <div id = "sortDiv" class = "columnS">
