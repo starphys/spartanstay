@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom"
 
-function DeleteAccount({token, setToken, setBookings}) {
+function DeleteAccount({token, setToken, setBookings, setSavedPayments}) {
     const navigate=useNavigate();
 
     const handleClick = (e) => {
@@ -16,9 +16,10 @@ function DeleteAccount({token, setToken, setBookings}) {
             localStorage.removeItem('token')
             setToken(null)
             setBookings(null)
+            setSavedPayments([])
             navigate('/login')
         })
     }
-    return <button onClick={handleClick}> Delete Account</button>
+    return <button class = "log-out-button" onClick={handleClick}> Delete Account</button>
 }
 export default DeleteAccount 

@@ -10,12 +10,10 @@ export default function Navbar({token}) {
       <ul className="navbar-links">
         {token  ? "" : <CustomLink to="/sign-up">Sign up</CustomLink>}
         <CustomLink to="/search">Search</CustomLink>
-        <CustomLink to="/payment">Payment</CustomLink>
         <CustomLink to="/cancellations">Cancellation Policy</CustomLink>
         {token ? "" : <CustomLink to="/login">Log in</CustomLink>}
         {token ? <CustomLink to="/account">{token.firstName}'s Account</CustomLink> : ""}
         {token ? <CustomLink to="/mybookings">{token.firstName}'s Bookings</CustomLink> : ""}
-        <CustomLink to="/reservation">Reservation</CustomLink>
       </ul>
     </nav>
   )
