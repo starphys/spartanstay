@@ -9,7 +9,7 @@ export default function Navbar({token}) {
       </Link>
       <ul className="navbar-links">
         {token  ? "" : <CustomLink to="/sign-up">Sign up</CustomLink>}
-        <CustomLink to="/search">Search</CustomLink>
+        <CustomLink to="/">Search</CustomLink>
         <CustomLink to="/cancellations">Cancellation Policy</CustomLink>
         {token ? "" : <CustomLink to="/login">Log in</CustomLink>}
         {token ? <CustomLink to="/account">{token.firstName}'s Account</CustomLink> : ""}
