@@ -32,7 +32,7 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
     }
     
     return (
-      <div className={waiting ? "waiting" : ""}>             
+      <div className={waiting ? "waiting" : ""} id="s-body">    
       <div className="">
         <div className="">
         </div>

@@ -85,7 +85,7 @@ function Listing ({search, listing, token, setBookings, savedPayments, setSavedP
                 <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
             </div>
             {cardType === "" ? <div><button onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button>{savedPayments.length > 0 ? <button onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button> : ""}</div> : ""}
-            <div>
+            <div className="rowL">
             {cardType === "new" ? <Payment token={token} setPayment={setPayment} savedPayments={savedPayments} setSavedPayments={setSavedPayments}/> : ""}
             {cardType === "saved" ? 
                                         <select onfocus={(e) => {this.selectedIndex = -1}} onChange={e => setPayment(e.target.value)}>
