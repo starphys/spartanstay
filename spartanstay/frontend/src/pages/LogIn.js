@@ -56,7 +56,8 @@ function LogIn({token, setToken, setSavedPayments}) {
         <header className="l-header">
         
         <div class="image-div">
-        <p class="l-quote">LikeHome, <pre></pre><pre></pre> an <pre></pre><pre></pre>experience <pre></pre><pre></pre>like<pre></pre><pre></pre> none <pre></pre><pre></pre>other</p>
+        {/* <p class="l-quote">LikeHome, <pre></pre><pre></pre> an <pre></pre><pre></pre>experience <pre></pre><pre></pre>like<pre></pre><pre></pre> none <pre></pre><pre></pre>other</p> */}
+        <p class="l-quote">LikeHome, a hotel experience like <pre></pre>none other</p>
           </div>
         <div class="" id="login-form">
         <label className="l-label">Welcome to LikeHome</label>
