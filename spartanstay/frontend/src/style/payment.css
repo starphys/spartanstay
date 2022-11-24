@@ -119,7 +119,7 @@ span.price {
     width: 100%;
     margin: 20px auto;
     position: relative;
-    margin-left:7%; 
+    margin-left:5.3%; 
     margin-top: -1.2%;
 }
 
@@ -150,8 +150,8 @@ header {
     z-index: 1;
     top: 40px;
     left: 50px;
-    margin-left: 39%; 
-    margin-top:8%;
+    margin-left: 40%; 
+    margin-top:-3.7%;
 }
 
  .fa-cc-visa {

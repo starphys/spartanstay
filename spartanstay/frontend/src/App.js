@@ -22,8 +22,8 @@ function App() {
       <Navbar token={token}/>
       <div className="container">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path = "/search" element={<Search savedPayments={savedPayments} setSavedPayments={setSavedPayments} results={results} setResults={setResults} token={token} setBookings={setBookings} search={search} setSearch={setSearch}/>} />
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path = "/" element={<Search savedPayments={savedPayments} setSavedPayments={setSavedPayments} results={results} setResults={setResults} token={token} setBookings={setBookings} search={search} setSearch={setSearch}/>} />
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
           <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken} setSavedPayments={setSavedPayments}/>} />

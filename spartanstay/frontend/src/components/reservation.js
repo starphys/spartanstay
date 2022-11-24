@@ -44,12 +44,14 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search}
         }).then(data => {setBookings(data); return data}).then(data => console.log(data))})
     }
     return (
-        <div id="wrap">
-            <header className="p-header">
+        <div id="r-wrap">
+            <header className="r-header">
             <div class="ReserveForm">
-            
-                <h2>Reservation</h2>
+                
+                <h2 class="r-title" >Reservation</h2>
 
+                <div class = "rowR">
+                <div class = "columnR">
                 <label class="r-label">Choose Room Type:</label>
                 <select class="roomType r-input-text" name="membership" id="membership" onChange={(e) => setRoomType(e.target.value)}>
                 <option value="1 Queen Bed">1 Queen Bed Room</option>
@@ -57,11 +59,10 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search}
                 <option value="1 King Bed Suite">1 King Bed Suite</option>
                 <option value="1 King Bed Suite Addl Living Area">1 King Bed Suite Addl Living Area</option>
                 </select>
+                </div>
                 
-                <label class="r-label" for="SpecialReq">Special Request:</label>
-                <input class="r-input-text" type="text" placeholder="Special Request" value={specialReq} onChange={(e) => setSpecialReq(e.target.value)}></input> 
-            
-                <div class = "rowR">
+                
+                
                 <div class = "columnR">
                 <label class="r-label" for="NumberAdults">Number of Adults:</label>
                 <input class="r-input-text" type="number" placeholder="Number of Adults" value={numAdult > 0 ? numAdult : search.adults} onChange={(e) => setNumAdult(e.target.value)}></input>
@@ -84,12 +85,18 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search}
                 <label class="r-label" for="CheckOut">Check-Out Date:</label>
                 <input class="r-input-text" type="date" placeholder="MM/DD/YEAR" min={checkInDate ? checkInDate : today} value={checkOutDate ? checkOutDate : search.endDate} onChange={(e) => setCheckOutDate(e.target.value)}></input> 
                 </div>
+
+                <div class = "columnR">
+                <label class="r-label" for="PhoneNum">Phone Number</label>
+                <input class="r-input-text" type="tel" placeholder="XXX-XXX-XXXX" value={phoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input> 
+                </div>
                 </div> 
                 
 
-                <label class="r-label" for="PhoneNum">Phone Number</label>
-                <input class="r-input-text" type="tel" placeholder="XXX-XXX-XXXX" value={phoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input> 
                 
+                <label class="r-label" for="SpecialReq">Special Request:</label>
+                <input class="r-input-text" type="text" placeholder="Special Request" value={specialReq} onChange={(e) => setSpecialReq(e.target.value)}></input> 
+
             {fail ? <Alert key='danger' className="error-msg" variant='danger'>You already have a reservation at another location overlapping these days. Please cancel that reservation to book this.</Alert> : ""}
             <div class="Rbutton_container">
 	            <button class="Rbtn" onClick={handleClick}><span>Reserve Booking</span></button>
