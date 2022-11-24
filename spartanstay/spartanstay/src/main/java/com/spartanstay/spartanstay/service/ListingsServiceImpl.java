@@ -151,7 +151,7 @@ public class ListingsServiceImpl implements ListingsService{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        System.out.println(response);
         if(response != null && response.body().charAt(0) == '{') {
             JSONObject json = new JSONObject(response.body());
             return json.getJSONArray("suggestions").getJSONObject(0)

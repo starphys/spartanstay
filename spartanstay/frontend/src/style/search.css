@@ -324,6 +324,21 @@ form:valid a {
     display: inline-block;
     margin-bottom: -2%;
   }
+  #filterDiv2 {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 13%;
+    display: inline-block;
+    margin-bottom: -2%;
+  }
+  #filterDiv3 {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 13%;
+    display: inline-block;
+    margin-bottom: -2%;
+    height: 7vh;
+  }
   .e4 {
     box-sizing: border-box;
     height: 25px;    
@@ -347,6 +362,7 @@ form:valid a {
     margin-bottom: -21%;
     color: grey;
     border-color: white;
+    display: inline-block;
   }
   
   .min-val {
@@ -355,7 +371,7 @@ form:valid a {
     display: inline-block;
   }
   .to {
-    margin-left: .9%;
+    margin-left: 2.5%;
     color: #333;
   }
   .max-val {
@@ -367,5 +383,78 @@ form:valid a {
     display: inline-block;
     margin: 2%;
   }
-  
+.checkbox {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+}
+.checkbox::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+}
+.checkbox:checked::before{
+    transform: scale(1);
+}
+#line1 {
+    display: inline-block;
+    margin-left: 3%;
+}
+
+#line2 {
+    display: inline-block;
+    margin-left: 3%;
+}
+.filterText3{
+    box-sizing: border-box;
+    height: 50px;
+    border: 0;
+    font-weight: 900;
+    width: 100%;
+    padding-top: 0px;
+    
+    font-size: 14px;
+    border-radius: 0%;
+    border-bottom: 0px;
+    margin-bottom: -21%;
+    color: grey;
+    border-color: white;
+    display: inline-block;
+}
+.filter3 {
+    float: right;
+    margin-right: 46%;
+    padding-left: .7%;
+}
+/*
+.num-of-stars {
+    float: right;
+    margin-top: -7%;
+    margin-right: 35%;
+}
+.star-ratings {
+    margin-top: -46%;
+    padding-left: 2%;
+    color: gold;
+    
+}
+.star-container{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 3.7vh;
+    margin-left: 1.3%;
+}
+*/
   

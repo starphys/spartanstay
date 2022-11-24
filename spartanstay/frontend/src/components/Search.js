@@ -19,11 +19,29 @@ function Search({results, setResults})
   const [minPrice, setMinPrice] = useState(0)
   const [maxPrice, setMaxPrice] = useState(5000)
   const [pool, setPool] = useState(false)
+  const [spa, setSpa] = useState(false)
+  const [gym, setGym] = useState(false)
+  const [petfriendly, setPetFriendly] = useState(false)
+  const [freewifi, setFreeWifi] = useState(false)
   const [starRating, setStarRating] = useState(0)
 
   const updatePool = (e) => {
     // e.preventDefault()
     setPool(!pool)
+  }
+  const updateSpa = (e) => {
+    e.preventDefault()
+    setSpa(!spa)
+  }
+  const updateGym = (e) => {
+    //e.preventDefault()
+    setGym(!gym)
+  }
+  const updatePetFriendly = (e) => {
+    setPetFriendly(!petfriendly)
+  }
+  const updateFreeWifi = (e) => {
+    setFreeWifi(!freewifi)
   }
     const handleClick=(e)=>{
         e.preventDefault()
@@ -36,6 +54,7 @@ function Search({results, setResults})
         `&numAdults=${adults}` + 
         (minPrice > 0 || maxPrice < 5000 ? `&priceMin=${minPrice}&priceMax=${maxPrice}`: "") +
         "&amenities=" + (pool ? "Pool" : "") +
+        "&amenities=" + (spa ? "Spa" : "") +
         "&starRatings=" + updateRatingList(starRating))
         .then((response)=>{
         return response.json()
@@ -125,16 +144,20 @@ function Search({results, setResults})
     <input placeholder="max" class = "max-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMaxPrice(5000)} else {setMaxPrice(e.target.value)}}}></input>
   </div>
   <div id="filterDiv1" class = "filter2">
-    <label class="filterText">Filter by View</label>
-    <input placeholder="Ex. Ocean View" class = "view-input"></input>
-    <button>-</button>
-    <label>Pool</label>
-    <input type="checkbox" onChange={updatePool}/>
-    <StarRatings rating={starRating} changeRating={setStarRating}></StarRatings>
-    <label>{starRating}</label>
-  </div>
-  <div>
+    <label class="filterText">Filter by Amenities</label>
+    
+    <input type="checkbox" id = "line1" onChange={updatePetFriendly}/><label>Pet Friendly</label>
+    <input type="checkbox" onChange={updateFreeWifi}/><label>Free-Wifi</label>
+    <input type="checkbox" id = "line2" onChange={updatePool}/><label>Pool</label>
+    <input type="checkbox" id = "line2" onChange={updateSpa}/><label>Spa</label>
+    <input type="checkbox" id = "line2" onChange={updateGym}/><label>Gym</label>
 
+    
+  </div>
+  <div id="filterDiv3" class = "filter3">
+  <label class="filterText3">Customer Ratings</label>
+    <StarRatings rating={starRating} changeRating={setStarRating} starDimension = "30px" starSpacing="0px" starHoverColor="Gold" starRatedColor="Gold" ></StarRatings>
+    <label class = "num-of-stars">{starRating}</label>
   </div>
 
   <div id = "sortDiv" class = "columnS">
