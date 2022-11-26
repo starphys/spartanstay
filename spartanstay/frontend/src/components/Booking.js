@@ -75,17 +75,21 @@ function Booking({ booking,setBookings}) {
                         <div>
                             <div class="col-L"><div class=""><img class="image" src={booking.image} alt="img" /></div>
                         </div><br/> 
-                            <div id="col-L2" class="col-S"><h3 class="h3">{booking.hotelName}</h3><br/> 
-                        <br/></div>
                         </div>
 
-                        <div id="wrap">
+                        {/* <div id="wrap"> */}
 
                             {/* //pop up edit box */}
-                            <header className="p-header">
+                            <body>
                                 <div class="ReserveForm">
 
-                                <h2>Edit Reservation</h2>
+                                    <h2>Edit Booking</h2>
+
+                                  
+                                    {/* <div class = "rowR">  */}
+
+                                    <label class="r-label">Hotel Name:</label>
+                                        <div class="r-input-text">{booking.hotelName}</div>     
                                    
                                     <label class="r-label">Choose Room Type:</label>
                                     <select class="roomType r-input-text" name="membership" id="membership" onChange={(e) => booking.roomType=(e.target.value)}>
@@ -138,7 +142,7 @@ function Booking({ booking,setBookings}) {
                                     </div>    
                                     
                                     <div class = "columnR">
-                                    <label class="r-label">Booking:</label>
+                                    <label class="r-label">Booking ID:</label>
                                         <div class="r-input-text">{booking.id}</div>
                                     </div>
                                     </div>
@@ -148,8 +152,8 @@ function Booking({ booking,setBookings}) {
                                         <button class = "booking-button" onClick={handleSave}>Save Reservation</button>
                                     </div>
                                 </div>
-                            </header>            
-                        </div>
+                            </body>           
+                        {/* </div> */}
                     </div>   
                     </div>
                 </div>
@@ -166,10 +170,11 @@ function Booking({ booking,setBookings}) {
                         {/* <div id="col-L2" class="col-S"><h3 class="h3">{booking.hotelName}</h3><br />
                         <br/></div> */}
 
-                        <div id="wrap">
+                        {/* <div id="wrap"> */}
 
                             {/* //pop up edit box */}
                             {/* <header className="p-header"> */}
+                            <body>
                                 <div class="ReserveForm">
 
                                     <h2>Booking Information</h2>
@@ -180,6 +185,8 @@ function Booking({ booking,setBookings}) {
                                     <label class="r-label">Hotel Name:</label>
                                         <div class="r-input-text">{booking.hotelName}</div>    
                                     {/* </div>    */}
+                                    <label class="r-label">Room Type</label>
+                                    <div class="r-input-text">{booking.roomType}</div>    
 
                                     
                                     <label class="r-label" for="SpecialReq">Special Request:</label>
@@ -225,7 +232,7 @@ function Booking({ booking,setBookings}) {
                                     </div>    
                                     
                                     <div class = "columnR">
-                                    <label class="r-label">Booking:</label>
+                                    <label class="r-label">Booking ID:</label>
                                         <div class="r-input-text">{booking.id}</div>
                                     </div>
                                     </div>
@@ -247,8 +254,11 @@ function Booking({ booking,setBookings}) {
                                     </div>
 
                                 </div>
+                            </body>       
                             {/* </header>             */}
-                            </div>
+                            
+                                </div>
+                
                         {/* <form>
                         
                             <div id="col-L2" class="col-S"><strong>Special Request:</strong>{booking.specialReq}</div>
@@ -271,7 +281,7 @@ function Booking({ booking,setBookings}) {
     
 
 
-                    </div>
+                    {/* </div> */}
                 </div>
                 </div>
             </div>

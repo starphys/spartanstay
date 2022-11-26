@@ -9,7 +9,7 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search}
     }
 
     const [specialReq, setSpecialReq] = useState('')
-    const [roomType, setRoomType] = useState('')
+    const [roomType, setRoomType] = useState('1 Queen Bed')
     const [numAdult, setNumAdult] = useState(search.adults)
     const [numChildren, setNumChildren] = useState(search.children)
     const [checkInDate, setCheckInDate] = useState(search.startDate)
