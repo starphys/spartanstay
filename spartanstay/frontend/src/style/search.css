@@ -350,7 +350,7 @@ form:valid a {
   }
   .filterText {
     box-sizing: border-box;
-    height: 50px;
+    
     border: 0;
     font-weight: 900;
     width: 100%;

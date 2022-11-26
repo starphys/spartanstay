@@ -166,6 +166,8 @@ function Search({results, setResults})
           <option value="PRICE">Price: Low to High</option>
           <option value="PRICE_HIGHEST_FIRST">Price: High to Low</option>
           <option value="BEST_SELLER">Best</option>
+          <option value="STAR_RATING_HIGHEST_FIRST">Rating: High to Low</option>
+          <option value="STAR_RATING_LOWEST_FIRST">Rating: Low to High</option>
         </select>
         </div>
 </div>
