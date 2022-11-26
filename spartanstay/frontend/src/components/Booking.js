@@ -69,6 +69,7 @@ function Booking({ booking,setBookings}) {
     
     if (edit) {
         return (
+
                 <div>
                     <div class="edit-booking-box" >
                     <div class="edit-b-box">
@@ -244,6 +245,7 @@ function Booking({ booking,setBookings}) {
 
                                 </div>
                         
+
                         {/* <div id="col-L2" class="col-S"><h3 class="h3">{booking.hotelName}</h3><br />
                         <br/></div> */}
 

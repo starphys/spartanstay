@@ -49,7 +49,8 @@
         cardNum:cardNum,
         expDate:expMonth + expYear,
         securityCode:securityCode,
-        address:address
+        address:address,
+        paymentType:"Card"
       })
 
       if(savePayment) {
@@ -70,7 +71,10 @@
 
    return (
      <>
-         <div class="fillP" ><h1 class="neonTextP" >. </h1></div>
+     <div class="p-body">
+         <div class="fillP" ><h1 class="neonTextP" >.</h1></div>
+
+        <br></br>
         <div id="wrap">
              <header className="p-header">
                <div class="billingAddress">
@@ -166,6 +170,7 @@
           <input class="btn button_slide slide_right" type="button" value="Continue to checkout" onClick={handleClick}></input>
           
           </div>
+        </div>
         </div>
      </>
    );
