@@ -5,7 +5,7 @@ body {
     height: 100%;
 
 }
-.log-out-button{
+/* .log-out-button{
 	width: 60%;
 	height: 2.5em;
 	margin: 5% auto;
@@ -21,10 +21,10 @@ body {
 	border-radius: 5px;
 	transition: .2s ease-in;
 	cursor: pointer;
-}
+} */
 .Account {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     padding: 3%;
     
     background-image: url('../images/testBack2.png');
@@ -35,7 +35,7 @@ body {
 
 .a-container {
    
-    margin-top: -8%;
+    margin-top: -12%;
 }
 
 #a-wrap {
@@ -57,7 +57,7 @@ body {
 .a-header {
     display: block;
     width: 65%;
-    height: 600px;
+    height: 520px;
     margin-top: 13%;
     margin-left: 10%;
    
@@ -81,7 +81,7 @@ body {
     font-size: 17px;
     margin-top: 6%;
     margin-left: 15%;
-    font-weight: 200;
+    font-weight: 300;
 
 }
 
@@ -114,7 +114,7 @@ body {
 .a-box {
     margin-left: 15%;
     width: 62%;
-    background-color: #f7f7f7;
+    background-color: #F5F5F5;
     padding-left: -30%;
     border-style: solid 0.5px;
     height: 52px;
@@ -129,6 +129,7 @@ body {
 
 .a-title {
     padding-top: 20px;
+    font-weight: 400;
 }
 
 .a-box-email{
@@ -156,6 +157,128 @@ body {
     margin-top: 4%;
     margin-left: 4%;
 }
+
+.button-row{
+    margin-top: 3%;
+    margin-left: -4%;
+}
+
+.buttonCol{
+    height: 100px;
+    width: 51%;
+    
+}
+
+.delete-button{
+    width: 37%;
+	height: 50%;
+	margin: 5% auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+    background: #333;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 5%;
+	outline: none;
+	border: none;
+	border-radius: 0px;
+	transition: .2s ease-in;
+	cursor: pointer;
+    
+    background-color: black;
+    margin-top: 2%;
+    transition: all 0.25s;
+  cursor: pointer;
+}
+
+.delete-button:hover{
+    background-color: #b92b27;
+  }
+
+  .fillA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../images/testA7.jpg'); 
+    height: 550px;
+}
+.fillA img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+    
+}
+
+.fillA-header{
+    color: azure; 
+    font-size: 56px;
+    color: #fff;
+  text-shadow:
+      0 0 7px #fff;
+  color: azure; 
+  font-size: 1x; 
+  margin-left: 0%; 
+  -webkit-text-stroke: 1px white;
+  }
+.log-out-button{
+	width: 37%;
+	height: 50%;
+	margin: 5% auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+    background: #333;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 5%;
+	outline: none;
+	border: none;
+	border-radius: 0px;
+	transition: .2s ease-in;
+	cursor: pointer;
+    
+    background-color: black;
+    margin-top: 2%;
+    transition: all 0.5s;
+  cursor: pointer;
+ 
+}
+
+.log-out-button{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-left: 30%;
+    transition: 0.5s;
+  }
+  
+  .log-out-button:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    margin-left: 5%;
+    
+    transition: 0.5s;
+  }
+  
+  .log-out-button:hover{
+    padding-right: 24px;
+    padding-left:8px;
+    margin-left: 30%;
+  }
+  
+  .log-out-button:hover:after {
+    opacity: 1;
+    right: 10px;
+    margin-left: 5%;
+  }
 
 .AccountForm {
     background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);

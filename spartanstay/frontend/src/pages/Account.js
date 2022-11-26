@@ -4,11 +4,13 @@ import DeleteAccount from "../components/DeleteAccount"
 
 function Account({token, setToken, setBookings, setSavedPayments}) {    
   return (
+    <>
+    <div class="fillA"><h1 class = "fillA-header">Account Details</h1></div>
     <div className="Account">
       <div className="a-container">
         <div id="a-wrap">
           <header class="a-header">
-        <label class = "a-label a-title" >Account Page</label>
+          <label class="a-label a-title">User Credentials</label>
         <div class="a-row">
         <div class="a-column">
         <label class="a-label aDetailsLabel"> First Name</label>
@@ -30,12 +32,19 @@ function Account({token, setToken, setBookings, setSavedPayments}) {
         <div class="a-box a-box-email"><label class="a-label aDetailsLabel unchangedReward">{token.rewardPoints}</label></div>
         </div>
         </div>
-        <LogOut setSavedPayments={setSavedPayments} setBookings={setBookings} setToken={setToken}/>
+        <div class="a-row button-row">
+        <div class="a-column buttonCol">
         <DeleteAccount setSavedPayments={setSavedPayments} token={token} setToken={setToken} setBookings={setBookings}/>
+        </div>
+        <div class="a-column a-column2 buttonCol">
+        <LogOut setSavedPayments={setSavedPayments} setBookings={setBookings} setToken={setToken}/>
+        </div>
+        </div>
         </header>
         </div>
       </div>
     </div>
+    </>
   );
 }
 
