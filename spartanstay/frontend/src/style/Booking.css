@@ -50,6 +50,25 @@ padding: 10px;
 text-align: justify;
 border-bottom: 1px solid black;
 } */
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../images/test8.jpg'); 
+  height: 550px;
+}
+.fill img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+  
+}
 
 .booking-msg {
   color: #664d03;
@@ -132,7 +151,7 @@ border-bottom: 1px solid black;
     border-radius: 3%;
     border-color: transparent;
     margin-left: 60px;
-    margin-top: 43px;
+    margin-top: 80px;
     width: 370px;
     
   }

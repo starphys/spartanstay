@@ -65,7 +65,8 @@ function Booking({ booking,setBookings}) {
     }
 
   
-
+ 
+    
     if (edit) {
         return (
                 <div>
