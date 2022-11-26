@@ -92,7 +92,25 @@ border-bottom: 1px solid black;
     cursor: pointer;
   }
   
+  .edit-booking-box{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      
+      background-color: white;
+      margin-top: 2%;
+      border-radius: 10px;
+      border: 2px solid;
+      border-color:
+        rgb(213, 220, 226)
+        rgb(213, 220, 226)
+        rgb(184, 194, 204); 
+      
+      margin-left: 22.5%;
+      margin-right: 22.5%;
+      cursor: pointer;
+    }
 
+
+    
   .col-L {
     float: left;
     width: 25%;
@@ -100,11 +118,25 @@ border-bottom: 1px solid black;
 
   .image {
   
-    height: 200px;
-    
-    width: 300px;
+    height: 250px;
+    border-radius: 3%;
+    border-color: transparent;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 350px;
     
   }
+  .image-before-edit {
+  
+    height: 290px;
+    border-radius: 3%;
+    border-color: transparent;
+    margin-left: 60px;
+    margin-top: 43px;
+    width: 370px;
+    
+  }
+  
 
   
   /* Clear floats after the columns */
@@ -114,6 +146,7 @@ border-bottom: 1px solid black;
     clear: both;
     height: 15%;
   }
+  
 
   #col-L2 {
     margin-left: 6%;
@@ -161,7 +194,7 @@ border-bottom: 1px solid black;
  
   .booking-button{
 
-  width: 20%;
+  width: 30%;
 height: 2.5em;
 margin: 5% auto;
 justify-content: center;
@@ -237,12 +270,25 @@ cursor: pointer;
 
 .ReserveForm{
     /* margin-right: 10%;  */
-    margin-left: 15%;
-    
-    width: 70%;
+    margin-left: 18%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 65%;
   }
 
 .r-label {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 15px;
+
+}
+.r-label-id {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 15px;
+
+}
+.r-label-name {
   margin-bottom: 10px;
   display: block;
   font-size: 15px;
@@ -257,12 +303,42 @@ cursor: pointer;
     border-radius: 3px;
   }
 
+  .r-input-text-cost {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px;
+    border-color: transparent;
+    border-radius: 3px;
+    margin-left: -6%;
+  }
+
+  .r-input-text-id {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px;
+    border-color: transparent;
+    border-radius: 3px;
+    margin-left: -6%;
+  }
+
   .columnR {
     width: 47.0%; 
   margin-left: 3%;
     
   }
+  .columnR-before-edit {
+    width: 47.0%; 
+  margin-left: 3%;
+    
+  }
+  .columnR-before-hotel {
+    width: 70%; 
+  margin-left: 3%;
   
+    
+  }
   /* Clear floats after the columns */
   .rowR {
     display: -ms-flexbox; /* IE10 */
@@ -273,7 +349,28 @@ cursor: pointer;
     width: 104%;
     
   }
-
+  .rowR-before-edit {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    width: 70%;
+    margin-left: 40%;
+    
+  }
+  .rowR-before-hotel {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    width: 70%;
+    margin-left: 40%;
+    
+  }
+  
+  
 .rForm {
     width: 100%;
 }

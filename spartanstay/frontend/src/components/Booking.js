@@ -69,13 +69,13 @@ function Booking({ booking,setBookings}) {
     if (edit) {
         return (
                 <div>
-                    <div class="booking-box" >
-                    <div class="b-box">
+                    <div class="edit-booking-box" >
+                    <div class="edit-b-box">
 
-                        <div>
+                        {/*<div>
                             <div class="col-L"><div class=""><img class="image" src={booking.image} alt="img" /></div>
                         </div><br/> 
-                        </div>
+        </div>*/}
 
                         {/* <div id="wrap"> */}
 
@@ -165,37 +165,36 @@ function Booking({ booking,setBookings}) {
                 <div class="booking-box" >
                 <div class="b-box">
                     <div>
-                        <div class="col-L"><div class=""><img class="image" src={booking.image} alt="img" /></div></div><br />
-                        
-                        {/* <div id="col-L2" class="col-S"><h3 class="h3">{booking.hotelName}</h3><br />
-                        <br/></div> */}
+                        <div class="col-L"><div class=""><img class="image-before-edit" src={booking.image} alt="img" /></div></div><br />
+                        <div class="ReserveForm">
 
-                        {/* <div id="wrap"> */}
-
-                            {/* //pop up edit box */}
-                            {/* <header className="p-header"> */}
-                            <body>
-                                <div class="ReserveForm">
-
-                                    <h2>Booking Information</h2>
+                                    
+                                       <div class = "rowR-before-hotel">
+                                       <div class = "columnR-before-hotel">
+                                    <h2><label></label>
+                                        <div >{booking.hotelName}</div></h2>
+                                        </div>
+                                        </div>
+                                        <div class = "rowR-before-edit">
+                                        <div class = "columnR-before-edit">
+                                        <div class="r-input-text-id">ID: {booking.id}</div>
+                                        </div>
+                                        
+                                        <div class = "columnR">  
+                                        <div class="r-input-text-cost">Total Cost: {booking.totalCost}</div>
+                                    </div>
+                                    </div>
+                                        
+                                        
 
                                   
                                     {/* <div class = "rowR">  */}
 
-                                    <label class="r-label">Hotel Name:</label>
-                                        <div class="r-input-text">{booking.hotelName}</div>    
-                                    {/* </div>    */}
-                                    <label class="r-label">Room Type</label>
-                                    <div class="r-input-text">{booking.roomType}</div>    
-
                                     
-                                    <label class="r-label" for="SpecialReq">Special Request:</label>
-                                    <div>
-                                        <div class="r-input-text">{booking.specialReq}</div>
-                                    </div>
 
-                                    <div class = "rowR">
-                                    <div class = "columnR">
+
+                                    <div class = "rowR-before-edit">
+                                    <div class = "columnR-before-edit">
                                         <label class="r-label" for="NumberAdults">Number of Adults:</label>
                                         <div class="r-input-text">{booking.numAdult}</div>
                                         </div>
@@ -207,8 +206,8 @@ function Booking({ booking,setBookings}) {
                                     </div>
 
 
-                                    <div class = "rowR">
-                                    <div class = "columnR">
+                                    <div class = "rowR-before-edit">
+                                    <div class = "columnR-before-edit">
                                     <label class="r-label" for="CheckIn">Check-In Date:</label>
                                         <div class="r-input-text">{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}
                                         </div>
@@ -222,22 +221,11 @@ function Booking({ booking,setBookings}) {
                                     </div>
                                     </div>
                                                                         
-                                    <label class="r-label" for="PhoneNum">Phone Number</label>
-                                    <div class="r-input-text">{booking.phoneNum}</div>
+                                   
                                     
-                                    <div class = "rowR">
-                                    <div class = "columnR">
-                                    <label class="r-label">Total Cost</label>
-                                        <div class="r-input-text">{booking.totalCost}</div>
-                                    </div>    
+                                  
                                     
-                                    <div class = "columnR">
-                                    <label class="r-label">Booking ID:</label>
-                                        <div class="r-input-text">{booking.id}</div>
-                                    </div>
-                                    </div>
-                                    
-                                                                
+                                                              
                                     <div id="buttons" class="col-L3"><h4 class="h4">
                                     <div>{dateDiff <= 0 ? "" :
                                         <div>
@@ -251,9 +239,20 @@ function Booking({ booking,setBookings}) {
                                         
                                         </div>
                                     }</div></h4>
+                                    
                                     </div>
 
                                 </div>
+                        
+                        {/* <div id="col-L2" class="col-S"><h3 class="h3">{booking.hotelName}</h3><br />
+                        <br/></div> */}
+
+                        {/* <div id="wrap"> */}
+
+                            {/* //pop up edit box */}
+                            {/* <header className="p-header"> */}
+                            <body>
+                                
                             </body>       
                             {/* </header>             */}
                             
