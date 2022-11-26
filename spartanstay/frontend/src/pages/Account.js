@@ -29,7 +29,7 @@ function Account({token, setToken, setBookings, setSavedPayments}) {
         <div class="a-row">
         <div class="a-column a-single-col-rew">
         <label class="a-label aDetailsLabel a-email">Reward Points Earned</label>
-        <div class="a-box a-box-email"><label class="a-label aDetailsLabel unchangedReward">{token.rewardPoints}</label></div>
+        <div class="a-box a-box-email"><label class="a-label aDetailsLabel unchangedReward">{token.rewardPoints} pts</label></div>
         </div>
         </div>
         <div class="a-row button-row">

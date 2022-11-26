@@ -23,7 +23,7 @@ function SignUp({setToken}) {
     }
     else{
       setValidPass(true)
-      const customer={firstName,lastName,email,password,confirmPassword}
+      const customer={firstName,lastName,email,password,confirmPassword,rewardPoints:0}
       console.log(customer)
       fetch("http://localhost:8080/credentials/add",{
         method:"POST",
