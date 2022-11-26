@@ -13,7 +13,7 @@ function RewardPayment({token, setPayment, cost}) {
 
     if(token.rewardPoints >= cost) {
         return (
-            <button onClick={handleClick}>Pay with {cost} Reward Points</button>
+            <button onClick={handleClick}>Pay with {cost} Reward Points per night</button>
         )
     }
     else {

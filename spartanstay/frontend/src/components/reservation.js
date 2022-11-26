@@ -1,11 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import Alert from 'react-bootstrap/Alert'
 
-function Reservation({token, payment, hotel, setBookings, handleSuccess, search, setToken}) {
+function Reservation({token, payment, hotel, setBookings, handleSuccess, search, setToken, cost}) {
     const today = new Date().toISOString().slice(0, 10)
-    if(!search) {
-        search={adults:null, children:null, startDate:null,endDate:null}
-    }
+    const maxDays = Math.floor(token.rewardPoints/cost)
 
     const [specialReq, setSpecialReq] = useState('')
     const [roomType, setRoomType] = useState('')
@@ -15,16 +13,41 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search,
     const [checkOutDate, setCheckOutDate] = useState(search.endDate)
     const [phoneNum, setPhoneNum] = useState('')
     const [fail, setFail] = useState(false)
+    const [pointsSpend, setPointsSpend] = useState(cost)
 
+    const cIDate = new Date(checkInDate)
+    const cODate = new Date(checkOutDate)
+    const diff = Math.ceil((cODate-cIDate)/(1000 * 3600 * 24))
+    const days = diff > 0 ? diff : 1
+    const tempCost = hotel.cost*days
+    const pointsReward = Math.round(tempCost)
+
+
+    if(!search) {
+        search={adults:null, children:null, startDate:null,endDate:null}
+    }
+
+    const [pointsEarn, setPointsEarn] = useState(pointsReward)
+
+    const findLastDay = () => {
+        let lastDayForRewards = new Date(checkInDate)
+        lastDayForRewards.setDate(lastDayForRewards.getDate() + maxDays)
+        return lastDayForRewards.toISOString().slice(0,10)
+    }
+
+    const [maxCheckOutDate, setMaxCheckOutDate] = useState(findLastDay())
 
     const handleClick = (e) => {
         e.preventDefault()
         const cIDate = new Date(checkInDate)
         const cODate = new Date(checkOutDate)
-        const tempCost = hotel.cost*Math.ceil((cODate-cIDate)/(1000 * 3600 * 24))
-        const totalCostValue = payment.paymentType === "Reward" ? 0 : (tempCost > 0 ? tempCost : hotel.cost).toFixed(2)
+        const diff = Math.ceil((cODate-cIDate)/(1000 * 3600 * 24))
+        const days = diff > 0 ? diff : 1
+        const tempCost = hotel.cost*days
+        const pointsCost = Math.round(tempCost)*10
+        const totalCostValue = payment.paymentType === "Reward" ? 0 : (tempCost).toFixed(2)
         const totalCost = `$${totalCostValue}`
-        console.log(`${hotel.cost}, ${checkOutDate}, ${checkInDate}, ${cODate-cIDate}, ${totalCost}`)
+        console.log(`${hotel.cost}, ${checkOutDate}, ${checkInDate}, ${cODate-cIDate}, ${totalCost}, ${pointsCost}`)
 
         const reservation = {roomType,numAdult,numChildren,checkInDate,checkOutDate,phoneNum,specialReq,totalCost,
             email:token.email,firstName:token.firstName,lastName:token.lastName,userId:token.id,
@@ -41,9 +64,9 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search,
             console.log(data); 
             if(data.status === "success"){
                 if(payment.paymentType === "Reward") {
-                    setToken({...token, rewardPoints:parseInt(token.rewardPoints)-Math.round(totalCostValue)*10})
-                    fetch(`http://localhost:8080/credentials/setrewards?id=${parseInt(token.id)}&rewardPoints=${-Math.round(totalCostValue)*10}`
-                    ).then(console.log(`Spent points`))
+                    setToken({...token, rewardPoints:parseInt(token.rewardPoints)-pointsCost})
+                    fetch(`http://localhost:8080/credentials/setrewards?id=${parseInt(token.id)}&rewardPoints=${-pointsCost}`
+                    ).then(console.log(`Spent points ${pointsCost}`))
                 }
 
                 else {
@@ -62,6 +85,39 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search,
         return response.json()
         }).then(data => {setBookings(data); return data}).then(data => console.log(data))})
     }
+
+    useEffect(() => {
+        let lastDayForRewards = new Date(checkInDate)
+        lastDayForRewards.setDate(lastDayForRewards.getDate() + maxDays)
+        setMaxCheckOutDate(lastDayForRewards.toISOString().slice(0,10));
+        return () => console.log('CheckInDateChanged');
+      }, [checkInDate, maxDays]) 
+
+    useEffect(() => {
+        if(payment.paymentType === "Reward" && maxCheckOutDate < checkOutDate) {
+            setCheckOutDate(maxCheckOutDate)
+            console.log(`set cod to max checkout date: ${maxCheckOutDate}`)
+        }
+        else if(checkInDate > checkOutDate) {
+            setCheckOutDate(checkInDate)
+            console.log(`set cod to checkin date: ${checkInDate}`)
+        }
+        const cIDate = new Date(checkInDate)
+        const cODate = new Date(checkOutDate)
+        const diff = Math.ceil((cODate-cIDate)/(1000 * 3600 * 24))
+        const days = diff > 0 ? diff : 1
+        const tempCost = hotel.cost*days
+
+        const pointsCost = Math.round(tempCost)*10
+        setPointsSpend(pointsCost)
+
+        const pointsReward = Math.round(tempCost)
+        setPointsEarn(pointsReward)
+
+        
+        return () => console.log('returning');
+      }, [checkInDate, maxCheckOutDate, checkOutDate, payment, hotel]) 
+    
     return (
             <div id="form">
                 <h2>Reservation Details</h2>
@@ -85,15 +141,15 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search,
                         <input type="number" placeholder="Number of Children" value={numChildren > 0 ? numChildren : search.children} onChange={(e) => setNumChildren(e.target.value)}></input> 
                         
                         <label for="CheckIn">Check-In Date:</label>
-                        <input type="date" placeholder="MM/DD/YEAR" min={today} value={checkInDate ? checkInDate : search.startDate} onChange={(e) => {setCheckInDate(e.target.value); if(e.target.value > checkOutDate) {setCheckOutDate(e.target.value)}}}></input> 
+                        <input type="date" placeholder="MM/DD/YEAR" min={today} value={checkInDate ? checkInDate : search.startDate} onChange={(e) => {setCheckInDate(e.target.value)}}></input> 
                         
                         <label for="CheckOut">Check-Out Date:</label>
-                        <input type="date" placeholder="MM/DD/YEAR" min={checkInDate ? checkInDate : today} value={checkOutDate ? checkOutDate : search.endDate} onChange={(e) => setCheckOutDate(e.target.value)}></input> 
+                        <input type="date" placeholder="MM/DD/YEAR" min={checkInDate ? checkInDate : today} value={checkOutDate ? checkOutDate : search.endDate} max={payment.paymentType === "Reward" ? maxCheckOutDate : ""} onChange={(e) => setCheckOutDate(e.target.value)}></input> 
                         
                         <label for="PhoneNum">Phone Number</label>
                         <input type="tel" placeholder="XXX-XXX-XXXX" value={phoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input> 
                     {fail ? <Alert key='danger' className="error-msg" variant='danger'>You already have a reservation at another location overlapping these days. Please cancel that reservation to book this.</Alert> : ""}
-                    <button onClick={handleClick}>Book</button>
+                    {payment.paymentType === "Reward" ? <button onClick={handleClick}>Book for {pointsSpend} Points!</button> : <button onClick={handleClick}>Book and Earn {pointsEarn} Points!</button> }
                 </form>
             </div>
         //</React.Fragment> 

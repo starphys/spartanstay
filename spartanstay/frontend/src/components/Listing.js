@@ -69,7 +69,7 @@ function Listing ({search, listing, token, setBookings, savedPayments, setSavedP
                 <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
             </div>
             <div>
-            <Reservation search={search} token={token} payment={payment} hotel={hotel} handleSuccess={handleSuccess} setBookings={setBookings} setToken={setToken}/></div>
+            <Reservation search={search} token={token} payment={payment} hotel={hotel} cost={Math.round(hotel.cost)*10} handleSuccess={handleSuccess} setBookings={setBookings} setToken={setToken}/></div>
             </div>
         </div>)
     }
