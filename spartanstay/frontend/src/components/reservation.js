@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react'
+import "../style/reservation.css";
 import Alert from 'react-bootstrap/Alert'
 
 function Reservation({token, payment, hotel, setBookings, handleSuccess, search, setToken, cost}) {
@@ -119,40 +120,69 @@ function Reservation({token, payment, hotel, setBookings, handleSuccess, search,
       }, [checkInDate, maxCheckOutDate, checkOutDate, payment, hotel]) 
     
     return (
-            <div id="form">
-                <h2>Reservation Details</h2>
-                <form>                    
-                        <label>Choose Room Type:</label>
-                        <select name="membership" id="membership" onChange={(e) => setRoomType(e.target.value)}>
-                        <option value="1 Queen Bed">1 Queen Bed Room</option>
-                        <option value="2 Queen Beds ">2 Queen Beds Standard</option>
-                        <option value="1 King Bed Suite">1 King Bed Suite</option>
-                        <option value="1 King Bed Suite Addl Living Area">1 King Bed Suite Addl Living Area</option>
-                        </select>
-                        
-                        <label for="SpecialReq">Special Request:</label>
-                        <input type="text" placeholder="Special Request" value={specialReq} onChange={(e) => setSpecialReq(e.target.value)}></input> 
-                    
-                        
-                        <label for="NumberAdults">Number of Adults:</label>
-                        <input type="number" placeholder="Number of Adults" value={numAdult > 0 ? numAdult : search.adults} onChange={(e) => setNumAdult(e.target.value)}></input> 
-                        
-                        <label for="NumberChildren">Number of Children:</label>
-                        <input type="number" placeholder="Number of Children" value={numChildren > 0 ? numChildren : search.children} onChange={(e) => setNumChildren(e.target.value)}></input> 
-                        
-                        <label for="CheckIn">Check-In Date:</label>
-                        <input type="date" placeholder="MM/DD/YEAR" min={today} value={checkInDate ? checkInDate : search.startDate} onChange={(e) => {setCheckInDate(e.target.value)}}></input> 
-                        
-                        <label for="CheckOut">Check-Out Date:</label>
-                        <input type="date" placeholder="MM/DD/YEAR" min={checkInDate ? checkInDate : today} value={checkOutDate ? checkOutDate : search.endDate} max={payment.paymentType === "Reward" ? maxCheckOutDate : ""} onChange={(e) => setCheckOutDate(e.target.value)}></input> 
-                        
-                        <label for="PhoneNum">Phone Number</label>
-                        <input type="tel" placeholder="XXX-XXX-XXXX" value={phoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input> 
-                    {fail ? <Alert key='danger' className="error-msg" variant='danger'>You already have a reservation at another location overlapping these days. Please cancel that reservation to book this.</Alert> : ""}
-                    {payment.paymentType === "Reward" ? <button onClick={handleClick}>Book for {pointsSpend} Points!</button> : <button onClick={handleClick}>Book and Earn {pointsEarn} Points!</button> }
-                </form>
+        <div id="r-wrap">
+            <header className="r-header">
+            <div class="ReserveForm">
+                
+                <h2 class="r-title" >Reservation</h2>
+
+                <div class = "rowR">
+                <div class = "columnR">
+                <label class="r-label">Choose Room Type:</label>
+                <select class="roomType r-input-text" name="membership" id="membership" onChange={(e) => setRoomType(e.target.value)}>
+                <option value="1 Queen Bed">1 Queen Bed Room</option>
+                <option value="2 Queen Beds ">2 Queen Beds Standard</option>
+                <option value="1 King Bed Suite">1 King Bed Suite</option>
+                <option value="1 King Bed Suite Addl Living Area">1 King Bed Suite Addl Living Area</option>
+                </select>
+                </div>
+                
+                
+                
+                <div class = "columnR">
+                <label class="r-label" for="NumberAdults">Number of Adults:</label>
+                <input class="r-input-text" type="number" placeholder="Number of Adults" value={numAdult > 0 ? numAdult : search.adults} onChange={(e) => setNumAdult(e.target.value)}></input>
+                </div>
+
+                <div class = "columnR">
+                <label class="r-label" for="NumberChildren">Number of Children:</label>
+                <input class="r-input-text" type="number" placeholder="Number of Children" value={numChildren > 0 ? numChildren : search.children} onChange={(e) => setNumChildren(e.target.value)}></input>
+                </div>
+                </div> 
+                
+
+                <div class = "rowR">
+                <div class = "columnR">
+                <label class="r-label" for="CheckIn">Check-In Date:</label>
+                <input class="r-input-text" type="date" placeholder="MM/DD/YEAR" min={today} value={checkInDate ? checkInDate : search.startDate} onChange={(e) => {setCheckInDate(e.target.value)}}></input> 
+
+                </div>
+
+                <div class = "columnR">
+                <label class="r-label" for="CheckOut">Check-Out Date:</label>
+                <input class="r-input-text" type="date" placeholder="MM/DD/YEAR" min={checkInDate ? checkInDate : today} value={checkOutDate ? checkOutDate : search.endDate} max={payment.paymentType === "Reward" ? maxCheckOutDate : ""} onChange={(e) => setCheckOutDate(e.target.value)}></input> 
+                </div>
+
+                <div class = "columnR">
+                <label class="r-label" for="PhoneNum">Phone Number</label>
+                <input class="r-input-text" type="tel" placeholder="XXX-XXX-XXXX" value={phoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input> 
+                </div>
+                </div> 
+                
+
+                
+                <label class="r-label" for="SpecialReq">Special Request:</label>
+                <input class="r-input-text" type="text" placeholder="Special Request" value={specialReq} onChange={(e) => setSpecialReq(e.target.value)}></input> 
+
+            {fail ? <Alert key='danger' className="error-msg" variant='danger'>You already have a reservation at another location overlapping these days. Please cancel that reservation to book this.</Alert> : ""}
+            <div class="Rbutton_container">
+            {payment.paymentType === "Reward" ? <button class="Rbtn" onClick={handleClick}><span>Book for {pointsSpend} Points!</span></button> : <button class="Rbtn" onClick={handleClick}><span>Book and Earn {pointsEarn} Points!</span></button> }
             </div>
-        //</React.Fragment> 
+            <br></br>
+            
+            </div>
+            </header>
+            </div>
     );
 }
 

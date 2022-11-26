@@ -119,8 +119,19 @@ span.price {
     width: 100%;
     margin: 20px auto;
     position: relative;
-    margin-left:7%; 
-    margin-top: -1.2%;
+    margin-left:5.3%; 
+    margin-top: -4%;
+   
+    
+}
+
+.p-body {
+  width: 100%;
+    height: 90vh;
+    /* background-image: url('../images/testBack2.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 header, #main {
@@ -150,8 +161,8 @@ header {
     z-index: 1;
     top: 40px;
     left: 50px;
-    margin-left: 39%; 
-    margin-top:8%;
+    margin-left: 40%; 
+    margin-top:-3.7%;
 }
 
  .fa-cc-visa {

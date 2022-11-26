@@ -55,42 +55,70 @@ function SignUp({setToken}) {
   
   return (
   
-    <div className="SignUp">
-      
-      <div className="SignUpForm">
-        <label className="su-label"><b>Sign up</b></label>
-        
+    <div class="SignUp">
+    <div className="s-container">
+     
+     
+     <div id="s-wrap">
 
-        <input className="su-input" type="text" placeholder="First Name" name="fname" value={firstName}
+     <header className="s-header">
+        
+        <div class="s-image-div">
+        <h2 class="s-quote">LikeHome is a company with values around hospitality</h2>
+          </div>
+        <div class="" id="signup-form">
+        <label className="su-label su-name">Become a LikeHome member</label>
+
+        <div class="rowSU">
+          <div class="columnSU">
+        <label className="su-label sDetailsLabel" id="">First Name</label>
+        <input className="su-input" type="text" placeholder="John" name="fname" value={firstName}
         onChange={(e)=>setFirstName(e.target.value)} required></input>
         <br></br>
         <br></br>
-
-        <input  className="su-input" type="text" placeholder="Last Name" name="lname" value={lastName}
+        </div>
+        <div class="columnSU">
+        <label className="su-label sDetailsLabel" id="">Last Name</label>
+        <input  className="su-input" type="text" placeholder="Doe" name="lname" value={lastName}
         onChange={(e)=>setLastName(e.target.value)} required></input>
         <br></br>
         <br></br>
+        </div>
+        </div>
         
-        <input  className="su-input" type="text" placeholder="Email" name="email" value={email}
+        <label className="su-label sDetailsLabel su-email" id="">Email</label>
+        <input  className="su-input su-email-input" type="text" placeholder="johndoe@gmail.com" name="email" value={email}
         onChange={(e)=>setEmail(e.target.value)} required></input>
         <br></br>
         <br></br>
         
-        <input  className="su-input" id="pass-in" type="password" placeholder="Password" name="psw" value={password}
+        <div class="rowSU">
+          <div class="columnSU">
+          <label className="su-label sDetailsLabel" id="sDetailsLabel2">Password</label>
+        <input  className="su-input" id="pass-in" type="password" placeholder="********" name="psw" value={password}
         onChange={(e)=>setPassword(e.target.value)} required></input>
         <br></br>
         <br></br>
-
-        <input  className="su-input" id="pass-con" type="password" placeholder="Confirm Password" name="psw-confirm" value={confirmPassword}
+        </div>
+        <div class="columnSU">
+        <label className="su-label sDetailsLabel" id="sDetailsLabel2">Confirm Password</label>
+        <input  className="su-input" id="pass-con" type="password" placeholder="********" name="psw-confirm" value={confirmPassword}
         onChange={(e)=>setConfirmPassword(e.target.value)} required></input>
-
+        </div>
+        </div>
+        <div class="linkDiv"><a className="linkClear" onClick={handleReset} id="reset">Clear data</a></div>
         {accountCreated ? <Alert key='success' className="success-msg" variant='success'>Account created for {firstName} {lastName}!</Alert> : ""}
         {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid matching passwords.</Alert>}
         {validEmail ? '': <Alert key='danger' className="error-msg" variant='danger'>Email already in use.</Alert>}
 
-        <button className="su-button" onClick={handleReset} id="reset">Reset</button>
-        <button className="su-button" onClick={handleClick}>Sign up</button>
+        
+        <button className="su-button" onClick={handleClick}><span class="neonTextSU" >Sign up</span></button>
+
+        </div>
+      
+      </header>
       </div>
+    </div>
     </div>
     
   );

@@ -89,7 +89,7 @@ function Listing ({search, listing, token, setBookings, savedPayments, setSavedP
                 {savedPayments.length > 0 ? <button onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button> : ""}
                 <RewardPayment token={token} setPayment={setPayment} cost={Math.round(hotel.cost)*10} />
             </div> : ""}
-            <div>
+            <div className="rowL">
             {cardType === "new" ? <Payment token={token} setPayment={setPayment} savedPayments={savedPayments} setSavedPayments={setSavedPayments}/> : ""}
             {cardType === "saved" ? 
                                         <select onfocus={(e) => {this.selectedIndex = -1}} onChange={e => setPayment(e.target.value)}>
