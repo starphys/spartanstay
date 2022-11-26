@@ -49,7 +49,8 @@
         cardNum:cardNum,
         expDate:expMonth + expYear,
         securityCode:securityCode,
-        address:address
+        address:address,
+        paymentType:"Card"
       })
 
       if(savePayment) {

@@ -129,7 +129,7 @@ function Booking({ booking,setBookings}) {
                             <div className='table-body-cell'>{booking.phoneNum}
                                 <input type="tel" placeholder={booking.phoneNum} onChange={(e) => booking.phoneNum=(e.target.value)}></input> 
                             </div>
-                            <div className='table-body-cell'>{booking.totalCost}</div>
+                            <div className='table-body-cell'>{parseInt(booking.totalCost.slice(1)) > 0 ? booking.totalCost : "Booked with Rewards" }</div>
                             <div className='table-body-cell'>{booking.id}</div>
                         </div>
                     </div>
@@ -190,7 +190,7 @@ function Booking({ booking,setBookings}) {
                             <div className='table-body-cell'>{booking.numChildren}</div>
                             <div className='table-body-cell'>{booking.specialReq}</div>
                             <div className='table-body-cell'>{booking.phoneNum}</div>
-                            <div className='table-body-cell'>{booking.totalCost}</div>
+                            <div className='table-body-cell'>{parseInt(booking.totalCost.slice(1)) > 0 ? booking.totalCost : "Booked with Rewards" }</div>
                             <div className='table-body-cell'>{booking.id}</div>
                         </div>
                     </div>
