@@ -19,6 +19,16 @@ public class Customer {
     private String firstName;
     private String lastName;
 
+    public int getRewardPoints() {
+        return rewardPoints;
+    }
+
+    public void setRewardPoints(int rewardPoints) {
+        this.rewardPoints = rewardPoints;
+    }
+
+    private int rewardPoints;
+
     public Customer() {
 
     }

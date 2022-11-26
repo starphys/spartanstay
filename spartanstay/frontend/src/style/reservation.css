@@ -85,6 +85,7 @@
   left: 0;
   right: 0;
   top: 0%;
+  width: 70%;
   
 }
 
@@ -100,10 +101,14 @@
     color: #fff;
     font-weight: 700;
     font-size: 15px;
+    width: 60%;
     background-color: #222;
     padding: 17px 60px;
     margin: 0 auto;
     box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 40%;
   }
   
   .Rbtn span {
@@ -117,7 +122,7 @@
     left: 0;
     top: 0;
     height: 490%;
-    width: 140%;
+    width: 145%;
     background: #78c7d2;
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;

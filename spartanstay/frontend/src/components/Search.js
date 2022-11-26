@@ -5,7 +5,7 @@ import React from 'react';
 import {FaSearch} from "react-icons/fa";
 
 
-function Search({results, setResults, token, setBookings, savedPayments, setSavedPayments, search, setSearch})
+function Search({results, setResults, token, setBookings, savedPayments, setSavedPayments, search, setSearch, setToken})
 {
   const today = new Date().toISOString().slice(0, 10)
 
@@ -97,8 +97,10 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
         </div>
 
 
-      {results ? <Results results={results} token={token} setBookings={setBookings} search={search} savedPayments={savedPayments} setSavedPayments={setSavedPayments}/> : <><div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">LikeHome, same great savings</h1>
+
+      {results ? <Results results={results} token={token} setBookings={setBookings} search={search} savedPayments={savedPayments} setToken={setToken} setSavedPayments={setSavedPayments}/> : <><div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">LikeHome, same great savings</h1>
 <h3 class="innerSmallText">Sign in or join to save an average of 15% on thousands of hotels.​</h3></div> </div></div>
+
       
       <br></br>
       <br></br></>}

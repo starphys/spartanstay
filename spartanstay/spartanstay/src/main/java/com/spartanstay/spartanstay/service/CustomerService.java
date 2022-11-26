@@ -14,4 +14,8 @@ public interface CustomerService {
     boolean customerExistsByID(int id);
     void deleteUserById(int id);
     Customer findByEmail(String email);
+    void addRewardPoint(String totalPrice);
+    String spendRewardPoint(String totalPrice);
+    int getRewardPoints(int id);
+    String addRewardPoints(int id, int rewardPoints);
 }
