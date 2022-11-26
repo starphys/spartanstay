@@ -1,73 +1,6 @@
-/* #resp-table {
-  width: 100%;
-  display: table;
-}
-
-#resp-table-caption{
-  display: table-caption;
+.r-title2 {
+  margin-top: 5%;
   text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-#resp-table-header{
-  display: table-header-group;
-  background-color: gray;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-.table-header-cell{
-  display: table-cell;
-  padding: 10px;
-  text-align: justify;
-  border-bottom: 1px solid blackƒ√;
-}
-
-#resp-table-body{
-  display: table-row-group;
-}
-
-.resp-table-row{
-  display: table-row;
-}
-
-.table-body-cell{
-  display: table-cell;
-}
-
-#resp-table-footer {
-  display: table-footer-group;
-  background-color: gray;
-  font-weight: bold;
-  font-size: 25px;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.table-footer-cell{
-display: table-cell;
-padding: 10px;
-text-align: justify;
-border-bottom: 1px solid black;
-} */
-.fill {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  width: 100%;
-  height: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url('../images/test8.jpg'); 
-  height: 550px;
-}
-.fill img {
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%
-  
 }
 
 .booking-msg {
@@ -123,8 +56,8 @@ border-bottom: 1px solid black;
         rgb(213, 220, 226)
         rgb(184, 194, 204); 
       
-      margin-left: 22.5%;
-      margin-right: 22.5%;
+      margin-left: 12.5%;
+      margin-right: 12.5%;
       cursor: pointer;
     }
 
@@ -138,7 +71,7 @@ border-bottom: 1px solid black;
   .image {
   
     height: 250px;
-    border-radius: 3%;
+    border-radius: 2%;
     border-color: transparent;
     margin-left: 10px;
     margin-top: 10px;
@@ -213,19 +146,19 @@ border-bottom: 1px solid black;
  
   .booking-button{
 
-  width: 30%;
+  width: 40%;
 height: 2.5em;
 margin: 5% auto;
 justify-content: center;
 display: block;
 color: #fff;
-  background: #333;
+  background:black;
 font-size: 1em;
 font-weight: bold;
 margin-top: 0%;
 outline: none;
 border: none;
-border-radius: 5px;
+border-radius: 3px;
 transition: .2s ease-in;
 cursor: pointer;
 }
@@ -239,7 +172,7 @@ margin-bottom:10%;
 justify-content: center;
 display: block;
 color: #fff;
-  background: #333;
+  background: black;
 font-size: 1em;
 font-weight: bold;
 margin-top: 0%;
@@ -301,6 +234,7 @@ cursor: pointer;
   font-size: 15px;
 
 }
+
 .r-label-id {
   margin-bottom: 10px;
   display: block;
@@ -342,11 +276,24 @@ cursor: pointer;
     margin-left: -6%;
   }
 
+
   .columnR {
     width: 47.0%; 
   margin-left: 3%;
+  
+  }
+.columnR2 {
+    width: 22.0%; 
+  margin-left: 3%;
     
   }
+  .columnR3 {
+    width: 30.0%; 
+  margin-left: 35%;
+    
+  }
+
+
   .columnR-before-edit {
     width: 47.0%; 
   margin-left: 3%;
@@ -368,6 +315,18 @@ cursor: pointer;
     width: 104%;
     
   }
+  .rowR2 {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    width: 154%;
+    margin-left: -10%;
+    
+    
+  }
+
   .rowR-before-edit {
     display: -ms-flexbox; /* IE10 */
     display: flex;
