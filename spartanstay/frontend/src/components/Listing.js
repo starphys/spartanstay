@@ -85,8 +85,8 @@ function Listing ({search, listing, token, setBookings, savedPayments, setSavedP
                 <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
             </div>
             {cardType === "" ? 
-                <div><button onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button>
-                {savedPayments.length > 0 ? <button onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button> : ""}
+                <div><button class = "pay-button" onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button>
+                {savedPayments.length > 0 ? <button class = "saved-payment-button" onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button> : ""}
                 <RewardPayment token={token} setPayment={setPayment} cost={Math.round(hotel.cost)*10} />
             </div> : ""}
             <div className="rowL">
