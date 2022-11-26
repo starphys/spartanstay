@@ -41,7 +41,8 @@ public class CustomerController {
                     ",\"email\":\""+currentUser.getEmail()+
                     "\"" +",\"firstName\":\""+currentUser.getFirstName()+
                     "\""+",\"lastName\":\""+currentUser.getLastName()+"\"" +
-                    ",\"status\":\"success\"}";
+                    ", \"rewardPoints\":\"" + currentUser.getRewardPoints() +
+                    "\",\"status\":\"success\"}";
         }
 
         System.out.println("Customer not added, incorrect password");
@@ -63,7 +64,8 @@ public class CustomerController {
             return "{}";
         }
         //json w email, first name, last name
-        return "{\"id\":\""+currentUser.getId()+"\"" +",\"email\":\""+currentUser.getEmail()+"\"" +",\"firstName\":\""+currentUser.getFirstName()+"\""+",\"lastName\":\""+currentUser.getLastName()+"\"}";
+        return "{\"id\":\""+currentUser.getId()+"\"" +",\"email\":\""+currentUser.getEmail()+"\"" +",\"firstName\":\""+currentUser.getFirstName()+"\""+",\"lastName\":\""
+                +currentUser.getLastName()+"\",\"rewardPoints\":\""+ currentUser.getRewardPoints() +"\"}";
     }
 
     @PostMapping("/logout")
@@ -71,6 +73,21 @@ public class CustomerController {
     {
         currentUser = null;
         return customer.getFirstName() + " " + customer.getLastName() + " was logged out";
+    }
+
+    @GetMapping("/getrewards")
+    public String getRewards(@RequestParam() int id, @RequestParam("email") String email, @RequestParam("firstName") String firstName, @RequestParam() String lastName)
+    {
+
+        return "{\"id\":\""+id+"\"" +",\"email\":\""+email+"\"" +",\"firstName\":\""+firstName+"\""+",\"lastName\":\""
+                +lastName+"\",\"rewardPoints\":\""+ customerService.getRewardPoints(id) +"\"}";
+    }
+
+    @GetMapping("/setrewards")
+    public String setRewards(@RequestParam("id") int id, @RequestParam("") int rewardPoints)
+    {
+        System.out.println("Adding " + rewardPoints + " reward points to user "+id+"'s account.");
+        return customerService.addRewardPoints(id, rewardPoints);
     }
 
     // Passing in the ID of the user you want to delete

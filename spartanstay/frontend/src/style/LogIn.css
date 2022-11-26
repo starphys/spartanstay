@@ -3,11 +3,11 @@
 	padding: 0;
     min-width: 100%;
     height: 100%;
-
 }
+
 .login-button{
-	width: 60%;
-	height: 2.5em;
+	width: 37%;
+	height: 7.5%;
 	margin: 5% auto;
 	justify-content: center;
 	display: block;
@@ -21,16 +21,70 @@
 	border-radius: 5px;
 	transition: .2s ease-in;
 	cursor: pointer;
+    border-radius: 60px;
+    background-color: black;
+    margin-top: 5%;
+    transition: all 0.5s;
+  cursor: pointer;
 }
+
+.login-button{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-left: 30%;
+    transition: 0.5s;
+  }
+  
+  .login-button:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    margin-left: 5%;
+    
+    transition: 0.5s;
+  }
+  
+  .login-button:hover{
+    padding-right: 24px;
+    padding-left:8px;
+    margin-left: 30%;
+  }
+  
+  .login-button:hover:after {
+    opacity: 1;
+    right: 10px;
+    margin-left: 5%;
+  }
+
 .LogIn {
     width: 100%;
     height: 100vh;
     padding: 3%;
-    background-image: url(../images/sign-in-background.jpeg);
+    
+    background-image: url('../images/testBack2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+  
 }
+
+.l-quote{
+    color: white;
+    margin-top: -95%;
+    margin-left: 12%;
+    margin-right: 60%;
+    font-weight: 200;
+    color: #fff;
+    font-size: 25px;
+  text-shadow:
+      0 0 7px white;
+  color: white; 
+  
+  
+  -webkit-text-stroke: 1px white;
+}
+
 .LogInForm {
     width: 50%;
     border-radius: 3%;
@@ -39,6 +93,9 @@
     margin-left: 25%;
     box-shadow: 5px 20px 50px #000;
     backdrop-filter: blur(5px);
+   
+   
+    color: white;
 }
 
 
@@ -82,6 +139,147 @@
     
 }
 .sign-up-link{
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
+
+
+  #login-image {
+    display: flex;
+     justify-content: center;
+     align-items: center;
+     overflow: hidden;
+     width: 30%;
+
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
+   
+     height: 550px;
+  }
+
+  #login-image img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+#login-form 
+{
+    background-color: white;
+    width: 57%;
+    float:right;
+    height: 100%;
+    
+    color: black;
+    
+}
+
+.l-label {
+    margin-bottom: 10px;
+    display: block;
+    font-size: 25px;
+    margin-top: 19%;
+    margin-left: 25%;
+    font-weight: 300;
+    color: black;
+
+  }
+
+.lDetailsLabel {
+    font-size: 17px;
+    margin-top: 10%;
+    margin-left: 15%;
+    font-weight: 300;
+}
+
+#lDetailsLabel2 {
+    margin-top: 2%;
+}
+
+#secondLabel {
+    margin-top: 2%;
+    font-size: 15px;
+    margin-left: 30%;
+}
+
+  .l-input-text {
+    width: 70%;
+    margin-top: 0%;
+    height: 5%;
+    padding: 5px;
+    border: 0.5px solid black;
+    /* border-radius: 3px; */
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    margin-left: 15%;
+  }
+
+#l2-input-text {
+    margin-top: 0%;
+}
+
+  #lo-wrap {
+    width: 100%;
+    margin: 20px auto;
+    
+    margin-left:7%; 
+    margin-top: 10%;
+}
+
+.l-header{
+    
+
+
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.l-header {
+    display: block;
+    width: 65%;
+    height: 600px;
+    margin-top: 13%;
+    margin-left: 10%;
+    
+   
+    
+    z-index: 2;
+}
+
+.image-div {
+    background-image: url('https://images.unsplash.com/photo-1510665724063-f77a01074aa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzMyfHxob3RlbHxlbnwwfHwwfGJsYWNrfA%3D%3D&auto=format&fit=crop&w=900&q=60');
+    /* https://images.unsplash.com/photo-1656025896889-3a26b178db40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzE3fHxob3RlbHxlbnwwfHwwfGJsYWNrfA%3D%3D&auto=format&fit=crop&w=900&q=60 */
+    opacity: 1;
+    height: 100%;
+    width: 43%;
+    position: absolute;
+    float: auto;
+    display: flex;
+     justify-content: center;
+     align-items: center;
+     overflow: hidden;
+     /* width: 100%; */
+
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
+
+}
+
+.l-container {
+   
+    margin-top: -8%;
+}
+
+.neonTextLI {
+    color: #fff;
+    text-shadow:
+        0 0 3px #fff;
+    color: azure; 
+    font-size: 18px; 
+    margin-left: 0%; 
+    -webkit-text-stroke: 0.5px white;
+    font-weight: 100;
+  }

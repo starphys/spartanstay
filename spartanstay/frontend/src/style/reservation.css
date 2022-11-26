@@ -1,4 +1,4 @@
-.p-header, #main {
+.r-header, #main {
     background: #fff;
 
 
@@ -6,22 +6,23 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.p-header {
+.r-header {
     display: block;
     width: 45%;
-    height: 100%;
+    height: 50%;
 
 
     position: relative;
     z-index: 2;
 }
 
-#wrap {
-    width: 100%;
+#r-wrap {
+    width: 200%;
     margin: 20px auto;
     position: relative;
     margin-left:7%; 
     margin-top: -1.2%;
+    margin-left: 5%;
     
 }
 
@@ -29,6 +30,7 @@
     /* margin-right: 10%;  */
     margin-left: 15%;
     width: 70%;
+    margin-top: -19%;
   }
 
 .r-label {
@@ -47,9 +49,14 @@
   }
 
   .columnR {
-    width: 47.0%; 
+    width: 22.0%; 
   margin-left: 3%;
     
+  }
+
+  .r-title {
+    margin-top: 53%;
+    margin-left: 40%;
   }
   
   /* Clear floats after the columns */
@@ -59,7 +66,9 @@
     -ms-flex-wrap: wrap; /* IE10 */
     flex-wrap: wrap;
     margin: 0 -16px;
-    width: 104%;
+    width: 154%;
+    margin-left: -10%;
+    
     
   }
 
@@ -76,6 +85,7 @@
   left: 0;
   right: 0;
   top: 0%;
+  width: 70%;
   
 }
 
@@ -91,10 +101,14 @@
     color: #fff;
     font-weight: 700;
     font-size: 15px;
+    width: 60%;
     background-color: #222;
     padding: 17px 60px;
     margin: 0 auto;
     box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 40%;
   }
   
   .Rbtn span {
@@ -108,7 +122,7 @@
     left: 0;
     top: 0;
     height: 490%;
-    width: 140%;
+    width: 145%;
     background: #78c7d2;
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
