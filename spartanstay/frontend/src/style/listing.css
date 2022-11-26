@@ -71,7 +71,7 @@ body {
 
   .price {
     margin-left: 75%;
-    margin-top: 40%;
+    margin-top: 38%;
     font-size: 1.3em;
 
   }
@@ -81,4 +81,123 @@ body {
     float: left;
     width: 44%;
     position: relative;
+  }
+  .pay-button {
+    float: right;
+    margin-top: -4%;
+    margin-right: 8%;
+    margin-bottom: 1%;
+    padding: .9%;
+    font-weight: 600;
+    font-size: .9em;
+    height: 2.7em;
+    
+
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: black;
+    background-color: white;
+    /*box-shadow: 0 5px 15px rgba(0,0,0,0.20);*/
+    
+  }
+  .pay-button span {
+    position: relative; 
+    z-index: 1;
+  }
+  .saved-payment-button span {
+    position: relative; 
+    z-index: 1;
+  }
+  .pay-button:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+  .pay-button:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 445%;
+    width: 140%;
+    color: white;
+    background: #78c7d2;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(70%) translateY(-11%) rotate(45deg);
+  }
+  .saved-payment-button {
+    float: right;
+    margin-top: -4%;
+    margin-right: 1%;
+    
+    padding: .9%;
+    font-weight: 600;
+    font-size: .9em;
+    height: 2.7em;
+
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    background-color: #222;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+  }
+  .saved-payment-button:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+  .saved-payment-button:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 445%;
+    width: 140%;
+    color: white;
+    background: #78c7d2;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(70%) translateY(-10%) rotate(45deg);
+  }
+
+  .saved-option {
+    float: right;
+    margin-top: -4.5%;
+    margin-right: 8%;
+    padding-left: .4%;
+    padding-right: .3%;
+    border: none;
+    font-weight: 600;
+    font-size: .95em;
+    height: 2.7em;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20)
+  }
+  .saved-payment-button-slide {
+    color: black;
+    border: 2px solid white;
+    border-radius: 0px;
+    display: inline-block;
+    height: 3.2em;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 white;
+    -webkit-transition: ease-out 1s;
+    -moz-transition: ease-out .5s;
+    transition: ease-out 2s;
+    background-color: white;
+  }
+  .saved-payment-button-slide:hover {
+    color: black;
+    background-color: #8bcdd6;
+
   }
