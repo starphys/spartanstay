@@ -9,7 +9,7 @@
  import Alert from 'react-bootstrap/Alert'
  import { BsFillExclamationCircleFill } from "react-icons/bs";
 
- function Payment({token, setPayment}) {
+ function Payment({token, setPayment, savedPayments, setSavedPayments}) {
 
   const [cardNum, setCardNum] = useState('')
   const [expMonth, setExpMonth] = useState(0)
@@ -49,10 +49,14 @@
         cardNum:cardNum,
         expDate:expMonth + expYear,
         securityCode:securityCode,
-        address:address
+        address:address,
+        paymentType:"Card"
       })
 
       if(savePayment) {
+        setSavedPayments(payments => [...payments, payment])
+        console.log(`Tried to save payment ${payment}`)
+        console.log(savedPayments)
         fetch("http://localhost:8080/payments/addCardDetails", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -67,7 +71,8 @@
 
    return (
      <>
-         <div class="fillP" ><h1 class="neonTextP" >Payment Info</h1></div>
+     <div class="p-body">
+         <div class="fillP" ><h1 class="neonTextP" >.</h1></div>
 
         <br></br>
         <div id="wrap">
@@ -165,6 +170,7 @@
           <input class="btn button_slide slide_right" type="button" value="Continue to checkout" onClick={handleClick}></input>
           
           </div>
+        </div>
         </div>
      </>
    );

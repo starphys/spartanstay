@@ -119,8 +119,19 @@ span.price {
     width: 100%;
     margin: 20px auto;
     position: relative;
-    margin-left:7%; 
-    margin-top: -1.2%;
+    margin-left:5.3%; 
+    margin-top: -4%;
+   
+    
+}
+
+.p-body {
+  width: 100%;
+    height: 90vh;
+    /* background-image: url('../images/testBack2.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 header, #main {
@@ -150,28 +161,9 @@ header {
     z-index: 1;
     top: 40px;
     left: 50px;
-    margin-left: 39%; 
-    margin-top:8%;
+    margin-left: 40%; 
+    margin-top:-3.7%;
 }
-
-.fillP {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     overflow: hidden;
-     width: 100%;
-
-     background-size: cover;
-     background-repeat: no-repeat;
-     background-position: center;
-     background-image: url('../images/test7.jpg');
-     height: 550px;
- }
- .fillP img {
-     flex-shrink: 0;
-     min-width: 100%;
-     min-height: 100%
- }
 
  .fa-cc-visa {
     color:navy; 
@@ -230,7 +222,7 @@ header {
   text-shadow:
       0 0 7px #fff;
   color: azure; 
-  font-size: 56px; 
+  font-size: 1x; 
   margin-left: 0%; 
   -webkit-text-stroke: 1px white;
 }

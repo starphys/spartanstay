@@ -7,7 +7,7 @@ function CancelPolicy() {
         <>
         <div class="fill"><h1 class = "cancellation-header">Cancellation Policy</h1></div>
    <div>
-   
+    <div class="Cback">
     <div class="x" >
         <h2 id="marginFix" class = "h2-cancellation">Cancelling with Advance Notice</h2>
         <ul class = "ul-cancellation">
@@ -24,6 +24,7 @@ function CancelPolicy() {
         </ul>     
     </div>
     </div>
+        </div>
     </>
     
     );

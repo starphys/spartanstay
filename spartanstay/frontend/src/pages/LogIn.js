@@ -4,7 +4,7 @@ import Alert from 'react-bootstrap/Alert'
 import PropTypes from 'prop-types';
 import "../style/LogIn.css";
 
-function LogIn({token, setToken}) {
+function LogIn({token, setToken, setSavedPayments}) {
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
   const[validPass,setValidPass]=useState(true)
@@ -27,9 +27,14 @@ function LogIn({token, setToken}) {
         
         if(data.id) {
           setToken(data)
-          setAcccountLoggedIn(true)
-          setValidPass(true)
-          navigate('/')
+          fetch(`http://localhost:8080/payments/getCardDetails?userId=${data.id}&paymentType=type`)
+          .then((response)=>{return response.json()})
+          .then(resp => {
+            setSavedPayments(resp);           
+            setAcccountLoggedIn(true)
+            setValidPass(true)
+            navigate('/')
+          })
         }
         else {
           setValidPass(false)
@@ -39,18 +44,31 @@ function LogIn({token, setToken}) {
   }
 
   return (
-  
-    <div className="LogIn">
-      
-      <div className="LogInForm">
-        <label className="login-label"><b>Login</b></label>
-        <input className="login-input" type="text" placeholder="Email" name="email" value={email}
+    <>
+   
+    <div class="LogIn">
+    <div className="l-container">
+     
+     
+     <div id="lo-wrap">
+            
+    
+        <header className="l-header">
+        
+        <div class="image-div">
+        {/* <p class="l-quote">LikeHome, <pre></pre><pre></pre> an <pre></pre><pre></pre>experience <pre></pre><pre></pre>like<pre></pre><pre></pre> none <pre></pre><pre></pre>other</p> */}
+        <p class="l-quote">LikeHome, a hotel experience like <pre></pre>none other</p>
+          </div>
+        <div class="" id="login-form">
+        <label className="l-label">Welcome to LikeHome</label>
+        <label className="l-label lDetailsLabel" id="">Email</label>
+        <input className="l-input-text" type="text" placeholder="johndoe@gmail.com" name="email" value={email}
         onChange={(e)=>setEmail(e.target.value)} required></input>
 
         <br></br>
         <br></br>
-        
-        <input className="login-input" type="password" placeholder="Password" name="psw" value={password}
+        <label className="l-label lDetailsLabel" id="lDetailsLabel2">Password</label>
+        <input className="l-input-text" id="l2-input-text" type="password" placeholder="********" name="psw" value={password}
         onChange={(e)=>setPassword(e.target.value)} required></input>
         <br></br>
         <br></br>
@@ -58,12 +76,18 @@ function LogIn({token, setToken}) {
         {accountLoggedIn ? <Alert key='success' className="success-msg" variant='success'>Welcome {token.firstName}!</Alert> : ""}
         {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid password and email.</Alert>}
         
-        <button className="login-button" onClick={handleClick}>Login</button>
+        <button className="login-button" onClick={handleClick}><span class="neonTextLI" >Log In</span></button>
         
-        <label className="login-label-text">Not a member? <a href=" /sign-up"> Sign up now!</a></label>
-        
+        <label className="l-label" id="secondLabel">Not a member? <a href=" /sign-up" className="sign-up-link"> Sign up now!</a></label>
+        </div>
+      
+      </header>
       </div>
-    </div>
+
+      </div>
+      </div>
+      </>
+      
   );
 }
 LogIn.propTypes = {

@@ -6,7 +6,7 @@ import {FaSearch} from "react-icons/fa";
 import StarRatings from "react-star-ratings";
 
 
-function Search({results, setResults})
+function Search({results, setResults, token, setBookings, savedPayments, setSavedPayments, search, setSearch, setToken})
 {
   const today = new Date().toISOString().slice(0, 10)
 
@@ -15,6 +15,7 @@ function Search({results, setResults})
   const [endDate, setEndDate] = useState(today)
   const [order, setOrder] = useState("PRICE")
   const [adults, setAdults] = useState(1)
+  const [children, setChildren] = useState(0)
   const [waiting, setWaiting] = useState(false)
   const [minPrice, setMinPrice] = useState(0)
   const [maxPrice, setMaxPrice] = useState(5000)
@@ -47,6 +48,7 @@ function Search({results, setResults})
         e.preventDefault()
         console.log(minPrice, maxPrice)
         setWaiting(true)
+        setSearch({startDate:startDate, endDate:endDate, adults:adults, children:children})
         fetch(`http://localhost:8080/listings/rooms?destination=${encodeURIComponent(city.trim())}`+
         `&checkIn=${startDate}`+
         `&checkOut=${endDate}`+
@@ -82,8 +84,7 @@ function Search({results, setResults})
     }
     
     return (
-      <div className={waiting ? "waiting" : ""}>
-             
+      <div className={waiting ? "waiting" : ""} id="s-body">    
       <div className="">
         <div className="">
         </div>
@@ -111,8 +112,8 @@ function Search({results, setResults})
           <option value={4}>4</option>
           <option value={5}>5+</option>
         </select>
-        <select id="e2" class="e">
-          <option value={1}>Children</option>
+        <select id="e2" class="e" onChange={e => setChildren(e.target.value)}>
+          <option value={0}>Children</option>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>
@@ -172,12 +173,12 @@ function Search({results, setResults})
         </div>
 </div>
 
-<div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">New name, same great savings</h1>
+
+      {results ? <Results results={results} token={token} setBookings={setBookings} search={search} savedPayments={savedPayments} setToken={setToken} setSavedPayments={setSavedPayments}/> : <><div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">New name, same great savings</h1>
 <h3 class="innerSmallText">Secret Prices are now Member Prices. Sign in or join to save an average of 15% on thousands of hotels.​</h3></div> </div></div>
       
       <br></br>
-      <br></br>
-      {results ? <Results results={results} /> : ""}
+      <br></br></>}
       </div>
     );
 }
