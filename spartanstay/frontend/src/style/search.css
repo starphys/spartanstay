@@ -309,7 +309,7 @@ form:valid a {
 
 .filter {
     float: left;
-    height: auto;
+    height: 7.4vh;
     color: black;
     margin-left: 13%;
   }
@@ -319,9 +319,10 @@ form:valid a {
   #filterDiv1 {
     border: 2px solid black;
     border-radius: 5px;
-    width: 13%;
+    width: 12%;
     display: inline-block;
     margin-bottom: -2%;
+    padding: .1%;
   }
   #filterDiv2 {
     border: 2px solid black;
@@ -336,7 +337,7 @@ form:valid a {
     width: 13%;
     display: inline-block;
     margin-bottom: -2%;
-    height: 7vh;
+    height: 7.4vh;
   }
   .e4 {
     box-sizing: border-box;
@@ -348,6 +349,22 @@ form:valid a {
     border-color: white;
   }
   .filterText {
+    box-sizing: border-box;
+    
+    border: 0;
+    font-weight: 900;
+    width: 100%;
+    padding-top: 0px;
+    padding-left: 4%;
+    font-size: 14px;
+    border-radius: 0%;
+    border-bottom: 0px;
+    margin-bottom: 2.5%;
+    color: grey;
+    border-color: white;
+    display: inline-block;
+  }
+  .filterText2 {
     box-sizing: border-box;
     
     border: 0;
@@ -425,14 +442,14 @@ form:valid a {
     font-size: 14px;
     border-radius: 0%;
     border-bottom: 0px;
-    margin-bottom: -21%;
+    margin-bottom: -13%;
     color: grey;
     border-color: white;
     display: inline-block;
 }
 .filter3 {
     float: right;
-    margin-right: 46%;
+    margin-right: 48%;
     padding-left: .7%;
 }
 /*

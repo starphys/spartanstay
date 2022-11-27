@@ -145,7 +145,7 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
     <input placeholder="max" class = "max-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMaxPrice(5000)} else {setMaxPrice(e.target.value)}}}></input>
   </div>
   <div id="filterDiv1" class = "filter2">
-    <label class="filterText">Filter by Amenities</label>
+    <label class="filterText2">Filter by Amenities</label>
     
     <input type="checkbox" id = "line1" onChange={updatePetFriendly}/><label>Pet Friendly</label>
     <input type="checkbox" onChange={updateFreeWifi}/><label>Free-Wifi</label>
