@@ -117,30 +117,23 @@ function Booking({ booking,setBookings}) {
 
                                     
 
-                                    <div class = "rowR2">
-                                    <div class = "columnR2">
-                                    <label class="r-label" for="CheckIn">Check-In Date:</label>
-                                        <div class="r-input-text">{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}
-                                        </div>
-                                    </div>
-                            
-                                    <div class = "columnR2">
-                                    <label class="r-label" for="CheckOut">Check-Out Date:</label>
-                                        <div class="r-input-text">{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}
-                                        </div>
-                                    </div>
-                                    
-                                    <div class = "columnR2">                                  
+                                    <div class = "rowR3">
+                                    <div class = "columnR4">                                  
                                     <label class="r-label" for="PhoneNum">Phone Number</label>
                                     <input class="r-input-text" type="tel" placeholder={booking.phoneNum} onChange={(e) => booking.phoneNum=(e.target.value)}></input>
                                     </div>
-                                    </div>
-
-
+                                    <div class = "columnR3">
                                     <label class="r-label" for="SpecialReq">Special Request:</label>
                                     <div>
                                         <input class="r-input-text" type="text" placeholder={booking.specialReq} onChange={(e) => booking.specialReq=(e.target.value)}></input> 
                                     </div>
+
+
+                                    </div>
+                                    </div>
+
+
+                                    
                        
                                     
                                     <div>

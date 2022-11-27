@@ -288,9 +288,16 @@ cursor: pointer;
   margin-left: 3%;
     
   }
+
+  .columnR4 {
+    width: 22.0%; 
+  margin-left: 8%;
+    
+  }
+
   .columnR3 {
-    width: 30.0%; 
-  margin-left: 35%;
+    width: 37.8%; 
+  margin-left: 3%;
     
   }
 
@@ -317,6 +324,17 @@ cursor: pointer;
     
   }
   .rowR2 {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+    width: 154%;
+    margin-left: -10%;
+    
+    
+  }
+  .rowR3 {
     display: -ms-flexbox; /* IE10 */
     display: flex;
     -ms-flex-wrap: wrap; /* IE10 */
