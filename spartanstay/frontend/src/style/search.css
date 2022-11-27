@@ -238,7 +238,7 @@ form:valid a {
     color: azure; 
     font-size: 35px; 
    
-    margin-top: -10%; 
+    margin-top: -20%; 
     -webkit-text-stroke: 1px white;
   }
 
@@ -253,7 +253,8 @@ form:valid a {
     margin-top: -4%;
     text-shadow:
         0 0 2px #fff;
-    font-weight: 100;
+    font-weight: 300;
+    font-size: 1.3em;
 }
 
 #sortDiv {

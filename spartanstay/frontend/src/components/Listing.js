@@ -84,17 +84,20 @@ function Listing ({search, listing, token, setBookings, savedPayments, setSavedP
             
                 <div id="priceBlock" class="columnL"><h2 class="price">{listing.ratePlan ? listing.ratePlan.price.current : "$999"}</h2></div>
             </div>
+
             {cardType === "" ? 
-                <div><button class = "pay-button" onClick={(e)=>{e.preventDefault(); setCardType("new")}}>Pay With New Card</button>
-                {savedPayments.length > 0 ? <button class = "saved-payment-button" onClick={(e)=>{e.preventDefault(); setCardType("saved")}}>Pay with Saved Card</button> : ""}
-                <RewardPayment token={token} setPayment={setPayment} cost={Math.round(hotel.cost)*10} />
-            </div> : ""}
+                <div>
+                    <button class = "pay-button" onClick={(e)=>{e.preventDefault(); setCardType("new")}}><span>Pay with New Card</span></button>
+                    {savedPayments.length > 0 ? <button class = "saved-payment-button" onClick={(e)=>{e.preventDefault(); setCardType("saved")}}><span>Pay with Saved Card</span></button> : ""}
+                    <RewardPayment token={token} setPayment={setPayment} cost={Math.round(hotel.cost)*10} />
+                </div> : ""}
+
             <div className="rowL">
             {cardType === "new" ? <Payment token={token} setPayment={setPayment} savedPayments={savedPayments} setSavedPayments={setSavedPayments}/> : ""}
             {cardType === "saved" ? 
-                                        <select onfocus={(e) => {this.selectedIndex = -1}} onChange={e => setPayment(e.target.value)}>
-                                            <option value="" selected disabled hidden>Saved Cards</option>
-                                        {savedPayments.map(savedPayment => {return <option value={savedPayment}>{savedPayment.cardNumber}</option>})}
+                                        <select class = "saved-option saved-payment-button-slide" onfocus={(e) => {this.selectedIndex = -1}} onChange={e => setPayment(e.target.value)}>
+                                            <option value="" selected disabled hidden >Saved Cards</option>
+                                        {savedPayments.map(savedPayment => {return <option class = "" value={savedPayment}>{savedPayment.cardNumber}</option>})}
                                         </select>
         : ""}
             </div>
