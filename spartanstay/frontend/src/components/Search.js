@@ -3,6 +3,7 @@ import Results from "./Results"
 import "../style/search.css";
 import React from 'react';
 import {FaSearch} from "react-icons/fa";
+import StarRatings from "react-star-ratings";
 
 
 function Search({results, setResults, token, setBookings, savedPayments, setSavedPayments, search, setSearch, setToken})
@@ -16,19 +17,70 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
   const [adults, setAdults] = useState(1)
   const [children, setChildren] = useState(0)
   const [waiting, setWaiting] = useState(false)
+  const [minPrice, setMinPrice] = useState(0)
+  const [maxPrice, setMaxPrice] = useState(5000)
+  const [pool, setPool] = useState(false)
+  const [spa, setSpa] = useState(false)
+  const [gym, setGym] = useState(false)
+  const [petfriendly, setPetFriendly] = useState(false)
+  const [freewifi, setFreeWifi] = useState(false)
+  const [starRating, setStarRating] = useState(0)
 
+  const updatePool = (e) => {
+    // e.preventDefault()
+    setPool(!pool)
+  }
+  const updateSpa = (e) => {
+    e.preventDefault()
+    setSpa(!spa)
+  }
+  const updateGym = (e) => {
+    //e.preventDefault()
+    setGym(!gym)
+  }
+  const updatePetFriendly = (e) => {
+    setPetFriendly(!petfriendly)
+  }
+  const updateFreeWifi = (e) => {
+    setFreeWifi(!freewifi)
+  }
     const handleClick=(e)=>{
         e.preventDefault()
+        console.log(minPrice, maxPrice)
         setWaiting(true)
         setSearch({startDate:startDate, endDate:endDate, adults:adults, children:children})
         fetch(`http://localhost:8080/listings/rooms?destination=${encodeURIComponent(city.trim())}`+
         `&checkIn=${startDate}`+
         `&checkOut=${endDate}`+
         `&order=${order}`+
-        `&numAdults=${adults}`)
+        `&numAdults=${adults}` + 
+        (minPrice > 0 || maxPrice < 5000 ? `&priceMin=${minPrice}&priceMax=${maxPrice}`: "") +
+        "&amenities=" + (pool ? "Pool" : "") +
+        "&amenities=" + (spa ? "Spa" : "") +
+        "&starRatings=" + updateRatingList(starRating))
         .then((response)=>{
         return response.json()
       }).then(data => {setResults(data); return data}).then(data => {console.log(data); setWaiting(false)})
+    }
+
+    const updateRatingList = (rating) => {
+      let ratingList = ""
+      //use fallthrough here for easier processing
+        switch(rating) {
+          case 1:
+            ratingList += "1,"
+          case 2:
+            ratingList += "2,"
+          case 3:
+            ratingList += "3,"
+          case 4:
+            ratingList += "4,"
+          case 5:
+            ratingList += "5,"
+          default:
+            break;
+        }
+      return ratingList.slice(0,-1)
     }
     
     return (
@@ -86,15 +138,40 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
 </div>
 
 <div class = "rowS">
-<div id = "sortDiv" class = "columnS">
-<label className="sortOrder">Sort by</label>
+  <div id="filterDiv1" class = "filter">
+    <label class="filterText">Filter by Price</label>
+    <input placeholder="min" class = "min-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMinPrice(0)} else {setMinPrice(e.target.value)}}}></input>
+    <span class = "to">to</span>
+    <input placeholder="max" class = "max-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMaxPrice(5000)} else {setMaxPrice(e.target.value)}}}></input>
+  </div>
+  <div id="filterDiv1" class = "filter2">
+    <label class="filterText2">Filter by Amenities</label>
+    
+    <input type="checkbox" id = "line1" onChange={updatePetFriendly}/><label>Pet Friendly</label>
+    <input type="checkbox" onChange={updateFreeWifi}/><label>Free-Wifi</label>
+    <input type="checkbox" id = "line2" onChange={updatePool}/><label>Pool</label>
+    <input type="checkbox" id = "line2" onChange={updateSpa}/><label>Spa</label>
+    <input type="checkbox" id = "line2" onChange={updateGym}/><label>Gym</label>
+
+    
+  </div>
+  <div id="filterDiv3" class = "filter3">
+  <label class="filterText3">Customer Ratings</label>
+    <StarRatings rating={starRating} changeRating={setStarRating} starDimension = "30px" starSpacing="0px" starHoverColor="Gold" starRatedColor="Gold" ></StarRatings>
+    <label class = "num-of-stars">{starRating}</label>
+  </div>
+
+  <div id = "sortDiv" class = "columnS">
+  <label className="sortOrder">Sort by</label>
         <select class="e3" onChange={e => setOrder(e.target.value)}>
           <option value="PRICE">Price: Low to High</option>
           <option value="PRICE_HIGHEST_FIRST">Price: High to Low</option>
           <option value="BEST_SELLER">Best</option>
+          <option value="STAR_RATING_HIGHEST_FIRST">Rating: High to Low</option>
+          <option value="STAR_RATING_LOWEST_FIRST">Rating: Low to High</option>
         </select>
         </div>
-        </div>
+</div>
 
 
       {results ? <Results results={results} token={token} setBookings={setBookings} search={search} savedPayments={savedPayments} setToken={setToken} setSavedPayments={setSavedPayments}/> : <><div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">New name, same great savings</h1>
