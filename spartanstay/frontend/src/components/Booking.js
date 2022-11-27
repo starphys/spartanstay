@@ -74,29 +74,15 @@ function Booking({ booking,setBookings}) {
                     <div class="edit-booking-box" >
                     <div class="edit-b-box">
 
-                        {/*<div>
-                            <div class="col-L"><div class=""><img class="image" src={booking.image} alt="img" /></div>
-                        </div><br/> 
-        </div>*/}
-
-                        {/* <div id="wrap"> */}
-
-                            {/* //pop up edit box */}
                             <body>
-                                <div class="ReserveForm">
+                                <div class="BookingForm">
 
-                                    <h2 class="r-title2">Edit Booking {booking.id}</h2>
+                                    <h2 class="r-title2-b">Edit Booking {booking.id}</h2>
 
-                                  
-                                    {/* <div class = "rowR">  */}
-
-                                   {/* <label class="r-label">Hotel Name:</label>
-                                        <div class="r-input-text">{booking.hotelName}</div>     */}
-                                   
-                                    <div class = "rowR2">
-                                    <div class = "columnR2">
-                                    <label class="r-label">Choose Room Type:</label>
-                                    <select class="roomType r-input-text" name="membership" id="membership" onChange={(e) => booking.roomType=(e.target.value)}>
+                                    <div class = "rowR2-b">
+                                    <div class = "columnR2-b">
+                                    <label class="r-label-b">Choose Room Type:</label>
+                                    <select class="roomType r-input-text-b" name="membership" id="membership" onChange={(e) => booking.roomType=(e.target.value)}>
                                     <option value="1 Queen Bed">1 Queen Bed Room</option>
                                     <option value="2 Queen Beds ">2 Queen Beds Standard</option>
                                     <option value="1 King Bed Suite">1 King Bed Suite</option>
@@ -104,28 +90,28 @@ function Booking({ booking,setBookings}) {
                                     </select>
                                     </div>
                                         
-                                    <div class = "columnR2">
-                                    <label class="r-label" for="NumberAdults">Number of Adults:</label>
-                                    <input class="r-input-text" type="number"  placeholder={booking.numAdult} onChange={(e) => booking.numAdult=(e.target.value)}></input>
+                                    <div class = "columnR2-b">
+                                    <label class="r-label-b" for="NumberAdults">Number of Adults:</label>
+                                    <input class="r-input-text-b" type="number"  placeholder={booking.numAdult} onChange={(e) => booking.numAdult=(e.target.value)}></input>
                                     </div>
                                         
-                                    <div class = "columnR2">
-                                    <label class="r-label" for="NumberChildren">Number of Children:</label>
-                                    <input class="r-input-text" type="number" placeholder={booking.numChildren} onChange={(e) => booking.numChildren=(e.target.value)}></input>
+                                    <div class = "columnR2-b">
+                                    <label class="r-label-b" for="NumberChildren">Number of Children:</label>
+                                    <input class="r-input-text-b" type="number" placeholder={booking.numChildren} onChange={(e) => booking.numChildren=(e.target.value)}></input>
                                     </div>
                                     </div>
 
                                     
 
-                                    <div class = "rowR3">
-                                    <div class = "columnR4">                                  
-                                    <label class="r-label" for="PhoneNum">Phone Number</label>
-                                    <input class="r-input-text" type="tel" placeholder={booking.phoneNum} onChange={(e) => booking.phoneNum=(e.target.value)}></input>
+                                    <div class = "rowR3-b">
+                                    <div class = "columnR4-b">                                  
+                                    <label class="r-label-b" for="PhoneNum">Phone Number</label>
+                                    <input class="r-input-text-b" type="tel" placeholder={booking.phoneNum} onChange={(e) => booking.phoneNum=(e.target.value)}></input>
                                     </div>
-                                    <div class = "columnR3">
-                                    <label class="r-label" for="SpecialReq">Special Request:</label>
+                                    <div class = "columnR3-b">
+                                    <label class="r-label-b" for="SpecialReq">Special Request:</label>
                                     <div>
-                                        <input class="r-input-text" type="text" placeholder={booking.specialReq} onChange={(e) => booking.specialReq=(e.target.value)}></input> 
+                                        <input class="r-input-text-b" type="text" placeholder={booking.specialReq} onChange={(e) => booking.specialReq=(e.target.value)}></input> 
                                     </div>
 
 
@@ -154,23 +140,23 @@ function Booking({ booking,setBookings}) {
                 <div class="booking-box" >
                 <div class="b-box">
                     <div>
-                        <div class="col-L"><div class=""><img class="image-before-edit" src={booking.image} alt="img" /></div></div><br />
-                        <div class="ReserveForm">
+                        <div class="col-L-b"><div class=""><img class="image-before-edit-b" src={booking.image} alt="img" /></div></div><br />
+                        <div class="BookingForm">
 
                                     
-                                       <div class = "rowR-before-hotel">
+                                       <div class = "rowR-before-hotel-b">
                                        <div class = "columnR-before-hotel">
                                     <h2><label></label>
                                         <div >{booking.hotelName}</div></h2>
                                         </div>
                                         </div>
-                                        <div class = "rowR-before-edit">
-                                        <div class = "columnR-before-edit">
-                                        <div class="r-input-text-id">Booking ID: {booking.id}</div>
+                                        <div class = "rowR-before-edit-b">
+                                        <div class = "columnR-before-edit-b">
+                                        <div class="r-input-text-id-b">Booking ID: {booking.id}</div>
                                         </div>
                                         
-                                        <div class = "columnR">  
-                                        <div class="r-input-text-cost">Total Cost: {booking.totalCost}</div>
+                                        <div class = "columnR-b">  
+                                        <div class="r-input-text-cost-b">Total Cost: {booking.totalCost}</div>
                                     </div>
                                     </div>
                                         
@@ -182,30 +168,30 @@ function Booking({ booking,setBookings}) {
                                     
 
 
-                                    <div class = "rowR-before-edit">
-                                    <div class = "columnR-before-edit">
-                                        <label class="r-label" for="NumberAdults">Number of Adults:</label>
-                                        <div class="r-input-text">{booking.numAdult}</div>
+                                    <div class = "rowR-before-edit-b">
+                                    <div class = "columnR-before-edit-b">
+                                        <label class="r-label-b" for="NumberAdults">Number of Adults:</label>
+                                        <div class="r-input-text-b">{booking.numAdult}</div>
                                         </div>
                                         
-                                        <div class = "columnR">
-                                        <label class="r-label" for="NumberChildren">Number of Children:</label>
-                                        <div class="r-input-text">{booking.numChildren}</div>
+                                        <div class = "columnR-b">
+                                        <label class="r-label-b" for="NumberChildren">Number of Children:</label>
+                                        <div class="r-input-text-b">{booking.numChildren}</div>
                                     </div>
                                     </div>
 
 
-                                    <div class = "rowR-before-edit">
-                                    <div class = "columnR-before-edit">
-                                    <label class="r-label" for="CheckIn">Check-In Date:</label>
-                                        <div class="r-input-text">{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}
+                                    <div class = "rowR-before-edit-b">
+                                    <div class = "columnR-before-edit-b">
+                                    <label class="r-label-b" for="CheckIn">Check-In Date:</label>
+                                        <div class="r-input-text-b">{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}
                                         </div>
                                     </div>
 
 
-                                    <div class = "columnR">
-                                    <label class="r-label" for="CheckOut">Check-Out Date:</label>
-                                        <div class="r-input-text">{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}
+                                    <div class = "columnR-b">
+                                    <label class="r-label-b" for="CheckOut">Check-Out Date:</label>
+                                        <div class="r-input-text-b">{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}
                                         </div>
                                     </div>
                                     </div>
@@ -215,7 +201,7 @@ function Booking({ booking,setBookings}) {
                                   
                                     
                                                               
-                                    <div id="buttons" class="col-L3"><h4 class="h4">
+                                    <div id="buttons-b" class="col-L3"><h4 class="h4">
                                     <div>{dateDiff <= 0 ? "" :
                                         <div>
                                             <button class = "booking-button" onClick={handleEdit}> Edit Reservation</button>
@@ -232,45 +218,12 @@ function Booking({ booking,setBookings}) {
                                     </div>
 
                                 </div>
-                        
 
-                        {/* <div id="col-L2" class="col-S"><h3 class="h3">{booking.hotelName}</h3><br />
-                        <br/></div> */}
-
-                        {/* <div id="wrap"> */}
-
-                            {/* //pop up edit box */}
-                            {/* <header className="p-header"> */}
                             <body>
                                 
                             </body>       
-                            {/* </header>             */}
                             
                                 </div>
-                
-                        {/* <form>
-                        
-                            <div id="col-L2" class="col-S"><strong>Special Request:</strong>{booking.specialReq}</div>
-                            <div class="divNew"><strong>Number of Adults:</strong>{booking.numAdult}</div>
-                            <div class="divNew"><strong>Number of Children:</strong>{booking.numChildren}</div>
-        
-                            <div class="divNew"><strong>Check-In Date:</strong>
-                                <div class="r-input-text">{cIDate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}
-                                </div>
-                            </div>
-                            <div class="divNew"><strong>Check-Out Date:</strong>                                        
-                                <div class="r-input-text">{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}
-                                </div>
-                                </div>
-                                
-                            <div class="divNew"><strong>Phone Number:</strong>{booking.phoneNum}</div>
-
-                        </form>  */}
-             
-    
-
-
-                    {/* </div> */}
                 </div>
                 </div>
             </div>
