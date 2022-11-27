@@ -142,12 +142,7 @@ function Booking({ booking,setBookings}) {
                                         <input class="r-input-text" type="text" placeholder={booking.specialReq} onChange={(e) => booking.specialReq=(e.target.value)}></input> 
                                     </div>
                        
-                                    <div class = "columnR3"> 
-                                    <label class="r-label">Total Cost: </label >
-                                        <div class="r-input-text">{booking.totalCost}</div>
                                     
-                                        
-                                    </div>
                                     <div>
 
                                         <button class = "booking-button" onClick={handleSave}>Save Reservation</button>
