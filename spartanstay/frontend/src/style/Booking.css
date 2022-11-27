@@ -186,7 +186,8 @@ cursor: pointer;
 
 .buttons-b {
   width: 960px;
-  margin: 0 auto;}
+  margin: 0 auto;
+height: 60%;}
   
 .action_btn-b {
   width: 500px;
@@ -254,7 +255,7 @@ cursor: pointer;
   margin-left: 3%;
   
   }
-.columnR-b {
+.columnR2-b {
     width: 22.0%; 
   margin-left: 3%;
     
