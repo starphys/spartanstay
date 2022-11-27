@@ -310,7 +310,7 @@ form:valid a {
 
 .filter {
     float: left;
-    height: 7.4vh;
+    height: 10vh;
     color: black;
     margin-left: 13%;
   }
@@ -320,7 +320,7 @@ form:valid a {
   #filterDiv1 {
     border: 2px solid black;
     border-radius: 5px;
-    width: 12%;
+    width: 14%;
     display: inline-block;
     margin-bottom: -2%;
     padding: .1%;
@@ -331,6 +331,7 @@ form:valid a {
     width: 13%;
     display: inline-block;
     margin-bottom: -2%;
+    height: 10vh;
   }
   #filterDiv3 {
     border: 2px solid black;
@@ -338,7 +339,7 @@ form:valid a {
     width: 13%;
     display: inline-block;
     margin-bottom: -2%;
-    height: 7.4vh;
+    height: 10vh;
   }
   .e4 {
     box-sizing: border-box;
@@ -450,7 +451,7 @@ form:valid a {
 }
 .filter3 {
     float: right;
-    margin-right: 48%;
+    margin-right: 44%;
     padding-left: .7%;
 }
 /*
