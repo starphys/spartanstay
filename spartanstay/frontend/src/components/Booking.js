@@ -77,7 +77,7 @@ function Booking({ booking,setBookings}) {
                             <body>
                                 <div class="BookingForm">
 
-                                    <h2 class="r-title2-b">Edit Booking {booking.id}</h2>
+                                    <h2 class="r-title2-b">Edit Booking for {booking.hotelName}</h2>
 
                                     <div class = "rowR2-b">
                                     <div class = "columnR2-b">
@@ -155,7 +155,7 @@ function Booking({ booking,setBookings}) {
                                         <div class="r-input-text-id-b">Booking ID: {booking.id}</div>
                                         </div>
                                         
-                                        <div class = "columnR-b">  
+                                        <div class = "columnR-before-edit-b">  
                                         <div class="r-input-text-cost-b">Total Cost: {booking.totalCost}</div>
                                     </div>
                                     </div>
@@ -174,7 +174,7 @@ function Booking({ booking,setBookings}) {
                                         <div class="r-input-text-b">{booking.numAdult}</div>
                                         </div>
                                         
-                                        <div class = "columnR-b">
+                                        <div class = "columnR-before-edit-b">
                                         <label class="r-label-b" for="NumberChildren">Number of Children:</label>
                                         <div class="r-input-text-b">{booking.numChildren}</div>
                                     </div>
@@ -189,7 +189,7 @@ function Booking({ booking,setBookings}) {
                                     </div>
 
 
-                                    <div class = "columnR-b">
+                                    <div class = "columnR-before-edit-b">
                                     <label class="r-label-b" for="CheckOut">Check-Out Date:</label>
                                         <div class="r-input-text-b">{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}
                                         </div>
