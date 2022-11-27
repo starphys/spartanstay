@@ -64,149 +64,168 @@ function Booking({ booking,setBookings}) {
         setEdit(false)
     }
 
+  
+ 
+    
     if (edit) {
         return (
-            <div>
-                <div id='resp-table'>
-                    <div id='resp-table-header'>
-                        <div class='table-header-cell'>
-                        
-                        </div>
-                        <div class='table-header-cell'>
-                            Hotel Name
-                        </div>
-                        <div class='table-header-cell'>
-                            Room Type
-                        </div>
-                        <div class='table-header-cell'>
-                            Check-In Date
-                        </div>
-                        <div class='table-header-cell'>
-                            Check-Out Date
-                        </div>
-                        <div class='table-header-cell'>
-                            Number of Adults
-                        </div>
-                        <div class='table-header-cell'>
-                            Number of Children
-                        </div>
-                        <div class='table-header-cell'>
-                            Special Request
-                        </div>
-                        <div class='table-header-cell'>
-                            Phone Number
-                        </div>
-                        <div class='table-header-cell'>
-                            Price
-                        </div>
-                        <div class='table-header-cell'>
-                            Confirmation Number
-                        </div>
-                    </div>
-                    <div id='resp-table-body'>
-                        <div class='resp-table-row'>
-                            <img class="imageChange, table-body-cell" src={booking.image} alt="img" />
-                            <div className='table-body-cell'>{booking.hotelName}</div>
-                            <div className='table-body-cell'>
-                                <select name="membership" id="membership" onChange={(e) => booking.roomType=(e.target.value)}>
-                                <option value="1 Queen Bed">1 Queen Bed Room</option>
-                                <option value="2 Queen Beds ">2 Queen Beds Standard</option>
-                                <option value="1 King Bed Suite">1 King Bed Suite</option>
-                                <option value="1 King Bed Suite Addl Living Area">1 King Bed Suite Addl Living Area</option>
-                                </select>
-                            </div>
-                            <div className='table-body-cell'>{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}</div>
-                            <div className='table-body-cell'>{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}</div>
-                            <div className='table-body-cell'>
-                                <input type="number" placeholder={booking.numAdult} onChange={(e) => booking.numAdult=(e.target.value)}></input>
-                            </div>
-                            <div className='table-body-cell'>
-                                <input type="number" placeholder={booking.numChildren} onChange={(e) => booking.numChildren=(e.target.value)}></input>
-                            </div>
-                            <div className='table-body-cell'>{booking.specialReq}
-                            <input type="text" placeholder={booking.specialReq} onChange={(e) => booking.specialReq=(e.target.value)}></input> 
-                            </div>
-                            <div className='table-body-cell'>{booking.phoneNum}
-                                <input type="tel" placeholder={booking.phoneNum} onChange={(e) => booking.phoneNum=(e.target.value)}></input> 
-                            </div>
-                            <div className='table-body-cell'>{parseInt(booking.totalCost.slice(1)) > 0 ? booking.totalCost : "Booked with Rewards" }</div>
-                            <div className='table-body-cell'>{booking.id}</div>
-                        </div>
+
+                <div>
+                    <div class="edit-booking-box" >
+                    <div class="edit-b-box">
+
+                            <body>
+                                <div class="BookingForm">
+
+                                    <h2 class="r-title2-b">Edit Booking {booking.id}</h2>
+
+                                    <div class = "rowR2-b">
+                                    <div class = "columnR2-b">
+                                    <label class="r-label-b">Choose Room Type:</label>
+                                    <select class="roomType r-input-text-b" name="membership" id="membership" onChange={(e) => booking.roomType=(e.target.value)}>
+                                    <option value="1 Queen Bed">1 Queen Bed Room</option>
+                                    <option value="2 Queen Beds ">2 Queen Beds Standard</option>
+                                    <option value="1 King Bed Suite">1 King Bed Suite</option>
+                                    <option value="1 King Bed Suite Addl Living Area">1 King Bed Suite Addl Living Area</option>
+                                    </select>
+                                    </div>
+                                        
+                                    <div class = "columnR2-b">
+                                    <label class="r-label-b" for="NumberAdults">Number of Adults:</label>
+                                    <input class="r-input-text-b" type="number"  placeholder={booking.numAdult} onChange={(e) => booking.numAdult=(e.target.value)}></input>
+                                    </div>
+                                        
+                                    <div class = "columnR2-b">
+                                    <label class="r-label-b" for="NumberChildren">Number of Children:</label>
+                                    <input class="r-input-text-b" type="number" placeholder={booking.numChildren} onChange={(e) => booking.numChildren=(e.target.value)}></input>
+                                    </div>
+                                    </div>
+
+                                    
+
+                                    <div class = "rowR3-b">
+                                    <div class = "columnR4-b">                                  
+                                    <label class="r-label-b" for="PhoneNum">Phone Number</label>
+                                    <input class="r-input-text-b" type="tel" placeholder={booking.phoneNum} onChange={(e) => booking.phoneNum=(e.target.value)}></input>
+                                    </div>
+                                    <div class = "columnR3-b">
+                                    <label class="r-label-b" for="SpecialReq">Special Request:</label>
+                                    <div>
+                                        <input class="r-input-text-b" type="text" placeholder={booking.specialReq} onChange={(e) => booking.specialReq=(e.target.value)}></input> 
+                                    </div>
+
+
+                                    </div>
+                                    </div>
+
+
+                                    
+                       
+                                    
+                                    <div>
+
+                                        <button class = "booking-button" onClick={handleSave}>Save Reservation</button>
+                                    </div>
+                                </div>
+                            </body>           
+                        {/* </div> */}
+                    </div>   
                     </div>
                 </div>
-                    <div>
-                    <button onClick={handleSave}>Save Reservation</button>
-                    </div>
-            </div>
-        )
+        )   
     }
     else {
         return (
             <div>
-                <div id='resp-table'>
-                    <div id='resp-table-header'>
-                        <div class='table-header-cell'>
-                        
-                        </div>
-                        <div class='table-header-cell'>
-                            Hotel Name
-                        </div>
-                        <div class='table-header-cell'>
-                            Room Type
-                        </div>
-                        <div class='table-header-cell'>
-                            Check-In Date
-                        </div>
-                        <div class='table-header-cell'>
-                            Check-Out Date
-                        </div>
-                        <div class='table-header-cell'>
-                            Number of Adults
-                        </div>
-                        <div class='table-header-cell'>
-                            Number of Children
-                        </div>
-                        <div class='table-header-cell'>
-                            Special Request
-                        </div>
-                        <div class='table-header-cell'>
-                            Phone Number
-                        </div>
-                        <div class='table-header-cell'>
-                            Price
-                        </div>
-                        <div class='table-header-cell'>
-                            Confirmation Number
-                        </div>
-                    </div>
-                    <div id='resp-table-body'>
-                        <div class='resp-table-row'>
-                            <img class="imageChange, table-body-cell" src={booking.image} alt="img" />
-                            <div className='table-body-cell'>{booking.hotelName}</div>
-                            <div className='table-body-cell'>{booking.roomType}</div>
-                            <div className='table-body-cell'>{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}</div>
-                            <div className='table-body-cell'>{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}</div>
-                            <div className='table-body-cell'>{booking.numAdult}</div>
-                            <div className='table-body-cell'>{booking.numChildren}</div>
-                            <div className='table-body-cell'>{booking.specialReq}</div>
-                            <div className='table-body-cell'>{booking.phoneNum}</div>
-                            <div className='table-body-cell'>{parseInt(booking.totalCost.slice(1)) > 0 ? booking.totalCost : "Booked with Rewards" }</div>
-                            <div className='table-body-cell'>{booking.id}</div>
-                        </div>
-                    </div>
-                </div>
-                {dateDiff <= 0 ? "" :
+                <div class="booking-box" >
+                <div class="b-box">
                     <div>
-                        <button onClick={handleEdit}> Edit Reservation</button>
+                        <div class="col-L-b"><div class=""><img class="image-before-edit-b" src={booking.image} alt="img" /></div></div><br />
+                        <div class="BookingForm">
 
-                        {cancel ? <>
-                            <Alert key='dark' className="booking-msg" variant='dark'>Canceling today entitles you to a {dateDiff >= 3 ? booking.totalCost : `$${(parseFloat(booking.totalCost.substring(1))*.85).toFixed(2)}` 
-                            } refund.</Alert>
-                            <button onClick={handleConfirm}>Confirm Cancel</button> </>
-                            : <button onClick={handleCancel}> Cancel Reservation</button>}
-                    
-                    </div>
-                }
+                                    
+                                       <div class = "rowR-before-hotel-b">
+                                       <div class = "columnR-before-hotel">
+                                    <h2><label></label>
+                                        <div >{booking.hotelName}</div></h2>
+                                        </div>
+                                        </div>
+                                        <div class = "rowR-before-edit-b">
+                                        <div class = "columnR-before-edit-b">
+                                        <div class="r-input-text-id-b">Booking ID: {booking.id}</div>
+                                        </div>
+                                        
+                                        <div class = "columnR-b">  
+                                        <div class="r-input-text-cost-b">Total Cost: {booking.totalCost}</div>
+                                    </div>
+                                    </div>
+                                        
+                                        
+
+                                  
+                                    {/* <div class = "rowR">  */}
+
+                                    
+
+
+                                    <div class = "rowR-before-edit-b">
+                                    <div class = "columnR-before-edit-b">
+                                        <label class="r-label-b" for="NumberAdults">Number of Adults:</label>
+                                        <div class="r-input-text-b">{booking.numAdult}</div>
+                                        </div>
+                                        
+                                        <div class = "columnR-b">
+                                        <label class="r-label-b" for="NumberChildren">Number of Children:</label>
+                                        <div class="r-input-text-b">{booking.numChildren}</div>
+                                    </div>
+                                    </div>
+
+
+                                    <div class = "rowR-before-edit-b">
+                                    <div class = "columnR-before-edit-b">
+                                    <label class="r-label-b" for="CheckIn">Check-In Date:</label>
+                                        <div class="r-input-text-b">{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}
+                                        </div>
+                                    </div>
+
+
+                                    <div class = "columnR-b">
+                                    <label class="r-label-b" for="CheckOut">Check-Out Date:</label>
+                                        <div class="r-input-text-b">{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}
+                                        </div>
+                                    </div>
+                                    </div>
+                                                                        
+                                   
+                                    
+                                  
+                                    
+                                                              
+                                    <div id="buttons-b" class="col-L3"><h4 class="h4">
+                                    <div>{dateDiff <= 0 ? "" :
+                                        <div>
+                                            <button class = "booking-button" onClick={handleEdit}> Edit Reservation</button>
+
+                                            {cancel ? <>
+                                                <Alert key='dark' className="booking-msg" variant='dark'>Canceling today entitles you to a {dateDiff >= 3 ? booking.totalCost : `$${(parseFloat(booking.totalCost.substring(1))*.85).toFixed(2)}`
+                                                } refund.</Alert>
+                                                <button class = "booking-button" onClick={handleConfirm}>Confirm Cancel</button> </>
+                                                : <button class = "booking-button"onClick={handleCancel}> Cancel Reservation</button>}
+                                        
+                                        </div>
+                                    }</div></h4>
+                                    
+                                    </div>
+
+                                </div>
+
+                            <body>
+                                
+                            </body>       
+                            
+                                </div>
+                </div>
+                </div>
             </div>
         )
     }
@@ -214,4 +233,3 @@ function Booking({ booking,setBookings}) {
 }
 
 export default Booking
-    
