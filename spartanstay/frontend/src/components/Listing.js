@@ -1,6 +1,6 @@
 import StarRatings from "react-star-ratings"
 import "../style/listing.css";
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import Payment from "../pages/Payment";
 import Reservation from "./reservation";
 import RewardPayment from "./RewardsPayment";
@@ -18,7 +18,16 @@ function Listing ({search, listing, token, setBookings, savedPayments, setSavedP
         })
     const navigate=useNavigate();
 
- 
+    useEffect(() => {
+        setHotel({
+            cost: listing.ratePlan ? listing.ratePlan.price.exactCurrent : 999.99,
+            image: listing.optimizedThumbUrls ? listing.optimizedThumbUrls.srpDesktop : "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=250&h=140",
+            id: listing.id,
+            name: listing.name
+        })
+        return () => console.log('Hotel updated');
+      }, [listing]) 
+    
     const handleClick = (e) => {
         e.preventDefault()
         setClicked(!clicked)

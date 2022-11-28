@@ -297,3 +297,15 @@
 .linkDiv {
     margin-top: -19%;
 }
+
+.signupAlert{
+    margin-top: 1%;
+    font-size: 13px;
+    background: white;
+    border: 1px 1px 1px 1px;
+    font-weight: 300;
+    border-color: red;
+    text-shadow:
+        0 0 1px red;
+    margin-left: 15%;
+  }
