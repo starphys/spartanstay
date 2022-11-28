@@ -36,8 +36,12 @@
     margin-left: 10%;
     margin-right: 0%;
     width: 77%;
-    height: 25vh;
+    height: 29vh;
     border-radius: 3vh;
+  }
+
+  .search-box2 {
+    margin-top:-10%;
   }
 
 
@@ -249,7 +253,7 @@ form:valid a {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('../images/newtest2.jpg'); 
-    height: 600px;
+    height: 520px;
     margin-left: 7.5%;
     opacity: 0.9;
     border-radius: 50px;
@@ -304,7 +308,7 @@ form:valid a {
     width: 13%;
     border-radius: 5px;
     margin-bottom: 0.5%;
-    margin-top: -4%;
+    margin-top: -3.2%;
     margin-left: 80%;
 
 
@@ -374,11 +378,12 @@ form:valid a {
     display: inline-block;
     margin-bottom: -2%;
     padding: .1%;
+    padding-right: .6%;
   }
   #filterDiv2 {
     border: 2px solid black;
     border-radius: 5px;
-    width: 19%;
+    width: 17%;
     display: inline-block;
     margin-bottom: -2%;
     margin-left: 3.2%;
@@ -413,7 +418,7 @@ form:valid a {
     font-size: 12px;
     border-radius: 0%;
     border-bottom: 0px;
-    margin-bottom: 2.5%;
+    margin-bottom: 5.5%;
     color: grey;
     border-color: white;
     display: inline-block;
@@ -501,17 +506,17 @@ form:valid a {
     font-size: 12px;
     border-radius: 0%;
     border-bottom: 0px;
-    margin-bottom: -20%;
+    margin-bottom: -16%;
     color: grey;
     border-color: white;
     display: inline-block;
 }
 .filter3 {
     float: right;
-    margin-right: 44%;
+    margin-right: 38%;
     padding-left: .7%;
     padding-bottom: 0%;
-    margin-top: -5.3%;
+    margin-top: -5.6%;
 }
 
 /*
@@ -574,5 +579,9 @@ form:valid a {
 
   .search-before-submit {
     margin-left: 11.5%;
+  }
+
+  .waiting {
+    cursor: wait;
   }
   

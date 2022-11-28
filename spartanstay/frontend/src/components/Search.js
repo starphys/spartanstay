@@ -270,7 +270,7 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
       </div>
 
 <div class="s-box1 s-overlay">
-<div class = "search-box">
+<div class = "search-box search-box2">
       <div id="startSearch" class="rowS">
   <div class="columnS columnFirst">
   <label class="dateLabel" id="firstDateLabel">Check-in</label>
