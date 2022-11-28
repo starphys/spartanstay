@@ -184,14 +184,14 @@ function Booking({ booking,setBookings}) {
                                     <div class = "rowR-before-edit-b">
                                     <div class = "columnR-before-edit-b">
                                     <label class="r-label-b" for="CheckIn">Check-In Date:</label>
-                                        <div class="r-input-text-b">{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getDate()}, {cIDate.getFullYear()}
+                                        <div class="r-input-text-b">{cIDate.toLocaleString('default', { month: 'long' })} {cIDate.getUTCDate()}, {cIDate.getFullYear()}
                                         </div>
                                     </div>
 
 
                                     <div class = "columnR-before-edit-b">
                                     <label class="r-label-b" for="CheckOut">Check-Out Date:</label>
-                                        <div class="r-input-text-b">{cODate.toLocaleString('default', { month: 'long' })} {cODate.getDate()}, {cODate.getFullYear()}
+                                        <div class="r-input-text-b">{cODate.toLocaleString('default', { month: 'long' })} {cODate.getUTCDate()}, {cODate.getFullYear()}
                                         </div>
                                     </div>
                                     </div>
