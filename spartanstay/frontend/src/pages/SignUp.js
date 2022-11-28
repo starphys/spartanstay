@@ -2,6 +2,7 @@ import "../style/SignUp.css";
 import React, {useState} from 'react';
 import Alert from 'react-bootstrap/Alert'
 import { useNavigate } from "react-router-dom";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 
 function SignUp({setToken}) {
   const[firstName,setFirstName]=useState('')
@@ -108,8 +109,8 @@ function SignUp({setToken}) {
         </div>
         <div class="linkDiv"><a className="linkClear" onClick={handleReset} id="reset">Clear data</a></div>
         {accountCreated ? <Alert key='success' className="success-msg" variant='success'>Account created for {firstName} {lastName}!</Alert> : ""}
-        {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid matching passwords.</Alert>}
-        {validEmail ? '': <Alert key='danger' className="error-msg" variant='danger'>Email already in use.</Alert>}
+        {validPass ? '': <Alert key='danger' className="error-msg signupAlert" variant='danger'><BsFillExclamationCircleFill style={{marginRight: 5, width: 14, height: 14 }}/>Please enter valid matching passwords.</Alert>}
+        {validEmail ? '': <Alert key='danger' className="error-msg signupAlert" variant='danger'><BsFillExclamationCircleFill style={{marginRight: 5, width: 14, height: 14 }}/>Email already in use.</Alert>}
 
         
         <button className="su-button" onClick={handleClick}><span class="neonTextSU" >Sign up</span></button>
