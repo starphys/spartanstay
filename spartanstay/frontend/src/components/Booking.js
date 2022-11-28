@@ -11,12 +11,12 @@ import Alert from 'react-bootstrap/Alert'
 
 function Booking({ booking,setBookings}) {
     const [edit, setEdit]=useState(false)
-    const today = new Date.UTC()
+    const today = new Date()
     const [cancel, setCancel] = useState(false)
 
 
-    const cIDate = new Date.UTC(booking.checkInDate)
-    const cODate = new Date.UTC(booking.checkOutDate)
+    const cIDate = new Date(booking.checkInDate)
+    const cODate = new Date(booking.checkOutDate)
     const dateDiff = Math.ceil((cIDate - today) / (1000 * 3600 * 24))
 
     const handleEdit = (e) => {
