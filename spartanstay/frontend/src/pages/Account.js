@@ -2,7 +2,7 @@ import "../style/Account.css";
 import LogOut from "../components/LogOut";
 import DeleteAccount from "../components/DeleteAccount"
 
-function Account({token, setToken, setBookings, setSavedPayments}) {    
+function Account({token, setToken, setBookings, setSavedPayments, setResults}) {    
   return (
     <>
     <div class="fillA"><h1 class = "fillA-header">Account Details</h1></div>
@@ -34,10 +34,10 @@ function Account({token, setToken, setBookings, setSavedPayments}) {
         </div>
         <div class="a-row button-row">
         <div class="a-column buttonCol">
-        <DeleteAccount setSavedPayments={setSavedPayments} token={token} setToken={setToken} setBookings={setBookings}/>
+        <DeleteAccount setSavedPayments={setSavedPayments} setResults={setResults} token={token} setToken={setToken} setBookings={setBookings}/>
         </div>
         <div class="a-column a-column2 buttonCol">
-        <LogOut setSavedPayments={setSavedPayments} setBookings={setBookings} setToken={setToken}/>
+        <LogOut setSavedPayments={setSavedPayments} setResults={setResults} setBookings={setBookings} setToken={setToken}/>
         </div>
         </div>
         </header>

@@ -26,7 +26,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
           <Route path = "/cancellations" element={<CancelPolicy />} />
           <Route path="/login" element={<LogIn token={token} setToken={setToken} setSavedPayments={setSavedPayments}/>} />
-          <Route path="/account" element={<Account token={token} setToken={setToken} setBookings={setBookings} setSavedPayments={setSavedPayments}/>} />
+          <Route path="/account" element={<Account token={token} setToken={setToken} setResults={setResults} setBookings={setBookings} setSavedPayments={setSavedPayments}/>} />
           <Route path="/mybookings" element={<MyBookings bookings={bookings} setBookings={setBookings} token={token}/>} />
         </Routes>
       </div>
