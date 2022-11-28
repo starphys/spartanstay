@@ -92,17 +92,18 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
       </div>
       <br></br>
       <br></br>
+      {/* <div class = "search-box">
       <div id="startSearch" class="rowS">
-  <div class="columnS">
+  <div class="columnS columnFirst">
   <label class="dateLabel" id="firstDateLabel">Check-in</label>
         <input class="search-input d" type='date' value={startDate} min={today} onChange={(e) => {setStartDate(e.target.value); if(e.target.value > endDate) {setEndDate(e.target.value)}}}/>
         
         </div>  
-  <div class="columnS">
+  <div class="columnS columnOut">
   <label class="dateLabel">Check-out</label>
   <input class ="search-input d" type='date' value={endDate} min={startDate} onChange={(e) => {setEndDate(e.target.value)}}/></div>
   
-  <div class="columnS"> 
+  <div class="columnS columnGuest"> 
   <label id="guestLabel">Number of Guests</label>
         <select class="e" onChange={e => setAdults(e.target.value)}>
           <option value={1}>Adults</option>
@@ -121,7 +122,7 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
           <option value={5}>5+</option>
         </select>
         </div>
-  <div className="columnS">
+  <div className="columnS columnDest">
   <label className="search-label dest">Destination</label>
  
     <form className="search-form" onSubmit={handleClick}>
@@ -144,7 +145,7 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
     <span class = "to">to</span>
     <input placeholder="max" class = "max-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMaxPrice(5000)} else {setMaxPrice(e.target.value)}}}></input>
   </div>
-  <div id="filterDiv1" class = "filter2">
+  <div id="filterDiv2" class = "filter2">
     <label class="filterText2">Filter by Amenities</label>
     
     <input type="checkbox" id = "line1" onChange={updatePetFriendly}/><label>Pet Friendly</label>
@@ -161,7 +162,7 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
     <label class = "num-of-stars">{starRating}</label>
   </div>
 
-  <div id = "sortDiv" class = "columnS">
+  <div id = "sortDiv" class = "columnS columnSort">
   <label className="sortOrder">Sort by</label>
         <select class="e3" onChange={e => setOrder(e.target.value)}>
           <option value="PRICE">Price: Low to High</option>
@@ -172,11 +173,191 @@ function Search({results, setResults, token, setBookings, savedPayments, setSave
         </select>
         </div>
 </div>
+</div> */}
 
 
+      {results ? 
+      <>
+      <div class = "search-box search-before-submit">
+      <div id="startSearch" class="rowS">
+  <div class="columnS columnFirst">
+  <label class="dateLabel" id="firstDateLabel">Check-in</label>
+        <input class="search-input d" type='date' value={startDate} min={today} onChange={(e) => {setStartDate(e.target.value); if(e.target.value > endDate) {setEndDate(e.target.value)}}}/>
+        
+        </div>  
+  <div class="columnS columnOut">
+  <label class="dateLabel">Check-out</label>
+  <input class ="search-input d" type='date' value={endDate} min={startDate} onChange={(e) => {setEndDate(e.target.value)}}/></div>
+  
+  <div class="columnS columnGuest"> 
+  <label id="guestLabel">Number of Guests</label>
+        <select class="e" onChange={e => setAdults(e.target.value)}>
+          <option value={1}>Adults</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5+</option>
+        </select>
+        <select id="e2" class="e" onChange={e => setChildren(e.target.value)}>
+          <option value={0}>Children</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5+</option>
+        </select>
+        </div>
+  <div className="columnS columnDest">
+  <label className="search-label dest">Destination</label>
+ 
+    <form className="search-form" onSubmit={handleClick}>
+      
+      <br></br>
+      <br></br>
+  <input className="input-abc" type="search" required placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}></input>
 
-      {results ? <Results results={results} token={token} setBookings={setBookings} search={search} savedPayments={savedPayments} setToken={setToken} setSavedPayments={setSavedPayments}/> : <><div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">LikeHome, same great savings</h1>
+  <FaSearch color= "white" class ="fk" onClick = {handleClick}></FaSearch>
+  
+</form>
+</div>
+
+</div>
+
+<div class = "rowS">
+  <div id="filterDiv1" class = "filter">
+    <label class="filterText">Filter by Price</label>
+    <input placeholder="min" class = "min-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMinPrice(0)} else {setMinPrice(e.target.value)}}}></input>
+    <span class = "to">to</span>
+    <input placeholder="max" class = "max-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMaxPrice(5000)} else {setMaxPrice(e.target.value)}}}></input>
+  </div>
+  <div id="filterDiv2" class = "filter2">
+    <label class="filterText2">Filter by Amenities</label>
+    
+    <input type="checkbox" id = "line1" onChange={updatePetFriendly}/><label>Pet Friendly</label>
+    <input type="checkbox" onChange={updateFreeWifi}/><label>Free-Wifi</label>
+    <input type="checkbox" id = "line2" onChange={updatePool}/><label>Pool</label>
+    <input type="checkbox" id = "line2" onChange={updateSpa}/><label>Spa</label>
+    <input type="checkbox" id = "line2" onChange={updateGym}/><label>Gym</label>
+
+    
+  </div>
+  <div id="filterDiv3" class = "filter3">
+  <label class="filterText3">Customer Ratings</label>
+    <StarRatings rating={starRating} changeRating={setStarRating} starDimension = "30px" starSpacing="0px" starHoverColor="Gold" starRatedColor="Gold" ></StarRatings>
+    <label class = "num-of-stars">{starRating}</label>
+  </div>
+
+  <div id = "sortDiv" class = "columnS columnSort">
+  <label className="sortOrder">Sort by</label>
+        <select class="e3" onChange={e => setOrder(e.target.value)}>
+          <option value="PRICE">Price: Low to High</option>
+          <option value="PRICE_HIGHEST_FIRST">Price: High to Low</option>
+          <option value="BEST_SELLER">Best</option>
+          <option value="STAR_RATING_HIGHEST_FIRST">Rating: High to Low</option>
+          <option value="STAR_RATING_LOWEST_FIRST">Rating: Low to High</option>
+        </select>
+        </div>
+</div>
+</div>
+      <Results results={results} token={token} setBookings={setBookings} search={search} savedPayments={savedPayments} setToken={setToken} setSavedPayments={setSavedPayments}/> 
+      </>
+      : <>
+      <div class="s-container">
+      <div class="s-box1">
+      <div class="initialDiv"><div class="fillS"><div class="innerText"><h1 class="neonText">LikeHome, same great savings</h1>
 <h3 class="innerSmallText">Sign in or join to save an average of 15% on thousands of hotels.​</h3></div> </div></div>
+      </div>
+
+<div class="s-box1 s-overlay">
+<div class = "search-box">
+      <div id="startSearch" class="rowS">
+  <div class="columnS columnFirst">
+  <label class="dateLabel" id="firstDateLabel">Check-in</label>
+        <input class="search-input d" type='date' value={startDate} min={today} onChange={(e) => {setStartDate(e.target.value); if(e.target.value > endDate) {setEndDate(e.target.value)}}}/>
+        
+        </div>  
+  <div class="columnS columnOut">
+  <label class="dateLabel">Check-out</label>
+  <input class ="search-input d" type='date' value={endDate} min={startDate} onChange={(e) => {setEndDate(e.target.value)}}/></div>
+  
+  <div class="columnS columnGuest"> 
+  <label id="guestLabel">Number of Guests</label>
+        <select class="e" onChange={e => setAdults(e.target.value)}>
+          <option value={1}>Adults</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5+</option>
+        </select>
+        <select id="e2" class="e" onChange={e => setChildren(e.target.value)}>
+          <option value={0}>Children</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5+</option>
+        </select>
+        </div>
+  <div className="columnS columnDest">
+  <label className="search-label dest">Destination</label>
+ 
+    <form className="search-form" onSubmit={handleClick}>
+      
+      <br></br>
+      <br></br>
+  <input className="input-abc" type="search" required placeholder="San Jose" onChange={(e) => {setCity(e.target.value)}}></input>
+
+  <FaSearch color= "white" class ="fk" onClick = {handleClick}></FaSearch>
+  
+</form>
+</div>
+
+</div>
+
+<div class = "rowS">
+  <div id="filterDiv1" class = "filter">
+    <label class="filterText">Filter by Price</label>
+    <input placeholder="min" class = "min-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMinPrice(0)} else {setMinPrice(e.target.value)}}}></input>
+    <span class = "to">to</span>
+    <input placeholder="max" class = "max-val" onChange={(e) => {if(isNaN(parseInt(e.target.value))) {setMaxPrice(5000)} else {setMaxPrice(e.target.value)}}}></input>
+  </div>
+  <div id="filterDiv2" class = "filter2">
+    <label class="filterText2">Filter by Amenities</label>
+    
+    <input type="checkbox" id = "line1" onChange={updatePetFriendly}/><label>Pet Friendly</label>
+    <input type="checkbox" onChange={updateFreeWifi}/><label>Free-Wifi</label>
+    <input type="checkbox" id = "line2" onChange={updatePool}/><label>Pool</label>
+    <input type="checkbox" id = "line2" onChange={updateSpa}/><label>Spa</label>
+    <input type="checkbox" id = "line2" onChange={updateGym}/><label>Gym</label>
+
+    
+  </div>
+  <div id="filterDiv3" class = "filter3">
+  <label class="filterText3">Customer Ratings</label>
+    <StarRatings rating={starRating} changeRating={setStarRating} starDimension = "30px" starSpacing="0px" starHoverColor="Gold" starRatedColor="Gold" ></StarRatings>
+    <label class = "num-of-stars">{starRating}</label>
+  </div>
+
+  <div id = "sortDiv" class = "columnS columnSort">
+  <label className="sortOrder">Sort by</label>
+        <select class="e3" onChange={e => setOrder(e.target.value)}>
+          <option value="PRICE">Price: Low to High</option>
+          <option value="PRICE_HIGHEST_FIRST">Price: High to Low</option>
+          <option value="BEST_SELLER">Best</option>
+          <option value="STAR_RATING_HIGHEST_FIRST">Rating: High to Low</option>
+          <option value="STAR_RATING_LOWEST_FIRST">Rating: Low to High</option>
+        </select>
+        </div>
+</div>
+</div>
+</div>
+
+
+</div>
+      
+
 
       
       <br></br>
