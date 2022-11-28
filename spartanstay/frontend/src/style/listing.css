@@ -201,3 +201,60 @@ body {
     background-color: #8bcdd6;
 
   }
+  .rewards-payment-btn {
+    color: black;
+    background-color: lightgray;
+    float: right;
+    margin-top: -8.5%;
+    margin-right: -13%;
+    margin-bottom: 1%;
+    padding: 1%;
+    font-weight: 600;
+    font-size: .9em;
+    height: 2.7em;
+    width: 39.8vh;
+    border: none;
+    transition: all 0.2s linear 0s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    
+  }
+  .rewards-payment-btn span {
+    position: relative; 
+    z-index: 1;
+  }
+  
+  .rewards-payment-btn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-5%) translateY(-25%) rotate(45deg);
+  }
+  .rewards-payment-btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 650%;
+    width: 140%;
+    color: white;
+    background: #78c7d2;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-8%) translateY(-25%) rotate(45deg);
+    transform: translateX(57.5%) translateY(-50%) rotate(45deg);
+  }
+  .insufficient-btn {
+    float: right;
+    margin-top: -8.5%;
+    margin-right: -13%;
+    padding: .9%;
+    font-weight: 600;
+    font-size: .9em;
+    height: 2.7em;
+    border: none;
+  }
