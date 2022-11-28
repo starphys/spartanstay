@@ -321,6 +321,7 @@ form:valid a {
     border: 2px solid black;
     border-radius: 5px;
     width: 14%;
+    height: 10vh;
     display: inline-block;
     margin-bottom: -2%;
     padding: .1%;

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert'
 import PropTypes from 'prop-types';
 import "../style/LogIn.css";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 
 function LogIn({token, setToken, setSavedPayments}) {
   const[email,setEmail]=useState('')
@@ -74,7 +75,7 @@ function LogIn({token, setToken, setSavedPayments}) {
         <br></br>
         
         {accountLoggedIn ? <Alert key='success' className="success-msg" variant='success'>Welcome {token.firstName}!</Alert> : ""}
-        {validPass ? '': <Alert key='danger' className="error-msg" variant='danger'>Please enter valid password and email.</Alert>}
+        {validPass ? '': <Alert key='danger' className="error-msg loginAlert" variant='danger'><BsFillExclamationCircleFill style={{marginRight: 5, width: 14, height: 14 }}/>Please enter valid password and email.</Alert>}
         
         <button className="login-button" onClick={handleClick}><span class="neonTextLI" >Log In</span></button>
         
